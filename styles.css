@@ -1,0 +1,374 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* COLORS */
+:root {
+  --blue: #0171b9;
+  --dark-blue: #012e4a;
+  --green: #bfd744;
+}
+
+/* TOP BAR */
+.topbar {
+  background: #012e4a; /* Dark Blue */
+  padding: 10px 45px;
+  font-size: 16px;
+}
+
+.topbar-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* MENU */
+.topbar-menu {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.topbar-menu li a {
+  text-decoration: none;
+  color: #ffffff;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* 🔥 HOVER EFFECT */
+.topbar-menu li a:hover {
+  opacity: 1;
+  color: #bfd744; /* Green */
+}
+
+/* subtle underline animation */
+.topbar-menu li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: #bfd744;
+  transition: width 0.3s ease;
+}
+
+.topbar-menu li a:hover::after {
+  width: 100%;
+}
+
+/* NAVBAR */
+.navbar {
+  background: white;
+  padding: 25px 40px;
+  border-bottom: 2px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LOGO (handles 8:1 ratio) */
+.logo img {
+  height: 55px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo a {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.logo img {
+  transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+  transform: scale(1.05);
+}
+
+/* MENU */
+.nav-menu {
+  padding-left: 20px;
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: var(--dark-blue);
+  font-weight: 600;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* 🔥 COOL HOVER EFFECT */
+.nav-menu li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background: linear-gradient(90deg, var(--blue), var(--green));
+  transition: width 0.3s ease;
+}
+
+.nav-menu li a:hover {
+  color: var(--blue);
+}
+
+.nav-menu li a:hover::after {
+  width: 100%;
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: var(--dark-blue);
+  margin: 4px 0;
+  transition: 0.3s;
+}
+
+/* DROPDOWN BASE */
+.dropdown {
+  position: relative;
+}
+
+/* HIDDEN BY DEFAULT */
+.dropdown-menu {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  background: white;
+  list-style: none;
+  padding: 10px 0;
+  min-width: 220px;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+/* ITEMS */
+.dropdown-menu li {
+  padding: 8px 20px;
+}
+
+.dropdown-menu li a {
+  color: #012e4a;
+  text-decoration: none;
+  display: block;
+  transition: 0.3s;
+}
+
+/* HOVER ITEM EFFECT */
+.dropdown-menu li a:hover {
+  background: #f5f9fc;
+  color: #0171b9;
+  padding-left: 25px;
+}
+
+/* SHOW DROPDOWN ON HOVER */
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* SECTION BASE */
+.hero-section {
+  position: relative;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* BACKGROUND IMAGE */
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* keeps 16:9 feel */
+  opacity: 0.25;
+  transition: transform 1.5s ease;
+}
+
+/* 🔥 HOVER ZOOM BACKGROUND */
+.hero-section:hover .bg img {
+  transform: scale(1.08);
+}
+
+/* OVERLAY */
+.hero-section::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #012e4a 40%, transparent);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 500px;
+  margin-left: 60px;
+  margin-right: auto;
+  color: white;
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+
+.content h2 {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.content p {
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+/* BUTTON */
+.btn {
+  background: #bfd744;
+  color: #012e4a;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #a9c833;
+}
+
+.hero-section.right .content {
+  margin-left: auto;
+  margin-right: 60px;
+  text-align: right;
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #012e4a 40%, transparent);
+}
+
+.hero-section.right::after {
+  background: linear-gradient(-90deg, #012e4a 40%, transparent);
+}
+
+/* SHOW ANIMATION */
+.hero-section.show .content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .topbar {
+    display: none; /* cleaner mobile look */
+  }
+  .nav-menu {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    font-weight: 800;
+    display: none;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* Make dropdown behave like normal block */
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    padding: 0;
+    display: none;
+    width: 100%;
+  }
+
+  /* Show when active */
+  .dropdown.active .dropdown-menu {
+    display: block;
+  }
+
+  /* Indent submenu to the left (clean structure) */
+  .dropdown-menu li a {
+    padding: 10px 30px; /* pushes content inward */
+    font-size: 14px;
+  }
+
+  /* Parent links clickable */
+  .dropdown > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+   .content {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .hero-section {
+    height: 70vh;
+  }
+
+  .content h2 {
+    font-size: 28px;
+  }
+}
+
+
