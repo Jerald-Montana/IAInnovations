@@ -1,4 +1,3 @@
-/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -6,16 +5,14 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
-/* COLORS */
 :root {
   --blue: #0171b9;
   --dark-blue: #012e4a;
   --green: #bfd744;
 }
 
-/* TOP BAR */
 .topbar {
-  background: #012e4a; /* Dark Blue */
+  background: #012e4a; 
   padding: 10px 45px;
   font-size: 16px;
 }
@@ -25,7 +22,6 @@
   justify-content: flex-end;
 }
 
-/* MENU */
 .topbar-menu {
   display: flex;
   list-style: none;
@@ -40,13 +36,11 @@
   position: relative;
 }
 
-/* 🔥 HOVER EFFECT */
 .topbar-menu li a:hover {
   opacity: 1;
-  color: #bfd744; /* Green */
+  color: #bfd744; 
 }
 
-/* subtle underline animation */
 .topbar-menu li a::after {
   content: "";
   position: absolute;
@@ -62,7 +56,6 @@
   width: 100%;
 }
 
-/* NAVBAR */
 .navbar {
   background: white;
   padding: 25px 40px;
@@ -78,7 +71,6 @@
   align-items: center;
 }
 
-/* LOGO (handles 8:1 ratio) */
 .logo img {
   height: 55px;
   width: auto;
@@ -98,7 +90,6 @@
   transform: scale(1.05);
 }
 
-/* MENU */
 .nav-menu {
   padding-left: 20px;
   display: flex;
@@ -114,7 +105,6 @@
   transition: all 0.3s ease;
 }
 
-/* 🔥 COOL HOVER EFFECT */
 .nav-menu li a::after {
   content: "";
   position: absolute;
@@ -134,7 +124,6 @@
   width: 100%;
 }
 
-/* HAMBURGER */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -149,12 +138,10 @@
   transition: 0.3s;
 }
 
-/* DROPDOWN BASE */
 .dropdown {
   position: relative;
 }
 
-/* HIDDEN BY DEFAULT */
 .dropdown-menu {
   position: absolute;
   top: 120%;
@@ -172,7 +159,6 @@
   transition: all 0.3s ease;
 }
 
-/* ITEMS */
 .dropdown-menu li {
   padding: 8px 20px;
 }
@@ -184,21 +170,18 @@
   transition: 0.3s;
 }
 
-/* HOVER ITEM EFFECT */
 .dropdown-menu li a:hover {
   background: #f5f9fc;
   color: #0171b9;
   padding-left: 25px;
 }
 
-/* SHOW DROPDOWN ON HOVER */
 .dropdown:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-/* SECTION BASE */
 .hero-section {
   position: relative;
   height: 80vh;
@@ -207,7 +190,6 @@
   overflow: hidden;
 }
 
-/* BACKGROUND IMAGE */
 .bg {
   position: absolute;
   width: 100%;
@@ -217,17 +199,15 @@
 .bg img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* keeps 16:9 feel */
+  object-fit: cover; 
   opacity: 0.25;
   transition: transform 1.5s ease;
 }
 
-/* 🔥 HOVER ZOOM BACKGROUND */
 .hero-section:hover .bg img {
   transform: scale(1.08);
 }
 
-/* OVERLAY */
 .hero-section::after {
   content: "";
   position: absolute;
@@ -259,7 +239,6 @@
   margin-bottom: 25px;
 }
 
-/* BUTTON */
 .btn {
   background: #bfd744;
   color: #012e4a;
@@ -292,17 +271,15 @@
   background: linear-gradient(-90deg, #012e4a 40%, transparent);
 }
 
-/* SHOW ANIMATION */
 .hero-section.show .content {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* MOBILE */
 @media (max-width: 768px) {
 
   .topbar {
-    display: none; /* cleaner mobile look */
+    display: none; 
   }
   .nav-menu {
     position: absolute;
@@ -326,7 +303,6 @@
     display: flex;
   }
 
-  /* Make dropdown behave like normal block */
   .dropdown-menu {
     position: static;
     opacity: 1;
@@ -338,18 +314,15 @@
     width: 100%;
   }
 
-  /* Show when active */
   .dropdown.active .dropdown-menu {
     display: block;
   }
 
-  /* Indent submenu to the left (clean structure) */
   .dropdown-menu li a {
-    padding: 10px 30px; /* pushes content inward */
+    padding: 10px 30px; 
     font-size: 14px;
   }
 
-  /* Parent links clickable */
   .dropdown > a {
     display: flex;
     justify-content: space-between;
