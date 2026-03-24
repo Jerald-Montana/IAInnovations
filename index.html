@@ -3,144 +3,167 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Navbar</title>
+  <title>IA Innovations</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" href="images/iafavicon.png">
 </head>
 <body>
 
-<div class="topbar">
-  <div class="topbar-container">
-    <ul class="topbar-menu">
-      <li><a href="#">About Us</a></li>
-      <li><a href="#">Partners</a></li>
-      <li><a href="#">Careers</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
+  <div class="topbar">
+    <div class="topbar-container">
+      <ul class="topbar-menu">
+        <li><a href="/IAInnovations/index.html">Home</a></li>
+        <li><a href="/IAInnovations/html/AboutUs.html">About Us</a></li>
+        <li><a href="/IAInnovations/html/Partnership.html">Partners</a></li>
+        <li><a href="/IAInnovations/html/careers.html">Careers</a></li>
+        <li><a href="/IAInnovations/html/Contact.html">Contact</a></li>
+      </ul>
+    </div>
   </div>
-</div>
 
-<nav class="navbar">
+  <nav class="navbar">
   <div class="nav-container">
-
     <div class="logo">
-        <a href="#hero">
-        <img src="images/ia-innovations-logo-white-bg.png" alt="Logo">
-        </a>
+      <a href="/IAInnovations/index.html">
+        <img src="images/ia-innovations-logo-white-bg.png" alt="IA Innovations Logo">
+      </a>
     </div>
 
     <ul class="nav-menu">
+      <!-- Basic links for hamburger/mobile -->
+      <li><a href="/IAInnovations/index.html">Home</a></li>
+      <li><a href="/IAInnovations/html/AboutUs.html">About Us</a></li>
+      <li><a href="/IAInnovations/html/Partnership.html">Partners</a></li>
+      <li><a href="/IAInnovations/html/careers.html">Careers</a></li>
+      <li><a href="/IAInnovations/html/Contact.html">Contact</a></li>
 
-  <li class="dropdown">
-    <a href="#">Business Transformation</a>
-    <ul class="dropdown-menu">
-      <li><a href="#">Corporate Performance</a></li>
-      <li><a href="#">Enterprise Data</a></li>
-      <li><a href="#">Enterprise Resources</a></li>
-      <li><a href="#">Integration API</a></li>
-      <li><a href="#">Management Consulting</a></li>
-      <li><a href="#">App Development</a></li>
-      <li><a href="#">Project Management</a></li>
-      <li><a href="#">RPA</a></li>
-      <li><a href="#">KINEX</a></li>
+      <!-- Dropdowns -->
+      <li class="dropdown">
+        <a href="#">Business Transformation</a>
+        <ul class="dropdown-menu">
+          <li><a href="/IAInnovations/html/CorporatePerformance.html">Corporate Performance</a></li>
+          <li><a href="#">Enterprise Data</a></li>
+          <li><a href="#">Enterprise Resources</a></li>
+          <li><a href="#">Integration API</a></li>
+          <li><a href="#">Management Consulting</a></li>
+          <li><a href="#">App Development</a></li>
+          <li><a href="#">Project Management</a></li>
+          <li><a href="#">RPA</a></li>
+          <li><a href="#">KINEX</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#">Digital Experience</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">UI/UX Design</a></li>
+          <li><a href="#">Web Development</a></li>
+          <li><a href="#">Mobile Apps</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#">Industry Solutions</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Healthcare</a></li>
+          <li><a href="#">Finance</a></li>
+          <li><a href="#">Retail</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <a href="#">Infrastructure Services</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Cloud Services</a></li>
+          <li><a href="#">Cybersecurity</a></li>
+          <li><a href="#">IT Support</a></li>
+        </ul>
+      </li>
     </ul>
-  </li>
 
-  <li class="dropdown">
-    <a href="#">Digital Experience</a>
-    <ul class="dropdown-menu">
-      <li><a href="#">UI/UX Design</a></li>
-      <li><a href="#">Web Development</a></li>
-      <li><a href="#">Mobile Apps</a></li>
-    </ul>
-  </li>
-
-  <li class="dropdown">
-    <a href="#">Industry Solutions</a>
-    <ul class="dropdown-menu">
-      <li><a href="#">Healthcare</a></li>
-      <li><a href="#">Finance</a></li>
-      <li><a href="#">Retail</a></li>
-    </ul>
-  </li>
-
-  <li class="dropdown">
-    <a href="#">Infrastructure Services</a>
-    <ul class="dropdown-menu">
-      <li><a href="#">Cloud Services</a></li>
-      <li><a href="#">Cybersecurity</a></li>
-      <li><a href="#">IT Support</a></li>
-    </ul>
-  </li>
-
-</ul>
-
-    <div class="hamburger">
+    <div class="hamburger" aria-label="Toggle navigation" aria-expanded="false" role="button" tabindex="0">
       <span></span>
       <span></span>
       <span></span>
     </div>
-
   </div>
 </nav>
 
-     <section id="hero" class="hero-section">
-        <div class="bg">
-            <img src="images/graph.jfif">
-        </div>
-        <div class="content">
-            <h2>Technology With A Human-Centric Design</h2>
-            <p>We blend technology to an individual and an organization’s routine to bring positive impact.</p>
-            <a href="#" class="btn">Find out More</a>
-        </div>
-        </section>
+  <section id="hero" class="hero-section triangle-left" style="--triangle-color: #012e4a;">
+    <div class="bg">
+      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1920&q=80" alt="Software dashboard and analytics">
+    </div>
+    <div class="content">
+      <h2>Technology With A<br>Human-Centric<br>Design</h2>
+      <p class="typing-text" data-text="We blend technology to an individual and an organization’s routine to bring positive impact."></p>
+      <a href="#" class="btn reveal-btn">Find Out More</a>
+    </div>
+  </section>
 
-        <section class="hero-section right">
-        <div class="bg">
-            <img src="images/332b6b334ad516ecacfeeafea8b613a1.jpg">
-        </div>
-        <div class="content">
-            <h2>Seamless Integration</h2>
-            <p>Connect systems and streamline workflows.</p>
-        </div>
-        </section>
+  <section class="hero-section right triangle-right" style="--triangle-color:  #0171b9;">
+    <div class="bg">
+      <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1920&q=80" alt="Software development workspace" loading="lazy">
+    </div>
+    <div class="content">
+      <h2>We Design</h2>
+      <p class="typing-text" data-text="We help our clients achieve growth with analytical, innovative, and business-centered strategies designed with the customer and the user experience in mind, and help them move forward with bold initiatives."></p>
+    </div>
+  </section>
 
-        <section class="hero-section">
-        <div class="bg">
-            <img src="images/3.jpg">
-        </div>
-        <div class="content">
-            <h2>Scalable Infrastructure</h2>
-            <p>Build systems designed to grow with your business.</p>
-        </div>
-        </section>
+  <section class="hero-section triangle-left" style="--triangle-color: #bfd744;">
+    <div class="bg">
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1920&q=80" alt="Coding and software engineering" loading="lazy">
+    </div>
+    <div class="content">
+      <h2>We Build</h2>
+      <p class="typing-text" data-text="Our team of designers, developers, and analysts can collaborate with you and help make your ideas turn into useful software and applications that can be beneficial for your business."></p>
+    </div>
+  </section>
 
-        <section class="hero-section right">
-        <div class="bg">
-            <img src="images/4.jpg">
-        </div>
-        <div class="content">
-            <h2>Data-Driven Growth</h2>
-            <p>Use insights to make smarter decisions.</p>
-        </div>
-    </section>
+  <section class="hero-section right triangle-right" style="--triangle-color: #abb8c3;">
+    <div class="bg">
+      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920&q=80" alt="Business analytics dashboard" loading="lazy">
+    </div>
+    <div class="content">
+      <h2>We Deliver</h2>
+      <p class="typing-text" data-text="We provide a variety of tools to help businesses of all kinds succeed in the information and digital age, from cloud computing tools to email and digital marketing platforms with analytics."></p>
+    </div>
+  </section>
 
+  <section class="hero-section triangle-left" style="--triangle-color:  #bfd744;">
+    <div class="bg">
+      <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80" alt="Cloud and network support" loading="lazy">
+    </div>
+    <div class="content">
+      <h2>We Support</h2>
+      <p class="typing-text" data-text="Our portal products provide enterprise solutions that can help your company deliver a highly-personalized, social experience for your customers, with a one-point access to all your services and information."></p>
+    </div>
+  </section>
 
-    <footer class="footer">
-        <div class="footer-overlay"></div>
+  <section class="hero-section right triangle-right" style="--triangle-color: #0171b9;">
+    <div class="bg">
+      <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1920&q=80" alt="Cybersecurity technology" loading="lazy">
+    </div>
+    <div class="content">
+      <h2>We Secure</h2>
+      <p class="typing-text" data-text="Our digital and physical security solutions enable increased business productivity while ensuring data security and compliance. We provide surveillance equipment, physical and logical access planning, and digital security consultation."></p>
+    </div>
+  </section>
 
-        <div class="footer-content">
-            <img src="images/logo-ia-innovations-footer.png" class="footer-logo" alt="Logo">
-            <p>
-            © 2026 IA Innovations | A Member of the Kairos Group Pte Ltd |
-            <a href="#">Terms and Conditions</a> |
-            <a href="#">Privacy Policy</a> |
-            <a href="#">About ZWCAD</a>
-            </p>
+  <footer class="footer">
+    <div class="footer-overlay"></div>
+    <div class="footer-content">
+      <img src="images/logo-ia-innovations-footer.png" class="footer-logo" alt="IA Innovations Footer Logo">
+      <p>
+        © 2026 IA Innovations | A Member of the Kairos Group Pte Ltd |
+        <a href="#">Terms and Conditions</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">About ZWCAD</a>  |
+        <a href="/IAInnovations/index.html">Go to Top</a>
+      </p>
+    </div>
+  </footer>
 
-        </div>
-    </footer>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
