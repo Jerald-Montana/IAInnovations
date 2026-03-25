@@ -160,48 +160,96 @@ window.addEventListener("resize", () => {
 /* =========================
    MAP / IMAGE TOGGLE
    ========================= */
-const mapToggleBox = document.getElementById("mapToggleBox");
+const toggleViewBtn = document.getElementById("toggleViewBtn");
 const liveMap = document.getElementById("liveMap");
 const mapImage = document.getElementById("mapImage");
 
-if (mapToggleBox && liveMap && mapImage) {
-  mapToggleBox.addEventListener("dblclick", () => {
+if (toggleViewBtn && liveMap && mapImage) {
+  toggleViewBtn.addEventListener("click", () => {
     liveMap.classList.toggle("active-view");
     mapImage.classList.toggle("active-view");
   });
 }
 
 /* =========================
-   CONTACT FORM SUCCESS POPUP
-   Works when redirected with ?submitted=1
+   AUTO-SCROLL ON PAGE LOAD
    ========================= */
+window.addEventListener("load", () => {
+  if (window.location.hash) {
+    const targetId = window.location.hash.substring(1); 
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      setTimeout(() => {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }, 300);
+    }
+  }
+});
+
+/* =========================
+   CONTACT FORM AJAX SUBMISSION (FormSubmit Version)
+   ========================= */
+const contactForm = document.getElementById("ajaxContactForm");
 const successPopup = document.getElementById("successPopup");
 const closeSuccessPopup = document.getElementById("closeSuccessPopup");
 
+// Force hide on load just in case
+if(successPopup) successPopup.style.display = "none";
+
+// 1. Handle the Form Submission Silently
+if (contactForm && successPopup) {
+  contactForm.addEventListener("submit", function(e) {
+    e.preventDefault(); // Stops the page from redirecting
+
+    const submitBtn = this.querySelector(".contact-btn");
+    const originalBtnText = submitBtn.innerText;
+    submitBtn.innerText = "Sending..."; // Give visual feedback
+
+    // Send the data securely in the background using fetch
+    fetch(this.action, {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json' // Crucial: Tells FormSubmit to reply silently
+      },
+      body: new FormData(this)
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log("FormSubmit Response:", data); // Check your browser console!
+
+      // If FormSubmit replies "Success"
+      if (data.success === "true" || data.success === true) {
+        successPopup.style.display = "flex"; 
+        this.reset(); 
+      } else {
+        alert("Oops! There was a problem. Check your email for an activation link from FormSubmit.");
+      }
+    })
+    .catch(error => {
+      console.error("Network Error:", error);
+      alert("Oops! There was a network error. Please check your connection.");
+    })
+    .finally(() => {
+      submitBtn.innerText = originalBtnText; // Reset button text
+    });
+  });
+}
+
+// 2. Handle Closing the Popup
 if (successPopup) {
-  const urlParams = new URLSearchParams(window.location.search);
-
-  if (urlParams.get("submitted") === "1") {
-    successPopup.classList.add("show");
-  }
-
   if (closeSuccessPopup) {
     closeSuccessPopup.addEventListener("click", () => {
-      successPopup.classList.remove("show");
-
-      const url = new URL(window.location);
-      url.searchParams.delete("submitted");
-      window.history.replaceState({}, document.title, url.pathname);
+      successPopup.style.display = "none";
     });
   }
 
   successPopup.addEventListener("click", (e) => {
     if (e.target === successPopup) {
-      successPopup.classList.remove("show");
-
-      const url = new URL(window.location);
-      url.searchParams.delete("submitted");
-      window.history.replaceState({}, document.title, url.pathname);
+      successPopup.style.display = "none";
     }
   });
 }

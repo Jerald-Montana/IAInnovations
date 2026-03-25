@@ -1372,14 +1372,15 @@ img {
 
 .map-label {
   position: absolute;
-  left: 24px;
-  bottom: 24px;
+  left: auto;
+  right: 220px;
+  bottom: 25px;
   background: rgba(1, 46, 74, 0.82);
   color: #fff;
-  padding: 10px 14px;
+  padding: 7px 10px;
   font-size: 0.95rem;
   font-weight: 600;
-  z-index: 3;
+  z-index: 10;
 }
 /* =========================================
    SUCCESS POPUP
@@ -1593,4 +1594,8 @@ img {
   .service-card-content p {
     font-size: 0.95rem;
   }
+}
+/* Prevents the fixed navbar from covering the section title after jumping */
+#rpa-section, #kinex-section {
+  scroll-margin-top: 100px; 
 }

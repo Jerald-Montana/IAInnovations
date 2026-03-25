@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - IA Innovations</title>
+  
+  <link rel="stylesheet" href="/IAInnovations/styles.css">
+  <link rel="stylesheet" href="/IAInnovations/css/AboutUS.css">
+  <link rel="icon" type="image/png" href="/IAInnovations/images/iafavicon.png">
+  
+  <style>
+    /* Contact Specific Icon Styles */
+    .icon-heading {
+      display: flex;         
+      align-items: center;   
+    }
+
+    .heading-icon {
+      width: 1.2em;          
+      height: auto; 
+      margin-right: 8px;     
+      flex-shrink: 0;        
+    }
+
+    /* Clickable Map Toggle Button */
+    .map-label {
+      font-size: 0.85rem;      
+      padding: 8px 16px;       
+      position: absolute;
+      right: 15px;             
+      left: auto;              
+      bottom: 30px; 
+      background: #0171b9; 
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      pointer-events: auto;
+      z-index: 10;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .map-label:hover {
+      background: #012e4a;
+      transform: translateY(-2px);
+    }
+
+    /* Smooth Hover Effects for the Boxes */
+    .contact-details-box, 
+    .message-box, 
+    .map-box {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-details-box:hover, 
+    .message-box:hover, 
+    .map-box:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(1, 46, 74, 0.15);
+    }
+
+    /* Popup Animation */
+    @keyframes popupZoom {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="topbar-container">
+      <ul class="topbar-menu">
+        <li><a href="/IAInnovations/html/index.html">Home</a></li>
+        <li><a href="/IAInnovations/html/BusinessTransformation/AboutUs.html">About Us</a></li>
+        <li><a href="/IAInnovations/html/BusinessTransformation/Partnership.html">Partners</a></li>
+        <li><a href="/IAInnovations/html/BusinessTransformation/careers.html">Careers</a></li>
+        <li><a href="/IAInnovations/html/BusinessTransformation/Contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="/IAInnovations/html/index.html">
+          <img src="/IAInnovations/images/ia-innovations-logo-white-bg.png" alt="IA Innovations Logo">
+        </a>
+      </div>
+
+      <ul class="nav-menu">
+        <li><a href="/IAInnovations/html/index.html">Home</a></li>
+        <li><a href="/IAInnovations/html/BusinessTransformation/AboutUs.html">About Us</a></li>
+        <li><a href="/IAInnovations/html/BusinessTransformation/Partnership.html">Partners</a></li>
+        <li><a href="/IAInnovations/html/BusinessTransformation/careers.html">Careers</a></li>
+        <li><a href="/IAInnovations/html/BusinessTransformation/Contact.html">Contact</a></li>
+
+        <li class="dropdown">
+          <a href="#">Business Transformation</a>
+          <ul class="dropdown-menu">
+            <li><a href="/IAInnovations/html/BusinessTransformation/CorporatePerformance.html">Corporate Performance</a></li>
+            <li><a href="/IAInnovations/html/BusinessTransformation/EnterpriseData.html">Enterprise Data</a></li>
+            <li><a href="/IAInnovations/html/BusinessTransformation/EnterpriseResource.html">Enterprise Resources</a></li>
+            <li><a href="/IAInnovations/html/BusinessTransformation/IntegrationApi.html">Integration API</a></li>
+            <li><a href="/IAInnovations/html/BusinessTransformation/ManagementConsulting.html">Management Consulting</a></li>
+            <li><a href="/IAInnovations/html/BusinessTransformation/AppDevelopment.html">App Development</a></li>
+            <li><a href="/IAInnovations/html/BusinessTransformation/ProjectManagement.html">Project Management</a></li>
+            <li><a href="/IAInnovations/html/BusinessTransformation/RPA.html#rpa-section">RPA</a></li>
+            <li><a href="/IAInnovations/html/BusinessTransformation/RPA.html#kinex-section">KINEX</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Digital Experience</a>
+          <ul class="dropdown-menu">
+            <li><a href="/IAInnovations/html/DigitalExperience/DigitalExperience.html#ecommerce-section">E-Commerce</a></li>
+            <li><a href="/IAInnovations/html/DigitalExperience/DigitalExperience.html#digital-marketing-section">Digital Marketing</a></li>
+            <li><a href="/IAInnovations/html/DigitalExperience/DigitalExperience.html#knowledge-management-section">Knowledge Management</a></li>
+            <li><a href="/IAInnovations/html/DigitalExperience/MobileExperience.html#mobile-experience-section">Mobile Experience</a></li>
+            <li><a href="/IAInnovations/html/DigitalExperience/MobileExperience.html#web-portal-section">Web and Portal</a></li>
+            <li><a href="/IAInnovations/html/DigitalExperience/MobileExperience.html#document-management-section">Document Management</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Industry Solutions</a>
+          <ul class="dropdown-menu">
+            <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#financial-services-section">Financial Services</a></li>
+            <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#consumer-markets-section">Consumer Markets</a></li>
+            <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#public-sector-section">Public Sector</a></li>
+            <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#general-business-section">General Business</a></li>
+            <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#manufacturing-section">Manufacturing</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Infrastructure Services</a>
+          <ul class="dropdown-menu">
+            <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html#cloud-solutions-section">Cloud Solutions</a></li>
+            <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html#information-security-section">Information Security</a></li>
+            <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html#security-surveillance-section">Security & Surveillance</a></li>
+            <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html#business-management-section">Business Management</a></li>
+            <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html#devops-section">DevOps</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="hamburger" aria-label="Toggle navigation" aria-expanded="false" role="button" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <section id="hero" class="hero-section triangle-left about-hero" style="--triangle-rgb: 1, 46, 74;">
+    <div class="bg">
+      <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1920&q=80" alt="IA Innovations contact and communication">
+    </div>
+    <div class="content">
+      <h2>Connect with <br>IA Innovations</h2>
+      <p class="typing-text" data-text="Let us help you transform ideas into digital solutions through innovation, action, and technology."></p>
+    </div>
+  </section>
+
+  <section class="hero-section right triangle-right about-hero contact-hero-right" style="--triangle-rgb: 1, 113, 185;">
+    <div class="bg">
+      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1920&q=80" alt="Team discussion and business meeting" loading="lazy">
+    </div>
+    <div class="content">
+      <h2>We’d love to hear from you</h2>
+      <p>
+        Reach out to IA Innovations for inquiries, collaboration, and technology-driven solutions. Our team is ready to connect with you and help bring your ideas into action.
+      </p>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="contact-container">
+
+      <div class="contact-left">
+        <div class="contact-details-box">
+          <h2>Contact Us</h2>
+
+          <div class="contact-detail-group">
+            <h3 class="icon-heading">
+              <img src="/IAInnovations/images/loc2.png" class="heading-icon" alt="Address Icon"> Address
+            </h3>
+            <p><strong>Branch Office:</strong></p>
+            <p>3201 Antel Global Corporate Center, 32nd Floor, 1605 Doña Julia Vargas Ave, Ortigas Center, Pasig</p>
+
+            <p><strong>Main Office:</strong></p>
+            <p>11th Floor Cyberone Bldg. Eastwood Cyberpark, Brgy. Bagumbayan, Quezon City 1110</p>
+          </div>
+
+          <div class="contact-detail-group">
+            <h3 class="icon-heading">
+              <img src="/IAInnovations/images/contact.png.png" class="heading-icon" alt="Contact Icon"> Contact No.
+            </h3>
+            <p>+63 28-9378-809</p>
+          </div>
+
+          <div class="contact-detail-group">
+            <h3 class="icon-heading">
+              <img src="/IAInnovations/images/email.png" class="heading-icon" alt="Email Icon"> Email Address
+            </h3>
+            <p><a href="mailto:info@iainnovations.com">info@iainnovations.com</a></p>
+          </div>
+        </div>
+
+        <div class="message-box">
+          <h2>Message Us</h2>
+          <form class="contact-form" id="ajaxContactForm" action="https://formsubmit.co/ajax/embeddedsystems718@gmail.com" method="POST">
+            
+            <div class="form-row">
+              <input type="text" name="name" placeholder="Full Name" required>
+              <input type="email" name="email" placeholder="Email Address" required>
+            </div>
+
+            <div class="form-row single">
+              <input type="text" name="subject" placeholder="Subject" required>
+            </div>
+
+            <div class="form-row single">
+              <textarea 
+                    name="message" 
+                    placeholder="Your Message (Type at least 20 characters)" 
+                    rows="6" 
+                    required 
+                    minlength="20" 
+                    oninvalid="this.setCustomValidity('To help us better understand your inquiry, kindly provide a more detailed message (minimum 20 characters).')" 
+                    oninput="this.setCustomValidity('')"
+                ></textarea>
+            </div>
+
+            <input type="hidden" name="_subject" value="New IA Innovations Inquiry">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" name="_honey" style="display:none">
+            
+            <button type="submit" class="contact-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="contact-map-side">
+        <div class="map-box">
+          <iframe
+             id="liveMap"
+             class="map-frame active-view"
+             src="https://www.google.com/maps?q=Antel%20Global%20Corporate%20Center%20Condo.%20Asso.Inc.%2C%20Ground%20Floor%2C%20Antel%20Global%20Corporate%20Center%2C%201605%20Do%C3%B1a%20Julia%20Vargas%20Ave%2C%20Ortigas%20Center%2C%20Pasig%2C%20Metro%20Manila&z=17&output=embed"
+             loading="lazy"
+             referrerpolicy="no-referrer-when-downgrade"
+             allowfullscreen>
+          </iframe>
+
+          <img
+            id="mapImage"
+            class="map-image"
+            src="https://imagedelivery.net/4hgeCwftKXWxSyeV7QJJpA/6170b0dd-828a-4b3c-13ae-75487e7a2600/w=600,compression=fast,format=webp"
+            alt="IA Innovations office building">
+
+          <div class="map-label" id="toggleViewBtn">
+            <span>🔄 Click to switch view</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="success-popup-overlay" id="successPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(1, 46, 74, 0.7); z-index: 9999; align-items: center; justify-content: center; backdrop-filter: blur(4px);">
+    <div style="background: white; padding: 40px; border-radius: 8px; text-align: center; max-width: 400px; width: 90%; box-shadow: 0 20px 40px rgba(0,0,0,0.4); animation: popupZoom 0.3s ease;">
+      <h2 style="color: #0171b9; margin-bottom: 15px;">Message Sent!</h2>
+      <p style="color: #44515a; margin-bottom: 25px;">Thank you for contacting IA Innovations. We have received your inquiry and will get back to you shortly.</p>
+      <button id="closeSuccessPopup" style="background: #bfd744; border: none; padding: 12px 24px; font-weight: bold; border-radius: 4px; cursor: pointer; color: #012e4a; font-size: 1rem; transition: background 0.3s ease;">Close</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-overlay"></div>
+    <div class="footer-content">
+      <img src="/IAInnovations/images/logo-ia-innovations-footer.png" class="footer-logo" alt="IA Innovations Footer Logo">
+      <p>
+        © 2026 IA Innovations | A Member of the Kairos Group Pte Ltd |
+        <a href="#">Terms and Conditions</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="#">About ZWCAD</a> |
+        <a href="#">Go to Top</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="/IAInnovations/script.js"></script>
+</body>
+</html>
