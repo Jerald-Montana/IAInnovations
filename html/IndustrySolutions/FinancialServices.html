@@ -25,7 +25,6 @@
   </style>
 </head>
 <body>
-
   <div class="topbar">
     <div class="topbar-container">
       <ul class="topbar-menu">
@@ -71,7 +70,7 @@
         <li class="dropdown">
           <a href="#">Digital Experience</a>
           <ul class="dropdown-menu">
-            <li><a href="/IAInnovations/html/DigitalExperience/DigitalExperience.html#ecommerce-section">E-Commerce</a></li>
+            <li><a href="/IAInnovations/html/DigitalExperience/DigitalExperience.html">E-Commerce</a></li>
             <li><a href="/IAInnovations/html/DigitalExperience/DigitalExperience.html#digital-marketing-section">Digital Marketing</a></li>
             <li><a href="/IAInnovations/html/DigitalExperience/DigitalExperience.html#knowledge-management-section">Knowledge Management</a></li>
             <li><a href="/IAInnovations/html/DigitalExperience/MobileExperience.html#mobile-experience-section">Mobile Experience</a></li>
@@ -83,7 +82,7 @@
         <li class="dropdown">
           <a href="#">Industry Solutions</a>
           <ul class="dropdown-menu">
-            <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#financial-services-section">Financial Services</a></li>
+            <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html">Financial Services</a></li>
             <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#consumer-markets-section">Consumer Markets</a></li>
             <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#public-sector-section">Public Sector</a></li>
             <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#general-business-section">General Business</a></li>
@@ -94,17 +93,20 @@
         <li class="dropdown">
           <a href="#">Infrastructure Services</a>
           <ul class="dropdown-menu">
-<li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html#cloud-solutions-section">Cloud Solutions</a></li>
+            <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html">Cloud Solutions</a></li>
             <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html#information-security-section">Information Security</a></li>
             <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html#security-surveillance-section">Security & Surveillance</a></li>
             <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html#business-management-section">Business Management</a></li>
             <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html#devops-section">DevOps</a></li>
-
           </ul>
         </li>
       </ul>
 
-      <div class="hamburger"><span></span><span></span><span></span></div>
+      <div class="hamburger" aria-label="Toggle navigation" aria-expanded="false" role="button" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </nav>
 
@@ -114,7 +116,7 @@
     </div>
     <div class="content">
       <h2>Solutions for<br>Financial Services</h2>
-      <p class="typing-text" data-text="Keep pace with today’s digital transformation in the financial sector, by catering to cross-channel customer experience demands."></p>
+      <p class="typing-text" data-text="Keep pace with today's digital transformation in the financial sector, by catering to cross-channel customer experience demands."></p>
     </div>
   </section>
 
@@ -136,8 +138,8 @@
         <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=800&q=80" alt="Financial technology consultation">
       </div>
       <div class="company-text">
-        <p>Our industry-focused management consulting services, technology solutions and solution accelerators can help attract and retain customers in today’s competitive financial services market. We support enterprise modernization and transformation projects, improve business processes, and implement enterprise technology and service-based platforms with our digital experience and business optimization solutions.</p>
-        <p>We stand out from the rest of our competition, with our deep domain expertise, strategic partnerships with the world’s leading technology vendors, dedicated industry expertise and a broad solution portfolio. Transforming the financial lives and relationships of your customers through technology by partnering with us.</p>
+        <p>Our industry-focused management consulting services, technology solutions and solution accelerators can help attract and retain customers in today's competitive financial services market. We support enterprise modernization and transformation projects, improve business processes, and implement enterprise technology and service-based platforms with our digital experience and business optimization solutions.</p>
+        <p>We stand out from the rest of our competition, with our deep domain expertise, strategic partnerships with the world's leading technology vendors, dedicated industry expertise and a broad solution portfolio. Transforming the financial lives and relationships of your customers through technology by partnering with us.</p>
       </div>
     </div>
   </section>
@@ -148,61 +150,83 @@
         <h2>Financial Sector Capabilities</h2>
         <p>Aligning technology investments to your strategic financial plans.</p>
       </div>
-      <div class="service-grid">
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Technology Solutions" loading="lazy">
+      <div class="reusable-card-slider" id="financialServicesSlider">
+        <div class="reusable-card-slider-track">
+          <div class="reusable-card-slide">
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Technology Solutions" loading="lazy">
+                <div class="service-overlay"><p>Align your technology investments to your strategic business plan instead of simply implementing technology for the sake of keeping up with the market.</p></div>
+              </div>
+              <div class="service-card-content">
+                <h3>Technology Solutions</h3>
+                <p>Align your technology investments to your strategic business plan instead of simply implementing technology for the sake of keeping up with the market.</p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80" alt="Business Process Improvement" loading="lazy">
+                <div class="service-overlay"><p>Create a strategic planning methodology aimed at identifying the operations or employee skills that could be improved to encourage business efficiency.</p></div>
+              </div>
+              <div class="service-card-content">
+                <h3>Business Process Improvement</h3>
+                <p>Create a strategic planning methodology aimed at identifying the operations or employee skills that could be improved to encourage business efficiency.</p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=600&q=80" alt="Program Cost Management" loading="lazy">
+                <div class="service-overlay"><p>Monitor your costs, and track and manage your project performance by implementing a successful, sustainable cost management program.</p></div>
+              </div>
+              <div class="service-card-content">
+                <h3>Program Cost Management</h3>
+                <p>Monitor your costs, and track and manage your project performance by implementing a successful, sustainable cost management program.</p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80" alt="Client Centricity" loading="lazy">
+                <div class="service-overlay"><p>Re-define your approach in doing your business so that it focuses on your customers, to ensure that your clients are the center of your business operations.</p></div>
+              </div>
+              <div class="service-card-content">
+                <h3>Client Centricity</h3>
+                <p>Re-define your approach in doing your business so that it focuses on your customers, to ensure that your clients are the center of your business operations.</p>
+              </div>
+            </article>
           </div>
-          <div class="service-card-content">
-            <h3>Technology Solutions</h3>
-            <p>Align your technology investments to your strategic business plan instead of simply implementing technology for the sake of keeping up with the market.</p>
+
+          <div class="reusable-card-slide">
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="Risk and Regulatory Compliance" loading="lazy">
+                <div class="service-overlay"><p>Manage reputational, regulatory, compliance, and enforcement risks in the global and domestic perspective by making compliance and risk operate together.</p></div>
+              </div>
+              <div class="service-card-content">
+                <h3>Risk and Regulatory Compliance</h3>
+                <p>Manage reputational, regulatory, compliance, and enforcement risks in the global and domestic perspective by making compliance and risk operate together.</p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Quality Management" loading="lazy">
+                <div class="service-overlay"><p>Oversee all activities and tasks needed to maintain a desired level of excellent, by creating and implementing quality planning and assurance.</p></div>
+              </div>
+              <div class="service-card-content">
+                <h3>Quality Management</h3>
+                <p>Oversee all activities and tasks needed to maintain a desired level of excellent, by creating and implementing quality planning and assurance.</p>
+              </div>
+            </article>
           </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80" alt="Business Process Improvement" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Business Process Improvement</h3>
-            <p>Create a strategic planning methodology aimed at identifying the operations or employee skills that could be improved to encourage business efficiency.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=600&q=80" alt="Program Cost Management" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Program Cost Management</h3>
-            <p>Monitor your costs, and track and manage your project performance by implementing a successful, sustainable cost management program.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80" alt="Client Centricity" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Client Centricity</h3>
-            <p>Re-define your approach in doing your business so that it focuses on your customers, to ensure that your clients are the center of your business operations.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="Risk and Regulatory Compliance" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Risk and Regulatory Compliance</h3>
-            <p>Manage reputational, regulatory, compliance, and enforcement risks in the global and domestic perspective by making compliance and risk operate together.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Quality Management" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Quality Management</h3>
-            <p>Oversee all activities and tasks needed to maintain a desired level of excellent, by creating and implementing quality planning and assurance.</p>
-          </div>
-        </article>
+        </div>
+
+        <div class="reusable-card-slider-dots" aria-label="Financial Services slider navigation">
+          <button class="reusable-slider-dot active" type="button" data-slide="0" aria-label="Go to page 1"></button>
+          <button class="reusable-slider-dot" type="button" data-slide="1" aria-label="Go to page 2"></button>
+        </div>
       </div>
     </div>
   </section>
@@ -247,331 +271,58 @@
         <h2>Consumer Market Strategy</h2>
         <p>Innovative frameworks to adapt to retail and market dynamics.</p>
       </div>
-      <div class="service-grid">
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://cdn.corporatefinanceinstitute.com/assets/business-risk.jpg" alt="Risk and Regulation" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Risk and Regulation</h3>
-            <p>Navigate risk and regulatory complexity that will fundamentally impact the business and finances of your institution.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=600&q=80" alt="Investment Balance" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Investment Balance and Costing</h3>
-            <p>Focus on balancing investment against cost reduction, and overview your existing resources to pursue internal cost reduction.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Business Agility" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Business Agility</h3>
-            <p>Respond to rapid market changes by enhancing business agility along with finding new and improved ways to do business.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Market Time and Quality" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Market Time and Quality</h3>
-            <p>Improve time-to-market and quality outcomes and build momentum through positive outcomes and generating process innovations.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="Technology Implementation" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Technology Implementation</h3>
-            <p>Leverage the latest and most applicable technology and enable process innovation as a key advantage against your competitors.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+      <div class="reusable-card-slider" id="consumerMarketsSlider">
+        <div class="reusable-card-slider-track">
+          <div class="reusable-card-slide">
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://cdn.corporatefinanceinstitute.com/assets/business-risk.jpg" alt="Risk and Regulation" loading="lazy">
+                <div class="service-overlay"><p>Navigate risk and regulatory complexity that will fundamentally impact the business and finances of your institution.</p></div>
+              </div>
+              <div class="service-card-content">
+                <h3>Risk and Regulation</h3>
+                <p>Navigate risk and regulatory complexity that will fundamentally impact the business and finances of your institution.</p>
+              </div>
+            </article>
 
-  <section id="public-sector-section" class="hero-section triangle-left about-hero" style="--triangle-rgb: 191, 215, 68;">
-    <div class="bg">
-      <img src="https://images.unsplash.com/photo-1523292562811-8fa7962a78c8?auto=format&fit=crop&w=1920&q=80" alt="Public Sector Infrastructure">
-    </div>
-    <div class="content">
-      <h2>Solutions for the<br>Public Sector</h2>
-      <p class="typing-text" data-text="Business-driven solutions for the state and local government to help deliver enhanced services to the demanding public."></p>
-    </div>
-  </section>
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&w=600&q=80" alt="Investment Balance" loading="lazy">
+                <div class="service-overlay"><p>Focus on balancing investment against cost reduction, and overview your existing resources to pursue internal cost reduction.</p></div>
+              </div>
+              <div class="service-card-content">
+                <h3>Investment Balance and Costing</h3>
+                <p>Focus on balancing investment against cost reduction, and overview your existing resources to pursue internal cost reduction.</p>
+              </div>
+            </article>
 
-  <section class="hero-section right triangle-right about-hero" style="--triangle-rgb: 1, 46, 74;">
-    <div class="bg">
-      <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=1920&q=80" alt="Government Data and Reporting" loading="lazy">
-    </div>
-    <div class="content">
-      <h2>Achieve cost reduction and increased revenue generation</h2>
-      <p>
-        Our broad spectrum of business-driven solutions for state and local government includes customer relationship management, enterprise portals, commerce, enterprise content management, and business intelligence.
-      </p>
-    </div>
-  </section>
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Business Agility" loading="lazy">
+                <div class="service-overlay"><p>Respond to rapid market changes by enhancing business agility along with finding new and improved ways to do business.</p></div>
+              </div>
+              <div class="service-card-content">
+                <h3>Business Agility</h3>
+                <p>Respond to rapid market changes by enhancing business agility along with finding new and improved ways to do business.</p>
+              </div>
+            </article>
 
-  <section class="company-info-section">
-    <div class="company-info-container">
-      <div class="company-image picture-box">
-        <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80" alt="Public sector team collaboration">
-      </div>
-      <div class="company-text">
-        <p>Organizations in the public sector face the challenges of delivering enhanced services to an increasingly demanding public, but using minimal resources to do so. The accountability of the public sectors to taxpayers increases the pressure to achieve both cost reduction and increased revenue generation by stepping up efficiency and creativity.</p>
-        <p>We understand the core processes, goals and challenges facing our clients and provide solutions that achieve a single, real-time view of the constituent, empower staff with automated processes and best practices, and providing consistent communications across delivery channels such as agency offices, contact centers, and constituent self-service. Our experience on both the functional knowledge and the technical expertise can help you meet the unique needs as a public sector.</p>
-      </div>
-    </div>
-  </section>
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Market Time and Quality" loading="lazy">
+                <div class="service-overlay"><p>Improve time-to-market and quality outcomes and build momentum through positive outcomes and generating process innovations.</p></div>
+              </div>
+              <div class="service-card-content">
+                <h3>Market Time and Quality</h3>
+                <p>Improve time-to-market and quality outcomes and build momentum through positive outcomes and generating process innovations.</p>
+              </div>
+            </article>
+          </div>
+        </div>
 
-  <section class="service-grid-section">
-    <div class="service-grid-container">
-      <div class="section-heading">
-        <h2>Government & Public Services</h2>
-        <p>Enhancing public service delivery through technology and intelligence.</p>
-      </div>
-      <div class="service-grid">
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80" alt="CRM" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Customer Relationship Management</h3>
-            <p>Deliver quality and value in your services to establish close partnerships with clients for long-term success.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Enterprise Portals" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Enterprise Portals</h3>
-            <p>Create and deliver engaging, useful, usable, and interactive web experiences for your users.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Master Data Management" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Master Data Management</h3>
-            <p>Use advanced tools in the comprehensive management of your organization’s business information assets to come up with informed decision making.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=600&q=80" alt="Content Management" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Enterprise Content Management</h3>
-            <p>Manage content across your organization and deliver digital information anytime, anywhere, on any medium.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=600&q=80" alt="Business Intelligence" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Business Intelligence</h3>
-            <p>Build and deliver robust platforms comprised of cutting-edge data exploration, visualization, and analytics capabilities.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80" alt="Commerce" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Commerce</h3>
-            <p>Rapidly connect your internal systems, allowing you to provide critical functionality and data to your customers.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80" alt="Mobile Technology" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Mobile Technology</h3>
-            <p>Use mobile technology to transform the way your organization enable workforce, satisfy clients, and extend offers, and improve your service and communication.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=600&q=80" alt="Experience and Design" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Experience and Design</h3>
-            <p>Transform the way you do your business by improving your website usability design, digital strategy, and mobile web design.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="general-business-section" class="hero-section triangle-left about-hero" style="--triangle-rgb: 1, 113, 185;">
-    <div class="bg">
-      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80" alt="General Business Operations">
-    </div>
-    <div class="content">
-      <h2>Solutions for<br>Your Business</h2>
-      <p class="typing-text" data-text="Leverage our industry expertise to streamline processes and drive efficiency across your organization."></p>
-    </div>
-  </section>
-
-  <section class="hero-section right triangle-right about-hero" style="--triangle-rgb: 191, 215, 68;">
-    <div class="bg">
-      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80" alt="Corporate Team Collaboration" loading="lazy">
-    </div>
-    <div class="content">
-      <h2>Drive efficiency and stand out as an industry innovator</h2>
-      <p>
-        Partner with IA Innovations so we can enable your enterprise to cultivate its customer experience, grow its market share, and stand out as an industry innovator.
-      </p>
-    </div>
-  </section>
-
-  <section class="company-info-section">
-    <div class="company-info-container">
-      <div class="company-image picture-box">
-        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="Business strategy meeting">
-      </div>
-      <div class="company-text">
-        <p>With the number of demanding consumers continuously growing, the competition in vertical markets is becoming increasingly challenging and aggressive. Industry standards are being more defined, and the pace of innovation is unprecedented.</p>
-        <p>Partner with IA Innovations so we can enable your enterprise to cultivate its customer experience, grow its market share, and stand out as an industry innovator through regulatory compliance within the industry. Our procedure, strategy, and technology expertise in business sectors help deliver tailored experience and business optimization solutions.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="service-grid-section">
-    <div class="service-grid-container">
-      <div class="section-heading">
-        <h2>General Business Optimization</h2>
-        <p>Strategies to help your enterprise cultivate growth and efficiency.</p>
-      </div>
-      <div class="service-grid">
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=600&q=80" alt="Customer Experience" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Customer Experience</h3>
-            <p>Cultivate and enhance the way your business interacts with its demanding consumer base to drive satisfaction.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Market Share" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Market Share Growth</h3>
-            <p>Develop tailored strategies and optimization solutions designed to help your enterprise expand its presence.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="Regulatory Compliance" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Regulatory Compliance</h3>
-            <p>Stand out as a true industry innovator by ensuring strict regulatory compliance and procedural excellence.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="manufacturing-section" class="hero-section triangle-left about-hero" style="--triangle-rgb: 1, 46, 74;">
-    <div class="bg">
-      <img src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=1920&q=80" alt="Manufacturing and Supply Chain">
-    </div>
-    <div class="content">
-      <h2>Industry Solutions<br>in Manufacturing</h2>
-      <p class="typing-text" data-text="Develop customer lifecycle strategies and enable them to automate your key business processes."></p>
-    </div>
-  </section>
-
-  <section class="hero-section right triangle-right about-hero" style="--triangle-rgb: 1, 113, 185;">
-    <div class="bg">
-      <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80" alt="Manufacturing data analysis" loading="lazy">
-    </div>
-    <div class="content">
-      <h2>Prepare for the demand fluctuations of your consumers</h2>
-      <p>
-        Using the right tools, you can combat the challenge of having little control over the economic unpredictability in your industry by processing vast amounts of information about your customers, partners and products.
-      </p>
-    </div>
-  </section>
-
-  <section class="company-info-section">
-    <div class="company-info-container">
-      <div class="company-image picture-box">
-        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80" alt="Manufacturing plant automation">
-      </div>
-      <div class="company-text">
-        <p>For the manufacturing industry, challenge is encountered when facing the unpredictability of demands in various industries. This problem can be solved by integrating the market-driven approach of the management of your supply chain. With the right tools and methodology, you can improve your forecasting based on up-to-date, accurate data, and build upon your inventory process by aligning your supply plans with demand forecasts.</p>
-        <p>Differentiate your enterprise from your competitors with how you collect data and how you make smart decisions off that data. Develop the right customer lifecycle strategy for your business to strategize and plan your automation of key business processes.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="service-grid-section">
-    <div class="service-grid-container">
-      <div class="section-heading">
-        <h2>Manufacturing Automation</h2>
-        <p>Tools to combat economic unpredictability and manage the supply chain.</p>
-      </div>
-      <div class="service-grid">
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80" alt="Roadmap Planning" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Roadmap Planning</h3>
-            <p>Enable your enterprise to quickly deliver the goods and services your customers demand, and allow for collaboration with internal stakeholders and external partners to easily take the next steps.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Marketing Execution" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Marketing Execution</h3>
-            <p>Track real-time data intelligence and provide flexibility in manufacturing operation with effective execution of your marketing process.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=600&q=80" alt="Forecasting" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Forecasting and Pipeline Management</h3>
-            <p>Improve the control of your processes, and provide an objective measure of performance for more accurate sales forecasting and pipeline management.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://inciflo.com/wp-content/uploads/al_opt_content/IMAGE/inciflo.com/wp-content/uploads/2024/08/inciflo-blogs-3.jpg.bv_resized_desktop.jpg.bv.webp?bv_host=inciflo.com " alt="Order Management" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Product Configuration & Order Management</h3>
-            <p>Increase your competitive advantage by improving the efficiency of your quoting, pricing, order management, and product configuration.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=80" alt="Customer Service Analysis" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Customer Service and Analysis</h3>
-            <p>Process information from customer sentiments in order to improve your enterprise’s future sales and service, and lower your costs.</p>
-          </div>
-        </article>
+        <div class="reusable-card-slider-dots" aria-label="Consumer Markets slider navigation">
+          <button class="reusable-slider-dot active" type="button" data-slide="0" aria-label="Go to page 1"></button>
+        </div>
       </div>
     </div>
   </section>

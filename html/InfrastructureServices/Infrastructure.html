@@ -10,11 +10,10 @@
   <link rel="icon" type="image/png" href="/IAInnovations/images/iafavicon.png">
   
   <style>
-    /* Ensure smooth scrolling when jumping to IDs */
     html {
       scroll-behavior: smooth;
     }
-    /* Offset for the fixed navbar so titles aren't hidden when jumping */
+
     #cloud-solutions-section, 
     #information-security-section, 
     #security-surveillance-section,
@@ -147,52 +146,85 @@
         <h2>Cloud Capabilities</h2>
         <p>Comprehensive solutions for seamless cloud integration.</p>
       </div>
-      <div class="service-grid">
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Architecture" loading="lazy">
+
+      <div class="reusable-card-slider" id="cloudCapabilitiesSlider">
+        <div class="reusable-card-slider-track">
+
+          <div class="reusable-card-slide">
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Architecture" loading="lazy">
+                <div class="service-overlay">
+                  <p>Design scalable cloud environments and infrastructure foundations.</p>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3>Architecture</h3>
+                <p>Plan your cloud implementation with our cloud-centric architecture services from enterprise architecture through infrastructure architecture.</p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Assessment" loading="lazy">
+                <div class="service-overlay">
+                  <p>Evaluate readiness and determine cloud’s role in your strategy.</p>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3>Assessment</h3>
+                <p>Come up with a tangible insight you can use to determine cloud computing’s role in your strategic business and IT plans.</p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="Implementation" loading="lazy">
+                <div class="service-overlay">
+                  <p>Build and migrate toward elastic, self-service infrastructure.</p>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3>Implementation</h3>
+                <p>Establish and migrate to a cloud foundation for the delivery of elastic, self-service infrastructure capabilities seamlessly integrated with their traditional enterprise environment.</p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1507925922837-1c4291b400c1?auto=format&fit=crop&w=600&q=80" alt="Strategy and Roadmap" loading="lazy">
+                <div class="service-overlay">
+                  <p>Define a practical roadmap for long-term cloud adoption.</p>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3>Strategy and Roadmap</h3>
+                <p>Analyze your goals by carefully planning the implementation of your cloud solutions to ensure its effectiveness.</p>
+              </div>
+            </article>
           </div>
-          <div class="service-card-content">
-            <h3>Architecture</h3>
-            <p>Plan your cloud implementation with our cloud-centric architecture services from enterprise architecture through infrastructure architecture.</p>
+
+          <div class="reusable-card-slide">
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80" alt="Vendor Evaluation" loading="lazy">
+                <div class="service-overlay">
+                  <p>Select the right vendors, products, and cloud services.</p>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3>Vendor Evaluation and Selection</h3>
+                <p>Actively monitor and maintain the database of your vendors, products and services in the cloud computing market.</p>
+              </div>
+            </article>
           </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Assessment" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Assessment</h3>
-            <p>Come up with a tangible insight you can use to determine cloud computing’s role in your strategic business and IT plans.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="Implementation" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Implementation</h3>
-            <p>Establish and migrate to a cloud foundation for the delivery of elastic, self-service infrastructure capabilities seamlessly integrated with their traditional enterprise environment.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1507925922837-1c4291b400c1?auto=format&fit=crop&w=600&q=80" alt="Strategy and Roadmap" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Strategy and Roadmap</h3>
-            <p>Analyze your goals by carefully planning the implementation of your cloud solutions to ensure its effectiveness.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80" alt="Vendor Evaluation" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Vendor Evaluation and Selection</h3>
-            <p>Actively monitor and maintain the database of your vendors, products and services in the cloud computing market.</p>
-          </div>
-        </article>
+
+        </div>
+
+        <div class="reusable-card-slider-dots" aria-label="Cloud Capabilities slider navigation">
+          <button class="reusable-slider-dot active" type="button" data-slide="0" aria-label="Go to page 1"></button>
+          <button class="reusable-slider-dot" type="button" data-slide="1" aria-label="Go to page 2"></button>
+        </div>
       </div>
     </div>
   </section>
@@ -225,52 +257,85 @@
         <h2>Cybersecurity Services</h2>
         <p>Guaranteed protection and comprehensive outsourced solutions.</p>
       </div>
-      <div class="service-grid">
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=600&q=80" alt="Managed Security" loading="lazy">
+
+      <div class="reusable-card-slider" id="cybersecurityServicesSlider">
+        <div class="reusable-card-slider-track">
+
+          <div class="reusable-card-slide">
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=600&q=80" alt="Managed Security" loading="lazy">
+                <div class="service-overlay">
+                  <p>Real-time monitoring, emergency response, and 24/7 protection.</p>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3>Managed Security</h3>
+                <p>Come up with comprehensive outsourced solutions for real-time security management including system monitoring, emergency response and 24/7 guaranteed protection.</p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1584433144859-1fc3ab64a957?auto=format&fit=crop&w=600&q=80" alt="Emergency Response" loading="lazy">
+                <div class="service-overlay">
+                  <p>Prepare for breaches and stop active attacks fast.</p>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3>Emergency Response</h3>
+                <p>Plan ahead for information security breaches or stop attacks in progress with emergency response services from internet security systems.</p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&q=80" alt="Consulting Security" loading="lazy">
+                <div class="service-overlay">
+                  <p>Reduce risk and meet security goals with expert guidance.</p>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3>Consulting Security</h3>
+                <p>Professional security services delivers expert security consulting to assist you cost-effectively reduce risk, achieve and maintain regulatory compliance and reach your security goals.</p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="Regulatory Compliance" loading="lazy">
+                <div class="service-overlay">
+                  <p>Align systems with industry and government regulations.</p>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3>Regulatory Compliance</h3>
+                <p>Work with expert security consultants to calibrate your systems into compliance with industry and government regulations for information security.</p>
+              </div>
+            </article>
           </div>
-          <div class="service-card-content">
-            <h3>Managed Security</h3>
-            <p>Come up with comprehensive outsourced solutions for real-time security management including system monitoring, emergency response and 24/7 guaranteed protection.</p>
+
+          <div class="reusable-card-slide">
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://ripjar.com/wp-content/uploads/2024/07/DES-529-Blog-Social-Asset_Navigating-Cyber-Threats_Header-1536x675.png" alt="Threat Analysis" loading="lazy">
+                <div class="service-overlay">
+                  <p>Stay current with threat conditions tailored to your business.</p>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3>Threat Analysis</h3>
+                <p>Receive regular evaluations of global online threat conditions and detailed analyses tailored to your company’s needs.</p>
+              </div>
+            </article>
           </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1584433144859-1fc3ab64a957?auto=format&fit=crop&w=600&q=80" alt="Emergency Response" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Emergency Response</h3>
-            <p>Plan ahead for information security breaches or stop attacks in progress with emergency response services from internet security systems.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&q=80" alt="Consulting Security" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Consulting Security</h3>
-            <p>Professional security services delivers expert security consulting to assist you cost-effectively reduce risk, achieve and maintain regulatory compliance and reach your security goals.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="Regulatory Compliance" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Regulatory Compliance</h3>
-            <p>Work with expert security consultants to calibrate your systems into compliance with industry and government regulations for information security.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1614064641913-6b7140414c71?auto=format&fit=crop&w=600&q=80" alt="Threat Analysis" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Threat Analysis</h3>
-            <p>Receive regular evaluations of global online threat conditions and detailed analyses tailored to your company’s needs.</p>
-          </div>
-        </article>
+
+        </div>
+
+        <div class="reusable-card-slider-dots" aria-label="Cybersecurity Services slider navigation">
+          <button class="reusable-slider-dot active" type="button" data-slide="0" aria-label="Go to page 1"></button>
+          <button class="reusable-slider-dot" type="button" data-slide="1" aria-label="Go to page 2"></button>
+        </div>
       </div>
     </div>
   </section>
@@ -315,43 +380,69 @@
         <h2>Physical Security Solutions</h2>
         <p>Integrate physical and electronic systems to protect your infrastructure.</p>
       </div>
-      <div class="service-grid">
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://butterflymx.com/wp-content/uploads/2023/04/security-system-companies-700x466.webp" alt="Security Systems" loading="lazy">
+
+      <div class="reusable-card-slider" id="physicalSecuritySlider">
+        <div class="reusable-card-slider-track">
+
+          <div class="reusable-card-slide">
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://butterflymx.com/wp-content/uploads/2023/04/security-system-companies-700x466.webp" alt="Security Systems" loading="lazy">
+                <div class="service-overlay">
+                  <p>Plan systems with motion detection, monitoring, and supervision.</p>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3>Security Systems</h3>
+                <p>Plan your security system with motion detectors, glassbreak sensors, vibration detection sensors, remote monitoring and on-site supervision.</p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1549109926-58f039549485?auto=format&fit=crop&w=600&q=80" alt="Surveillance Systems" loading="lazy">
+                <div class="service-overlay">
+                  <p>Protect facilities with DVR, wireless, and video surveillance.</p>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3>Surveillance Systems</h3>
+                <p>Our wide range of video surveillance, DVR security systems and wireless cameras help you protect your physical space and assets.</p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" alt="Integrated Security Systems" loading="lazy">
+                <div class="service-overlay">
+                  <p>Unify physical and electronic security for critical facilities.</p>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3>Integrated Security Systems</h3>
+                <p>Integrate both the physical and electronic security systems in your critical infrastructure facility with our integrated security system services.</p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=600&q=80" alt="Security Planning" loading="lazy">
+                <div class="service-overlay">
+                  <p>Plan ahead to protect your most valuable assets.</p>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3>Security Planning</h3>
+                <p>Prevent the possible threats your organization might be vulnerable to, and protect your most valuable assets, by carefully planning your security systems.</p>
+              </div>
+            </article>
           </div>
-          <div class="service-card-content">
-            <h3>Security Systems</h3>
-            <p>Plan your security system with motion detectors, glassbreak sensors, vibration detection sensors, remote monitoring and on-site supervision.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1549109926-58f039549485?auto=format&fit=crop&w=600&q=80" alt="Surveillance Systems" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Surveillance Systems</h3>
-            <p>Our wide range of video surveillance, DVR security systems and wireless cameras help you protect your physical space and assets.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" alt="Integrated Security Systems" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Integrated Security Systems</h3>
-            <p>Integrate both the physical and electronic security systems in your critical infrastructure facility with our integrated security system services.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=600&q=80" alt="Security Planning" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Security Planning</h3>
-            <p>Prevent the possible threats your organization might be vulnerable to, and protect your most valuable assets, by carefully planning your security systems.</p>
-          </div>
-        </article>
+
+        </div>
+
+        <div class="reusable-card-slider-dots" aria-label="Physical Security Solutions slider navigation">
+          <button class="reusable-slider-dot active" type="button" data-slide="0" aria-label="Go to page 1"></button>
+        </div>
       </div>
     </div>
   </section>
@@ -396,52 +487,85 @@
         <h2>Process Management Framework</h2>
         <p>Streamlining organization operations for long-term success.</p>
       </div>
-      <div class="service-grid">
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Process Visibility" loading="lazy">
+
+      <div class="reusable-card-slider" id="processManagementSlider">
+        <div class="reusable-card-slider-track">
+
+          <div class="reusable-card-slide">
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Process Visibility" loading="lazy">
+                <div class="service-overlay">
+                  <p>Make end-to-end processes visible and understandable.</p>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3>Process Visibility</h3>
+                <p>The ability to overview end-to-end processes in both a narrow and wider context and in an intuitive way that is understandable for everyone.</p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" alt="Process Ownership" loading="lazy">
+                <div class="service-overlay">
+                  <p>Create accountability across extended enterprise operations.</p>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3>Process Ownership</h3>
+                <p>Establish accountability for improvement of end-to-end processes across the extended enterprise, which includes activities outsourced or in shared services.</p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=600&q=80" alt="Strategic Alignment" loading="lazy">
+                <div class="service-overlay">
+                  <p>Connect front-line work with broader business strategy.</p>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3>Strategic Alignment</h3>
+                <p>Establish a line of sight between strategy and front line operational improvement activities within your organization by doing a strategic alignment.</p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Performance Metrics" loading="lazy">
+                <div class="service-overlay">
+                  <p>Embed KPIs directly into process improvement efforts.</p>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3>Performance Metrics</h3>
+                <p>Embed key performance indicators within your processes to provide immediate feedback on performance, as well as the impact of improvement activities to your business.</p>
+              </div>
+            </article>
           </div>
-          <div class="service-card-content">
-            <h3>Process Visibility</h3>
-            <p>The ability to overview end-to-end processes in both a narrow and wider context and in an intuitive way that is understandable for everyone.</p>
+
+          <div class="reusable-card-slide">
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80" alt="Change Management" loading="lazy">
+                <div class="service-overlay">
+                  <p>Help people adopt and sustain new ways of working.</p>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3>Organizational Change Management</h3>
+                <p>Encourage your people to adopt and embrace new ways of working with the goal of organizational change to involve people.</p>
+              </div>
+            </article>
           </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" alt="Process Ownership" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Process Ownership</h3>
-            <p>Establish accountability for improvement of end-to-end processes across the extended enterprise, which includes activities outsourced or in shared services.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=600&q=80" alt="Strategic Alignment" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Strategic Alignment</h3>
-            <p>Establish a line of sight between strategy and front line operational improvement activities within your organization by doing a strategic alignment.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Performance Metrics" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Performance Metrics</h3>
-            <p>Embed key performance indicators within your processes to provide immediate feedback on performance, as well as the impact of improvement activities to your business.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80" alt="Change Management" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Organizational Change Management</h3>
-            <p>Encourage your people to adopt and embrace new ways of working with the goal of organizational change to involve people.</p>
-          </div>
-        </article>
+
+        </div>
+
+        <div class="reusable-card-slider-dots" aria-label="Process Management Framework slider navigation">
+          <button class="reusable-slider-dot active" type="button" data-slide="0" aria-label="Go to page 1"></button>
+          <button class="reusable-slider-dot" type="button" data-slide="1" aria-label="Go to page 2"></button>
+        </div>
       </div>
     </div>
   </section>
@@ -486,61 +610,98 @@
         <h2>DevOps Architecture</h2>
         <p>Accelerating deployment cycles with continuous integration and tools.</p>
       </div>
-      <div class="service-grid">
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Integration and Testing" loading="lazy">
+
+      <div class="reusable-card-slider" id="devopsArchitectureSlider">
+        <div class="reusable-card-slider-track">
+
+          <div class="reusable-card-slide">
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Integration and Testing" loading="lazy">
+                <div class="service-overlay">
+                  <p>Build agility with continuous integration and testing.</p>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3>Integration and Testing</h3>
+                <p>Build agility by building continuous integration and testing program development that will work for your system.</p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Delivery and Improvement" loading="lazy">
+                <div class="service-overlay">
+                  <p>Improve delivery quality through increased automation.</p>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3>Delivery and Improvement</h3>
+                <p>Increase the quality of production by constantly increasing the level of automation in the delivery process and working with your DevOps team.</p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="Automation Tools" loading="lazy">
+                <div class="service-overlay">
+                  <p>Automate delivery with traceable, scalable tools.</p>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3>Automation Tools</h3>
+                <p>Automate continuous delivery and DevOps processes with complete traceability to improve productivity in any project scale.</p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://www.slideegg.com/image/webpv2/670/703022-value-stream-mapping-template-670.webp" alt="Value Stream Mapping" loading="lazy">
+                <div class="service-overlay">
+                  <p>Map product flow from origin to customer value.</p>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3>Value Stream Mapping</h3>
+                <p>Implement a lean-management method for mapping the journey your products and services takes, from its beginning through to the customer.</p>
+              </div>
+            </article>
           </div>
-          <div class="service-card-content">
-            <h3>Integration and Testing</h3>
-            <p>Build agility by building continuous integration and testing program development that will work for your system.</p>
+
+          <div class="reusable-card-slide">
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Agile at Scale" loading="lazy">
+                <div class="service-overlay">
+                  <p>Scale agile collaboration across cross-functional teams.</p>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3>Agile at Scale</h3>
+                <p>Implement software development methods that enable solutions to evolve through collaboration between self-organizing, cross-functional teams.</p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-image-wrap">
+                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80" alt="Code Reviews" loading="lazy">
+                <div class="service-overlay">
+                  <p>Catch issues early with systematic code examination.</p>
+                </div>
+              </div>
+              <div class="service-card-content">
+                <h3>Code Reviews</h3>
+                <p>Systematically examine computer source code intended to find and fix mistakes overlooked in the initial process of the software development.</p>
+              </div>
+            </article>
           </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Delivery and Improvement" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Delivery and Improvement</h3>
-            <p>Increase the quality of production by constantly increasing the level of automation in the delivery process and working with your DevOps team.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="Automation Tools" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Automation Tools</h3>
-            <p>Automate continuous delivery and DevOps processes with complete traceability to improve productivity in any project scale.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://www.slideegg.com/image/webpv2/670/703022-value-stream-mapping-template-670.webp" alt="Value Stream Mapping" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Value Stream Mapping</h3>
-            <p>Implement a lean-management method for mapping the journey your products and services takes, from its beginning through to the customer.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Agile at Scale" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Agile at Scale</h3>
-            <p>Implement software development methods that enable solutions to evolve through collaboration between self-organizing, cross-functional teams.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80" alt="Code Reviews" loading="lazy">
-          </div>
-          <div class="service-card-content">
-            <h3>Code Reviews</h3>
-            <p>Systematically examine computer source code intended to find and fix mistakes overlooked in the initial process of the software development.</p>
-          </div>
-        </article>
+
+        </div>
+
+        <div class="reusable-card-slider-dots" aria-label="DevOps Architecture slider navigation">
+          <button class="reusable-slider-dot active" type="button" data-slide="0" aria-label="Go to page 1"></button>
+          <button class="reusable-slider-dot" type="button" data-slide="1" aria-label="Go to page 2"></button>
+        </div>
       </div>
     </div>
   </section>

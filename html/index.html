@@ -4,17 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IA Innovations</title>
-  
+
   <link rel="stylesheet" href="/IAInnovations/styles.css">
   <link rel="stylesheet" href="/IAInnovations/css/AboutUS.css">
-  
   <link rel="icon" type="image/png" href="/IAInnovations/images/iafavicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <style>
     .btn {
       display: inline-block;
-      background: #bfd744; /* Green */
-      color: #012e4a; /* Dark Blue */
+      background: #bfd744;
+      color: #012e4a;
       padding: 13px 26px;
       text-decoration: none;
       border-radius: 4px;
@@ -53,12 +53,271 @@
       pointer-events: auto;
       transition: opacity 0.35s ease, transform 0.35s ease;
     }
+
+    /* TOPBAR SEARCH */
+    .topbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .topbar-menu {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      margin-left: 0px;
+      order: 2;
+    }
+
+    .search-wrapper {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 999px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      width: 260px;
+      height: 25px;
+    }
+
+    .search-wrapper:focus-within {
+      background: #fff;
+      border-color: #bfd744;
+      width: 250px;
+    }
+
+    .search-wrapper input {
+      border: none;
+      background: transparent;
+      padding: 0 14px;
+      font-size: 0.9rem;
+      color: #fff;
+      outline: none;
+      width: 100%;
+      height: 100%;
+    }
+
+    .search-wrapper input::placeholder {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .search-wrapper:focus-within input {
+      color: #333;
+    }
+
+    .search-wrapper:focus-within input::placeholder {
+      color: #888;
+    }
+
+    .search-icon {
+      padding: 0 12px;
+      color: rgba(255, 255, 255, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .search-wrapper:focus-within .search-icon {
+      color: #0171b9;
+    }
+
+    /* SEARCH RESULTS */
+    #merged-search-section {
+      display: none;
+      padding: 60px 0 100px;
+      min-height: 70vh;
+      background: #ffffff;
+    }
+
+    #search-results-wrapper {
+      display: block;
+      width: 100%;
+    }
+
+    .category-group {
+      margin-bottom: 60px;
+      animation: popupZoom 0.4s ease forwards;
+    }
+
+    .category-title {
+      color: var(--dark-blue, #012e4a);
+      font-size: 1.6rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      border-bottom: 3px solid #e4edf3;
+      padding-bottom: 12px;
+      margin-bottom: 28px;
+      position: relative;
+    }
+
+    .category-title::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 60px;
+      height: 3px;
+      background: var(--blue, #0171b9);
+    }
+
+    .no-match-container {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+      background: #fdfdfe;
+      border: 1px dashed #cfdbe4;
+      border-radius: 12px;
+    }
+
+    .no-match-container h3 {
+      color: var(--dark-blue, #012e4a);
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .no-match-container p {
+      color: #44515a;
+      font-size: 1.05rem;
+    }
+
+    .service-card {
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      background: #fff;
+      border: 1px solid #e4edf3;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 42px rgba(1, 46, 74, 0.14);
+      border-color: rgba(1, 113, 185, 0.25);
+    }
+
+    .service-image-wrap {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+    }
+
+    .service-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s ease;
+    }
+
+    .service-card:hover .service-image-wrap img {
+      transform: scale(1.06);
+    }
+
+    .service-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(1,46,74,0.15) 0%, rgba(1,46,74,0.92) 100%);
+      color: #fff;
+      display: flex;
+      align-items: flex-end;
+      padding: 22px;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    .service-card:hover .service-overlay {
+      opacity: 1;
+    }
+
+    .service-card-content {
+      padding: 24px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card-content h3 {
+      color: var(--dark-blue, #012e4a);
+      font-size: 1.26rem;
+      margin-bottom: 12px;
+    }
+
+    .service-card-content p {
+      color: #44515a;
+      font-size: 1rem;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+
+    .service-card-content a {
+      display: inline-block;
+      color: var(--blue, #0171b9);
+      text-decoration: none;
+      font-weight: 700;
+      position: relative;
+      transition: color 0.3s ease;
+      align-self: flex-start;
+    }
+
+    .service-card-content a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue, #0171b9), var(--green, #bfd744));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card-content a:hover {
+      color: var(--dark-blue, #012e4a);
+    }
+
+    .service-card-content a:hover::after {
+      transform: scaleX(1);
+    }
+
+    @keyframes popupZoom {
+      0% { transform: translateY(15px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .topbar-container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .search-container {
+        margin-left: auto;
+        width: 100%;
+        order: 3;
+      }
+
+      .search-wrapper,
+      .search-wrapper:focus-within {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
 
   <div class="topbar">
     <div class="topbar-container">
+
       <ul class="topbar-menu">
         <li><a href="/IAInnovations/html/index.html">Home</a></li>
         <li><a href="/IAInnovations/html/BusinessTransformation/AboutUs.html">About Us</a></li>
@@ -66,140 +325,181 @@
         <li><a href="/IAInnovations/html/BusinessTransformation/careers.html">Careers</a></li>
         <li><a href="/IAInnovations/html/BusinessTransformation/Contact.html">Contact</a></li>
       </ul>
+
+      <div class="search-container">
+        <div class="search-wrapper">
+          <input
+            type="text"
+            id="liveSearchInput"
+            placeholder="Search for 'Cloud', 'Security'..."
+            autocomplete="off"
+          >
+          <div class="search-icon" aria-label="Search" role="button" tabindex="0">
+            <i class="fas fa-search"></i>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
   <nav class="navbar">
-  <div class="nav-container">
-    <div class="logo">
-      <a href="/IAInnovations/html/index.html">
-        <img src="/IAInnovations/images/ia-innovations-logo-white-bg.png" alt="IA Innovations Logo">
-      </a>
-    </div>
+    <div class="nav-container">
+      <div class="logo">
+        <a href="/IAInnovations/html/index.html">
+          <img src="/IAInnovations/images/ia-innovations-logo-white-bg.png" alt="IA Innovations Logo">
+        </a>
+      </div>
 
-    <ul class="nav-menu">
-      <li><a href="/IAInnovations/html/index.html">Home</a></li>
-      <li><a href="/IAInnovations/html/BusinessTransformation/AboutUs.html">About Us</a></li>
-      <li><a href="/IAInnovations/html/BusinessTransformation/Partnership.html">Partners</a></li>
-      <li><a href="/IAInnovations/html/BusinessTransformation/careers.html">Careers</a></li>
-      <li><a href="/IAInnovations/html/BusinessTransformation/Contact.html">Contact</a></li>
+      <ul class="nav-menu">
+        <li><a href="/IAInnovations/html/index.html">Home</a></li>
+        <li><a href="/IAInnovations/html/BusinessTransformation/AboutUs.html">About Us</a></li>
+        <li><a href="/IAInnovations/html/BusinessTransformation/Partnership.html">Partners</a></li>
+        <li><a href="/IAInnovations/html/BusinessTransformation/careers.html">Careers</a></li>
+        <li><a href="/IAInnovations/html/BusinessTransformation/Contact.html">Contact</a></li>
 
-      <li class="dropdown">
-        <a href="#">Business Transformation</a>
-        <ul class="dropdown-menu">
-          <li><a href="/IAInnovations/html/BusinessTransformation/CorporatePerformance.html">Corporate Performance</a></li>
-          <li><a href="/IAInnovations/html/BusinessTransformation/EnterpriseData.html">Enterprise Data</a></li>
-          <li><a href="/IAInnovations/html/BusinessTransformation/EnterpriseResource.html">Enterprise Resources</a></li>
-          <li><a href="/IAInnovations/html/BusinessTransformation/IntegrationApi.html">Integration API</a></li>
-          <li><a href="/IAInnovations/html/BusinessTransformation/ManagementConsulting.html">Management Consulting</a></li>
-          <li><a href="/IAInnovations/html/BusinessTransformation/AppDevelopment.html">App Development</a></li>
-          <li><a href="/IAInnovations/html/BusinessTransformation/ProjectManagement.html">Project Management</a></li>
-          <li><a href="/IAInnovations/html/BusinessTransformation/RPA.html">RPA</a></li>
-          <li><a href="/IAInnovations/html/BusinessTransformation/RPA.html">KINEX</a></li>
-        </ul>
-      </li>
+        <li class="dropdown">
+          <a href="#">Business Transformation</a>
+          <ul class="dropdown-menu">
+            <li><a href="/IAInnovations/html/BusinessTransformation/CorporatePerformance.html">Corporate Performance</a></li>
+            <li><a href="/IAInnovations/html/BusinessTransformation/EnterpriseData.html">Enterprise Data</a></li>
+            <li><a href="/IAInnovations/html/BusinessTransformation/EnterpriseResource.html">Enterprise Resources</a></li>
+            <li><a href="/IAInnovations/html/BusinessTransformation/IntegrationApi.html">Integration API</a></li>
+            <li><a href="/IAInnovations/html/BusinessTransformation/ManagementConsulting.html">Management Consulting</a></li>
+            <li><a href="/IAInnovations/html/BusinessTransformation/AppDevelopment.html">App Development</a></li>
+            <li><a href="/IAInnovations/html/BusinessTransformation/ProjectManagement.html">Project Management</a></li>
+            <li><a href="/IAInnovations/html/BusinessTransformation/RPA.html">RPA</a></li>
+            <li><a href="/IAInnovations/html/BusinessTransformation/RPA.html">KINEX</a></li>
+          </ul>
+        </li>
 
-      <li class="dropdown">
-        <a href="#">Digital Experience</a>
-        <ul class="dropdown-menu">
-           <li><a href="/IAInnovations/html/DigitalExperience/DigitalExperience.html#ecommerce-section">E-Commerce</a></li>
+        <li class="dropdown">
+          <a href="#">Digital Experience</a>
+          <ul class="dropdown-menu">
+            <li><a href="/IAInnovations/html/DigitalExperience/DigitalExperience.html#ecommerce-section">E-Commerce</a></li>
             <li><a href="/IAInnovations/html/DigitalExperience/DigitalExperience.html#digital-marketing-section">Digital Marketing</a></li>
             <li><a href="/IAInnovations/html/DigitalExperience/DigitalExperience.html#knowledge-management-section">Knowledge Management</a></li>
-             <li><a href="/IAInnovations/html/DigitalExperience/MobileExperience.html#mobile-experience-section">Mobile Experience</a></li>
-             <li><a href="/IAInnovations/html/DigitalExperience/MobileExperience.html#web-portal-section">Web and Portal</a></li>
-<li><a href="/IAInnovations/html/DigitalExperience/MobileExperience.html#document-management-section">Document Management</a></li>        
-        </ul>
-      </li>
+            <li><a href="/IAInnovations/html/DigitalExperience/MobileExperience.html#mobile-experience-section">Mobile Experience</a></li>
+            <li><a href="/IAInnovations/html/DigitalExperience/MobileExperience.html#web-portal-section">Web and Portal</a></li>
+            <li><a href="/IAInnovations/html/DigitalExperience/MobileExperience.html#document-management-section">Document Management</a></li>
+          </ul>
+        </li>
 
-      <li class="dropdown">
-        <a href="#">Industry Solutions</a>
-        <ul class="dropdown-menu">
-          <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#financial-services-section">Financial Services</a></li>
-          <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#consumer-markets-section">Consumer Markets</a></li>
-          <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#public-sector-section">Public Sector</a></li>
-          <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#financial-services-section">General Business</a></li>
-          <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#consumer-markets-section">Manufacturing</a></li>
-        </ul>
-      </li>
+        <li class="dropdown">
+          <a href="#">Industry Solutions</a>
+          <ul class="dropdown-menu">
+            <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html">Financial Services</a></li>
+            <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#consumer-markets-section">Consumer Markets</a></li>
+            <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#public-sector-section">Public Sector</a></li>
+            <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#financial-services-section">General Business</a></li>
+            <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#consumer-markets-section">Manufacturing</a></li>
+          </ul>
+        </li>
 
-      <li class="dropdown">
-        <a href="#">Infrastructure Services</a>
-        <ul class="dropdown-menu">
-          <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html#cloud-solutions-section">Cloud Solutions</a></li>
+        <li class="dropdown">
+          <a href="#">Infrastructure Services</a>
+          <ul class="dropdown-menu">
+            <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html">Cloud Solutions</a></li>
             <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html#information-security-section">Information Security</a></li>
             <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html#security-surveillance-section">Security & Surveillance</a></li>
             <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html#business-management-section">Business Management</a></li>
             <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html#devops-section">DevOps</a></li>
-        </ul>
-      </li>
-    </ul>
+          </ul>
+        </li>
+      </ul>
 
-    <div class="hamburger" aria-label="Toggle navigation" aria-expanded="false" role="button" tabindex="0">
-      <span></span>
-      <span></span>
-      <span></span>
+      <div class="hamburger" aria-label="Toggle navigation" aria-expanded="false" role="button" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
+  </nav>
+
+  <!-- DEFAULT INDEX CONTENT -->
+  <div id="default-home-content">
+    <section id="hero" class="hero-section about-hero triangle-left" style="--triangle-rgb: 1, 46, 74;">
+      <div class="bg">
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1920&q=80" alt="Software dashboard and analytics">
+      </div>
+      <div class="content">
+        <h2>Technology With A<br>Human-Centric<br>Design</h2>
+        <p class="typing-text" data-text="We blend technology to an individual and an organization’s routine to bring positive impact."></p>
+        <a href="/IAInnovations/html/BusinessTransformation/AboutUs.html" class="btn reveal-btn">Find Out More</a>
+      </div>
+    </section>
+
+    <section class="hero-section right about-hero triangle-right" style="--triangle-rgb: 1, 113, 185;">
+      <div class="bg">
+        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1920&q=80" alt="Software development workspace" loading="lazy">
+      </div>
+      <div class="content">
+        <h2>We Design</h2>
+        <p class="typing-text" data-text="We help our clients achieve growth with analytical, innovative, and business-centered strategies designed with the customer and the user experience in mind, and help them move forward with bold initiatives."></p>
+      </div>
+    </section>
+
+    <section class="hero-section about-hero triangle-left" style="--triangle-rgb: 191, 215, 68;">
+      <div class="bg">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1920&q=80" alt="Coding and software engineering" loading="lazy">
+      </div>
+      <div class="content">
+        <h2>We Build</h2>
+        <p class="typing-text" data-text="Our team of designers, developers, and analysts can collaborate with you and help make your ideas turn into useful software and applications that can be beneficial for your business."></p>
+      </div>
+    </section>
+
+    <section class="hero-section right about-hero triangle-right" style="--triangle-rgb: 171, 184, 195;">
+      <div class="bg">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920&q=80" alt="Business analytics dashboard" loading="lazy">
+      </div>
+      <div class="content">
+        <h2>We Deliver</h2>
+        <p class="typing-text" data-text="We provide a variety of tools to help businesses of all kinds succeed in the information and digital age, from cloud computing tools to email and digital marketing platforms with analytics."></p>
+      </div>
+    </section>
+
+    <section class="hero-section about-hero triangle-left" style="--triangle-rgb: 191, 215, 68;">
+      <div class="bg">
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80" alt="Cloud and network support" loading="lazy">
+      </div>
+      <div class="content">
+        <h2>We Support</h2>
+        <p class="typing-text" data-text="Our portal products provide enterprise solutions that can help your company deliver a highly-personalized, social experience for your customers, with a one-point access to all your services and information."></p>
+      </div>
+    </section>
+
+    <section class="hero-section right about-hero triangle-right" style="--triangle-rgb: 1, 113, 185;">
+      <div class="bg">
+        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1920&q=80" alt="Cybersecurity technology" loading="lazy">
+      </div>
+      <div class="content">
+        <h2>We Secure</h2>
+        <p class="typing-text" data-text="Our digital and physical security solutions enable increased business productivity while ensuring data security and compliance. We provide surveillance equipment, physical and logical access planning, and digital security consultation."></p>
+      </div>
+    </section>
   </div>
-</nav>
 
-  <section id="hero" class="hero-section about-hero triangle-left" style="--triangle-rgb: 1, 46, 74;">
-    <div class="bg">
-      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1920&q=80" alt="Software dashboard and analytics">
-    </div>
-    <div class="content">
-      <h2>Technology With A<br>Human-Centric<br>Design</h2>
-      <p class="typing-text" data-text="We blend technology to an individual and an organization’s routine to bring positive impact."></p>
-      <a href="/IAInnovations/html/BusinessTransformation/AboutUs.html" class="btn reveal-btn">Find Out More</a>
-    </div>
-  </section>
+  <!-- SEARCH RESULTS -->
+  <section class="service-grid-section" id="merged-search-section">
+    <div class="service-grid-container">
 
-  <section class="hero-section right about-hero triangle-right" style="--triangle-rgb: 1, 113, 185;">
-    <div class="bg">
-      <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1920&q=80" alt="Software development workspace" loading="lazy">
-    </div>
-    <div class="content">
-      <h2>We Design</h2>
-      <p class="typing-text" data-text="We help our clients achieve growth with analytical, innovative, and business-centered strategies designed with the customer and the user experience in mind, and help them move forward with bold initiatives."></p>
-    </div>
-  </section>
+      <div class="section-heading">
+        <h2 id="dynamic-search-title">Search Results</h2>
+        <p id="dynamic-search-subtitle">Showing matching services, technologies, and career opportunities.</p>
+      </div>
 
-  <section class="hero-section about-hero triangle-left" style="--triangle-rgb: 191, 215, 68;">
-    <div class="bg">
-      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1920&q=80" alt="Coding and software engineering" loading="lazy">
-    </div>
-    <div class="content">
-      <h2>We Build</h2>
-      <p class="typing-text" data-text="Our team of designers, developers, and analysts can collaborate with you and help make your ideas turn into useful software and applications that can be beneficial for your business."></p>
-    </div>
-  </section>
+      <div id="search-results-wrapper"></div>
 
-  <section class="hero-section right about-hero triangle-right" style="--triangle-rgb: 171, 184, 195;">
-    <div class="bg">
-      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920&q=80" alt="Business analytics dashboard" loading="lazy">
-    </div>
-    <div class="content">
-      <h2>We Deliver</h2>
-      <p class="typing-text" data-text="We provide a variety of tools to help businesses of all kinds succeed in the information and digital age, from cloud computing tools to email and digital marketing platforms with analytics."></p>
-    </div>
-  </section>
+      <div class="no-match-container" id="no-match-msg">
+        <svg width="64" height="64" fill="#cfdbe4" viewBox="0 0 16 16" style="margin-bottom: 15px;">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+          <path d="M4.285 12.433a.5.5 0 0 0 .683-.183A3.498 3.498 0 0 1 8 10.5c1.295 0 2.426.703 3.032 1.75a.5.5 0 0 0 .866-.5A4.498 4.498 0 0 0 8 9.5a4.5 4.5 0 0 0-3.898 2.25.5.5 0 0 0 .183.683zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5z"/>
+        </svg>
+        <h3>No matches found</h3>
+        <p>We couldn't find anything matching "<span id="failed-keyword" style="font-weight:bold; color:var(--blue);"></span>". <br>Try a different keyword like "Analytics", "Mobile", or "Network".</p>
+      </div>
 
-  <section class="hero-section about-hero triangle-left" style="--triangle-rgb: 191, 215, 68;">
-    <div class="bg">
-      <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80" alt="Cloud and network support" loading="lazy">
-    </div>
-    <div class="content">
-      <h2>We Support</h2>
-      <p class="typing-text" data-text="Our portal products provide enterprise solutions that can help your company deliver a highly-personalized, social experience for your customers, with a one-point access to all your services and information."></p>
-    </div>
-  </section>
-
-  <section class="hero-section right about-hero triangle-right" style="--triangle-rgb: 1, 113, 185;">
-    <div class="bg">
-      <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1920&q=80" alt="Cybersecurity technology" loading="lazy">
-    </div>
-    <div class="content">
-      <h2>We Secure</h2>
-      <p class="typing-text" data-text="Our digital and physical security solutions enable increased business productivity while ensuring data security and compliance. We provide surveillance equipment, physical and logical access planning, and digital security consultation."></p>
     </div>
   </section>
 
@@ -211,12 +511,11 @@
         © 2026 IA Innovations | A Member of the Kairos Group Pte Ltd |
         <a href="#">Terms and Conditions</a> |
         <a href="#">Privacy Policy</a> |
-        <a href="#">About ZWCAD</a>  |
+        <a href="#">About ZWCAD</a> |
         <a href="#">Go to Top</a>
       </p>
     </div>
   </footer>
-
   <script src="/IAInnovations/script.js"></script>
 </body>
 </html>

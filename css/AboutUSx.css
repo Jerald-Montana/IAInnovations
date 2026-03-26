@@ -67,7 +67,7 @@ img {
 .topbar-menu li a {
   color: white;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 10px;
 }
 
 .topbar-menu li a:hover {
@@ -93,14 +93,73 @@ img {
 /* =========================================
    MAIN NAVIGATION
    ========================================= */
+/* BS Navbar Overrides - Custom branding while using BS structure */
 .navbar {
-  background: var(--white);
-  padding: 18px 0;
+  --bs-navbar-padding-y: 1rem;
+  --bs-navbar-brand-font-size: 1.25rem;
   border-bottom: 2px solid #eee;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.navbar-brand img {
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover img {
+  transform: scale(1.05);
+}
+
+.navbar-nav .nav-link {
+  color: var(--dark-blue) !important;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 1.5px;
+  bottom: -5px;
+  left: 0;
+  background: linear-gradient(90deg, var(--blue), var(--green));
+  transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+  width: 100%;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--blue) !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.25rem rgba(1, 113, 185, 0.25);
+}
+
+/* Custom dropdown overrides */
+.dropdown-menu {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08) !important;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 0;
+}
+
+.dropdown-item:hover {
+  background: var(--light-bg) !important;
+  color: var(--blue) !important;
+  padding-left: 25px;
+}
+
+/* Mobile menu - keep custom JS compatibility */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background: var(--white);
+    border-top: 1px solid #eee;
+  }
 }
 
 .nav-container {
@@ -1623,34 +1682,4 @@ img {
 /* Prevents the fixed navbar from covering the section title after jumping */
 #rpa-section, #kinex-section {
   scroll-margin-top: 100px; 
-}
-.service-image-wrap {
-  position: relative;
-  overflow: hidden;
-}
-
-.service-image-wrap::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(1, 46, 74, 0.08) 0%,
-    rgba(1, 46, 74, 0.82) 100%
-  );
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  pointer-events: none;
-}
-
-.service-card:hover .service-image-wrap::after {
-  opacity: 1;
-}
-
-.service-image-wrap img {
-  transition: transform 0.45s ease;
-}
-
-.service-card:hover .service-image-wrap img {
-  transform: scale(1.06);
 }
