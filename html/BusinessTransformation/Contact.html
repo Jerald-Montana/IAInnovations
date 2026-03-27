@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' https: data:; frame-src https://www.google.com https://formsubmit.co; form-action https://formsubmit.co;">
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
   <title>Contact Us - IA Innovations</title>
   
   <link rel="stylesheet" href="/IAInnovations/styles.css">
@@ -23,48 +29,88 @@
       flex-shrink: 0;        
     }
 
-    /* Clickable Map Toggle Button */
-    .map-label {
-      font-size: 0.85rem;      
-      padding: 8px 16px;       
-      position: absolute;
-      right: 15px;             
-      left: auto;              
-      bottom: 30px; 
-      background: #0171b9; 
-      color: white;
-      border-radius: 4px;
-      cursor: pointer;
-      pointer-events: auto;
-      z-index: 10;
-      transition: background 0.3s ease, transform 0.2s ease;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    
+    /* =========================================
+       CONTACT SLIDER OVERRIDES
+       ========================================= */
+    .contact-container {
+      display: block !important;
     }
 
-    .map-label:hover {
-      background: #012e4a;
-      transform: translateY(-2px);
+    .reusable-card-slider {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      margin-top: 20px;
     }
 
-    /* Smooth Hover Effects for the Boxes */
+    .reusable-card-slider-track {
+      display: flex;
+      align-items: stretch;
+      gap: 24px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding-bottom: 20px;
+      scrollbar-width: none; 
+    }
+    
+    .reusable-card-slider-track::-webkit-scrollbar {
+      display: none; 
+    }
+
+    .contact-card {
+      flex: 0 0 calc(50% - 12px); 
+      scroll-snap-align: start; 
+      display: flex;
+      flex-direction: column;
+      height: auto;
+    }
+
     .contact-details-box, 
     .message-box, 
     .map-box {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: flex-start;
+      height: 100% !important;
+      min-height: 500px;
+      border-radius: 14px;
     }
 
-    .contact-details-box:hover, 
-    .message-box:hover, 
-    .map-box:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 35px rgba(1, 46, 74, 0.15);
+    /* =========================================
+       BULLETPROOF POPUP CSS (Forces Center Screen)
+       ========================================= */
+    .success-popup-overlay {
+      display: none; 
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(1, 46, 74, 0.85); z-index: 999999;
+      align-items: center; justify-content: center; backdrop-filter: blur(5px);
     }
-
-    /* Popup Animation */
+    
+    .success-popup-overlay.show-popup {
+      display: flex !important; /* Overrides any hidden attributes */
+    }
+    
+    .success-popup-box {
+      background: white; padding: 40px; border-radius: 12px; text-align: center; 
+      max-width: 400px; width: 90%; box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
+      animation: popupZoom 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
     @keyframes popupZoom {
       0% { transform: scale(0.8); opacity: 0; }
       100% { transform: scale(1); opacity: 1; }
     }
+    
+    .done-btn {
+      background: #bfd744; border: none; padding: 12px 36px; font-weight: bold; 
+      border-radius: 6px; cursor: pointer; color: #012e4a; font-size: 1.1rem; 
+      margin-top: 10px; transition: background 0.3s ease, transform 0.2s ease;
+    }
+    
+    .done-btn:hover { background: #a9c833; transform: scale(1.05); }
   </style>
 </head>
 <body>
@@ -106,8 +152,8 @@
             <li><a href="/IAInnovations/html/BusinessTransformation/ManagementConsulting.html">Management Consulting</a></li>
             <li><a href="/IAInnovations/html/BusinessTransformation/AppDevelopment.html">App Development</a></li>
             <li><a href="/IAInnovations/html/BusinessTransformation/ProjectManagement.html">Project Management</a></li>
-            <li><a href="/IAInnovations/html/BusinessTransformation/RPA.html#rpa-section">RPA</a></li>
-            <li><a href="/IAInnovations/html/BusinessTransformation/RPA.html#kinex-section">KINEX</a></li>
+            <li><a href="/IAInnovations/html/BusinessTransformation/RPA.html">RPA</a></li>
+            <li><a href="/IAInnovations/html/BusinessTransformation/RPA.html#kinex-section">KINEX.io</a></li>
           </ul>
         </li>
 
@@ -178,103 +224,135 @@
 
   <section class="contact-section">
     <div class="contact-container">
+      
+      <div class="reusable-card-slider" id="contactSlider">
+        <div class="reusable-card-slider-track" id="contactTrack">
+          
+          <article class="contact-card">
+            <div class="contact-details-box">
+              <h2>Contact Us</h2>
 
-      <div class="contact-left">
-        <div class="contact-details-box">
-          <h2>Contact Us</h2>
+              <div class="contact-detail-group">
+                <h3 class="icon-heading">
+                  <img src="/IAInnovations/images/loc2.png" class="heading-icon" alt="Address Icon"> Address
+                </h3>
+                <p><strong>Branch Office:</strong></p>
+                <p>3201 Antel Global Corporate Center, 32nd Floor, 1605 Doña Julia Vargas Ave, Ortigas Center, Pasig</p>
 
-          <div class="contact-detail-group">
-            <h3 class="icon-heading">
-              <img src="/IAInnovations/images/loc2.png" class="heading-icon" alt="Address Icon"> Address
-            </h3>
-            <p><strong>Branch Office:</strong></p>
-            <p>3201 Antel Global Corporate Center, 32nd Floor, 1605 Doña Julia Vargas Ave, Ortigas Center, Pasig</p>
+                <p><strong>Main Office:</strong></p>
+                <p>11th Floor Cyberone Bldg. Eastwood Cyberpark, Brgy. Bagumbayan, Quezon City 1110</p>
+              </div>
 
-            <p><strong>Main Office:</strong></p>
-            <p>11th Floor Cyberone Bldg. Eastwood Cyberpark, Brgy. Bagumbayan, Quezon City 1110</p>
-          </div>
+              <div class="contact-detail-group">
+                <h3 class="icon-heading">
+                  <img src="/IAInnovations/images/contact.png.png" class="heading-icon" alt="Contact Icon"> Contact No.
+                </h3>
+                <p>+63 28-9378-809</p>
+              </div>
 
-          <div class="contact-detail-group">
-            <h3 class="icon-heading">
-              <img src="/IAInnovations/images/contact.png.png" class="heading-icon" alt="Contact Icon"> Contact No.
-            </h3>
-            <p>+63 28-9378-809</p>
-          </div>
+              <div class="contact-detail-group">
+                <h3 class="icon-heading">
+                  <img src="/IAInnovations/images/email.png" class="heading-icon" alt="Email Icon"> Email Address
+                </h3>
+                <p><a href="mailto:info@iainnovations.com">info@iainnovations.com</a></p>
+              </div>
+            </div>
+          </article>
 
-          <div class="contact-detail-group">
-            <h3 class="icon-heading">
-              <img src="/IAInnovations/images/email.png" class="heading-icon" alt="Email Icon"> Email Address
-            </h3>
-            <p><a href="mailto:info@iainnovations.com">info@iainnovations.com</a></p>
-          </div>
+          <article class="contact-card">
+            <div class="map-box">
+              <h2 class="map-box-title">LOCATION</h2>
+              <iframe
+                 id="liveMap"
+                 class="map-frame active-view"
+                 src="https://www.google.com/maps?q=Antel%20Global%20Corporate%20Center%20Condo.%20Asso.Inc.%2C%20Ground%20Floor%2C%20Antel%20Global%20Corporate%20Center%2C%201605%20Do%C3%B1a%20Julia%20Vargas%20Ave%2C%20Ortigas%20Center%2C%20Pasig%2C%20Metro%20Manila&z=17&output=embed"
+                 loading="lazy"
+                 referrerpolicy="no-referrer-when-downgrade"
+                 allowfullscreen>
+              </iframe>
+
+              <img
+                id="mapImage"
+                class="map-image"
+                src="https://imagedelivery.net/4hgeCwftKXWxSyeV7QJJpA/6170b0dd-828a-4b3c-13ae-75487e7a2600/w=600,compression=fast,format=webp"
+                alt="IA Innovations office building">
+
+              <div class="map-label" id="toggleViewBtn">
+                <span>🔄 Click to switch view</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="contact-card">
+            <div class="message-box">
+              <h2>Message Us</h2>
+              
+              <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+              <-- The form submits to FormSubmit.co, which will handle the email sending. The onsubmit event triggers the showPopup function to display the success message. -->  
+              <form class="contact-form" id="secureContactForm" action="https://formsubmit.co/embeddedsystems718@gmail.com" method="POST" target="hidden_iframe" onsubmit="showPopup()">
+                
+                <div class="form-row">
+                  <input type="text" name="name" placeholder="Full Name" required>
+                  <input type="email" name="email" placeholder="Email Address" required>
+                </div>
+
+                <div class="form-row single">
+                  <input type="text" name="subject" placeholder="Subject" required>
+                </div>
+
+                <div class="form-row single">
+                  <textarea 
+                      name="message" 
+                      placeholder="Your Message (Type at least 20 characters)" 
+                      rows="6" 
+                      required 
+                      minlength="20" 
+                  ></textarea>
+                </div>
+
+                <input type="hidden" name="_subject" value="New IA Innovations Inquiry">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="text" name="_honey" style="display:none">
+                
+                <button type="submit" id="submitBtn" class="contact-btn">Send Message</button>
+              </form>
+
+              <script>
+                function showPopup() {
+                  // 1. Show the success popup immediately using the strict CSS class
+                  document.getElementById('successPopup').classList.add('show-popup');
+                  
+                  // 2. Change the button text
+                  document.getElementById('submitBtn').innerText = 'Message Sent!';
+                  
+                  // 3. Clear the form text boxes half a second later
+                  setTimeout(function() {
+                    document.getElementById('secureContactForm').reset();
+                    document.getElementById('submitBtn').innerText = 'Send Message';
+                  }, 500);
+                }
+
+                function closePopup() {
+                  // 1. Hide the popup
+                  document.getElementById('successPopup').classList.remove('show-popup');
+                }
+              </script>
+            </div>
+          </article>
         </div>
 
-        <div class="message-box">
-          <h2>Message Us</h2>
-          <form class="contact-form" id="ajaxContactForm" action="https://formsubmit.co/ajax/embeddedsystems718@gmail.com" method="POST">
-            
-            <div class="form-row">
-              <input type="text" name="name" placeholder="Full Name" required>
-              <input type="email" name="email" placeholder="Email Address" required>
-            </div>
-
-            <div class="form-row single">
-              <input type="text" name="subject" placeholder="Subject" required>
-            </div>
-
-            <div class="form-row single">
-              <textarea 
-                    name="message" 
-                    placeholder="Your Message (Type at least 20 characters)" 
-                    rows="6" 
-                    required 
-                    minlength="20" 
-                    oninvalid="this.setCustomValidity('To help us better understand your inquiry, kindly provide a more detailed message (minimum 20 characters).')" 
-                    oninput="this.setCustomValidity('')"
-                ></textarea>
-            </div>
-
-            <input type="hidden" name="_subject" value="New IA Innovations Inquiry">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            <input type="text" name="_honey" style="display:none">
-            
-            <button type="submit" class="contact-btn">Send Message</button>
-          </form>
-        </div>
+        <div class="reusable-card-slider-dots" id="contactDots"></div>
       </div>
-
-      <div class="contact-map-side">
-        <div class="map-box">
-          <iframe
-             id="liveMap"
-             class="map-frame active-view"
-             src="https://www.google.com/maps?q=Antel%20Global%20Corporate%20Center%20Condo.%20Asso.Inc.%2C%20Ground%20Floor%2C%20Antel%20Global%20Corporate%20Center%2C%201605%20Do%C3%B1a%20Julia%20Vargas%20Ave%2C%20Ortigas%20Center%2C%20Pasig%2C%20Metro%20Manila&z=17&output=embed"
-             loading="lazy"
-             referrerpolicy="no-referrer-when-downgrade"
-             allowfullscreen>
-          </iframe>
-
-          <img
-            id="mapImage"
-            class="map-image"
-            src="https://imagedelivery.net/4hgeCwftKXWxSyeV7QJJpA/6170b0dd-828a-4b3c-13ae-75487e7a2600/w=600,compression=fast,format=webp"
-            alt="IA Innovations office building">
-
-          <div class="map-label" id="toggleViewBtn">
-            <span>🔄 Click to switch view</span>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <div class="success-popup-overlay" id="successPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(1, 46, 74, 0.7); z-index: 9999; align-items: center; justify-content: center; backdrop-filter: blur(4px);">
-    <div style="background: white; padding: 40px; border-radius: 8px; text-align: center; max-width: 400px; width: 90%; box-shadow: 0 20px 40px rgba(0,0,0,0.4); animation: popupZoom 0.3s ease;">
-      <h2 style="color: #0171b9; margin-bottom: 15px;">Message Sent!</h2>
-      <p style="color: #44515a; margin-bottom: 25px;">Thank you for contacting IA Innovations. We have received your inquiry and will get back to you shortly.</p>
-      <button id="closeSuccessPopup" style="background: #bfd744; border: none; padding: 12px 24px; font-weight: bold; border-radius: 4px; cursor: pointer; color: #012e4a; font-size: 1rem; transition: background 0.3s ease;">Close</button>
+  <div class="success-popup-overlay" id="successPopup">
+    <div class="success-popup-box">
+      <h2 style="color: #0171b9; margin-bottom: 15px; font-size: 2rem;">Message Sent!</h2>
+      <p style="color: #44515a; margin-bottom: 25px; font-size: 1.1rem;">Thank you for contacting IA Innovations. We have successfully received your inquiry and our team will get back to you shortly.</p>
+      
+      <button class="done-btn" onclick="closePopup()">Done</button>
     </div>
   </div>
 
@@ -293,5 +371,6 @@
   </footer>
 
   <script src="/IAInnovations/script.js"></script>
+
 </body>
 </html>
