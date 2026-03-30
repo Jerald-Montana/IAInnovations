@@ -9,17 +9,81 @@
   <link rel="stylesheet" href="/IAInnovations/css/AboutUS.css">
   <link rel="icon" type="image/png" href="/IAInnovations/images/iafavicon.png">
   
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
   <style>
     html {
       scroll-behavior: smooth;
     }
 
+    /* Scroll Margin prevents sticky nav from covering section titles */
     #financial-services-section, 
     #consumer-markets-section, 
     #public-sector-section,
     #general-business-section,
     #manufacturing-section {
-      scroll-margin-top: 100px;
+      scroll-margin-top: 120px;
+    }
+
+    /* Topbar Search Styling */
+    .topbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .topbar-menu {
+      display: flex;
+      gap: 15px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-wrapper {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 999px;
+      padding: 4px 12px;
+      transition: all 0.3s ease;
+      width: 220px;
+    }
+
+    .search-wrapper:focus-within {
+      background: #fff;
+      border-color: #bfd744;
+      width: 250px;
+    }
+
+    .search-wrapper input {
+      border: none;
+      background: transparent;
+      color: #fff;
+      outline: none;
+      width: 100%;
+      font-size: 0.9rem;
+    }
+
+    .search-wrapper:focus-within input {
+      color: #333;
+    }
+
+    .search-icon {
+      color: rgba(255, 255, 255, 0.8);
+      margin-left: 8px;
+      cursor: pointer;
+    }
+
+    .search-wrapper:focus-within .search-icon {
+      color: #0171b9;
     }
   </style>
 </head>
@@ -33,6 +97,8 @@
         <li><a href="/IAInnovations/html/BusinessTransformation/careers.html">Careers</a></li>
         <li><a href="/IAInnovations/html/BusinessTransformation/Contact.html">Contact</a></li>
       </ul>
+
+   
     </div>
   </div>
 
@@ -45,11 +111,7 @@
       </div>
 
       <ul class="nav-menu">
-        <li><a href="/IAInnovations/html/index.html">Home</a></li>
-        <li><a href="/IAInnovations/html/BusinessTransformation/AboutUs.html">About Us</a></li>
-        <li><a href="/IAInnovations/html/BusinessTransformation/Partnership.html">Partners</a></li>
-        <li><a href="/IAInnovations/html/BusinessTransformation/careers.html">Careers</a></li>
-        <li><a href="/IAInnovations/html/BusinessTransformation/Contact.html">Contact</a></li>
+        
 
         <li class="dropdown">
           <a href="#">Business Transformation</a>
@@ -82,10 +144,10 @@
           <a href="#">Industry Solutions</a>
           <ul class="dropdown-menu">
             <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html">Financial Services</a></li>
-            <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#consumer-markets-section">Consumer Markets</a></li>
-            <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#public-sector-section">Public Sector</a></li>
-            <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#general-business-section">General Business</a></li>
-            <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#manufacturing-section">Manufacturing</a></li>
+            <li><a href="#consumer-markets-section">Consumer Markets</a></li>
+            <li><a href="#public-sector-section">Public Sector</a></li>
+            <li><a href="#general-business-section">General Business</a></li>
+            <li><a href="#manufacturing-section">Manufacturing</a></li>
           </ul>
         </li>
 
@@ -340,6 +402,36 @@
           <button class="reusable-slider-dot" type="button" data-slide="1" aria-label="Go to page 2"></button>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section id="public-sector-section" class="hero-section triangle-left about-hero" style="--triangle-rgb: 1, 113, 185;">
+    <div class="bg">
+      <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1920&q=80" alt="Public Sector Solutions">
+    </div>
+    <div class="content">
+      <h2>Solutions for<br>Public Sector</h2>
+      <p class="typing-text" data-text="Modernizing government services through digital transparency and efficient citizen engagement platforms."></p>
+    </div>
+  </section>
+
+  <section id="general-business-section" class="hero-section right triangle-right about-hero" style="--triangle-rgb: 171, 184, 195;">
+    <div class="bg">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80" alt="General Business Solutions">
+    </div>
+    <div class="content">
+      <h2>Empowering<br>General Business</h2>
+      <p class="typing-text" data-text="Scalable technology frameworks designed to grow alongside your enterprise, from startups to established firms."></p>
+    </div>
+  </section>
+
+  <section id="manufacturing-section" class="hero-section triangle-left about-hero" style="--triangle-rgb: 191, 215, 68;">
+    <div class="bg">
+      <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80" alt="Manufacturing Technology">
+    </div>
+    <div class="content">
+      <h2>Smart<br>Manufacturing</h2>
+      <p class="typing-text" data-text="Integrating IoT and real-time monitoring to optimize supply chains and increase production floor efficiency."></p>
     </div>
   </section>
 
