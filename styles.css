@@ -251,3 +251,352 @@
     flex: 0 0 100% !important; 
   }
 }
+ /* Positions the arrow and adds the smooth transition */
+    .arrow {
+      display: inline-block;
+      transition: transform 0.3s ease;
+      margin-left: 5px; /* Adds a little space between the text and the arrow */
+      font-size: 0.9em; /* Keeps the arrow from looking too large */
+    }
+
+    /* Flips the arrow upside down when hovering over the dropdown <li> */
+    .dropdown:hover .arrow {
+      transform: rotate(180deg);
+    }
+
+    /* Keeps your dropdown menus looking neat and prevents text wrapping */
+    .dropdown-menu {
+      white-space: nowrap; 
+    }
+    /* =========================================
+   EXTRA MODERN HOVERS
+   ========================================= */
+
+/* section heading polish */
+.section-heading h2 {
+  position: relative;
+  display: inline-block;
+}
+
+.section-heading h2::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 4px;
+  margin: 14px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue), var(--green));
+}
+
+/* stronger career card polish */
+.career-card {
+  border: 1px solid rgba(1, 46, 74, 0.07);
+  border-radius: 22px;
+}
+
+.career-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 22px 50px rgba(1, 46, 74, 0.14);
+}
+
+.career-image-wrap {
+  border-radius: 22px 22px 0 0;
+}
+
+.career-card-content h3 {
+  transition: color 0.3s ease;
+}
+
+.career-card:hover .career-card-content h3 {
+  color: var(--blue);
+}
+
+.career-actions a {
+  position: relative;
+}
+
+.career-actions a:first-child {
+  margin-right: 8px;
+}
+
+/* process cards hover */
+.career-process-step {
+  border-radius: 22px;
+}
+
+.career-process-step h3 {
+  transition: color 0.3s ease;
+}
+
+.career-process-step:hover h3 {
+  color: var(--blue);
+}
+
+.career-step-number {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.career-process-step:hover .career-step-number {
+  transform: scale(1.08);
+  box-shadow: 0 10px 24px rgba(1, 46, 74, 0.18);
+}
+
+/* =========================================
+   EXTRA MODERN HOVERS
+   ========================================= */
+
+/* section heading polish */
+.section-heading h2 {
+  position: relative;
+  display: inline-block;
+}
+
+.section-heading h2::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 4px;
+  margin: 14px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blue), var(--green));
+}
+
+/* stronger career card polish */
+.career-card {
+  border: 1px solid rgba(1, 46, 74, 0.07);
+  border-radius: 22px;
+}
+
+.career-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 22px 50px rgba(1, 46, 74, 0.14);
+}
+
+.career-image-wrap {
+  border-radius: 22px 22px 0 0;
+}
+
+.career-card-content h3 {
+  transition: color 0.3s ease;
+}
+
+.career-card:hover .career-card-content h3 {
+  color: var(--blue);
+}
+
+.career-actions a {
+  position: relative;
+}
+
+.career-actions a:first-child {
+  margin-right: 8px;
+}
+
+/* process cards hover */
+.career-process-step {
+  border-radius: 22px;
+}
+
+.career-process-step h3 {
+  transition: color 0.3s ease;
+}
+
+.career-process-step:hover h3 {
+  color: var(--blue);
+}
+
+.career-step-number {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.career-process-step:hover .career-step-number {
+  transform: scale(1.08);
+  box-shadow: 0 10px 24px rgba(1, 46, 74, 0.18);
+}
+/* =========================================
+   ABOUT US - COMPANY INFO MODERN UPGRADE
+   ========================================= */
+
+.company-info-section {
+  position: relative;
+  padding: 95px 0 75px;
+  background:
+    radial-gradient(circle at top left, rgba(1, 113, 185, 0.05), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(191, 215, 68, 0.08), transparent 26%),
+    linear-gradient(180deg, #ffffff 0%, #f8fbfd 100%);
+  overflow: hidden;
+}
+
+.company-info-container {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  align-items: center;
+  gap: 56px;
+}
+
+.company-text {
+  position: relative;
+}
+
+.company-eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: var(--blue);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.company-title {
+  font-size: clamp(1rem, 3vw, 2rem);
+  line-height: 1.12;
+  color: var(--dark-blue);
+  margin-bottom: 18px;
+  font-weight: 800;
+  transition: color 0.3s ease;
+}
+
+.company-text p {
+  margin-bottom: 22px;
+  line-height: 1.9;
+  color: #485761;
+  font-size: 1.03rem;
+  text-align: left;
+  transition: color 0.3s ease;
+}
+
+.company-text p:last-of-type {
+  margin-bottom: 0;
+}
+
+.company-info-section:hover .company-title {
+  color: var(--blue);
+}
+
+.company-info-section:hover .company-text p {
+  color: #3f4d56;
+}
+
+/* image modernization */
+.company-image.picture-box {
+  position: relative;
+  flex: unset;
+  max-width: 100%;
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  align-self: center;
+  overflow: visible;
+}
+
+.company-image.picture-box::before {
+  content: "";
+  position: absolute;
+  inset: 18px -18px -18px 18px;
+  border-radius: 34px;
+  background: linear-gradient(
+    135deg,
+    rgba(1, 113, 185, 0.14),
+    rgba(191, 215, 68, 0.10)
+  );
+  filter: blur(8px);
+  z-index: 0;
+  transition: transform 0.45s ease, opacity 0.45s ease;
+  opacity: 0.9;
+}
+
+.company-image.picture-box img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  display: block;
+  border-radius: 32px !important;
+  box-shadow:
+    0 20px 50px rgba(1, 46, 74, 0.12),
+    0 8px 24px rgba(1, 46, 74, 0.08) !important;
+  transition:
+    transform 0.55s ease,
+    box-shadow 0.55s ease,
+    filter 0.55s ease;
+}
+
+.company-image.picture-box::after {
+  content: "Innovation with purpose";
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  z-index: 2;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.86);
+  color: var(--dark-blue);
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 24px rgba(1, 46, 74, 0.10);
+}
+
+.company-image.picture-box:hover img {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 28px 60px rgba(1, 46, 74, 0.16),
+    0 12px 28px rgba(1, 46, 74, 0.10) !important;
+  filter: saturate(1.04);
+}
+
+.company-image.picture-box:hover::before {
+  transform: translateY(10px) scale(1.02);
+  opacity: 1;
+}
+
+@media (max-width: 992px) {
+  .company-info-container {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .company-image.picture-box img {
+    min-height: 320px;
+    border-radius: 26px !important;
+  }
+
+  .company-image.picture-box::before {
+    inset: 14px -10px -10px 14px;
+    border-radius: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .company-info-section {
+    padding: 70px 0 50px;
+  }
+
+  .company-title {
+    font-size: 2rem;
+  }
+
+  .company-text p {
+    font-size: 0.98rem;
+    line-height: 1.8;
+  }
+
+  .company-image.picture-box img {
+    min-height: 260px;
+    border-radius: 22px !important;
+  }
+
+  .company-image.picture-box::after {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    width: fit-content;
+    max-width: calc(100% - 32px);
+    font-size: 0.82rem;
+    padding: 10px 14px;
+  }
+}

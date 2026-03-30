@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Careers - IA Innovations</title>
-  
+
   <link rel="stylesheet" href="/IAInnovations/styles.css">
   <link rel="stylesheet" href="/IAInnovations/css/AboutUS.css">
+  <link rel="stylesheet" href="/IAInnovations/css/careers.css">
   <link rel="icon" type="image/png" href="/IAInnovations/images/iafavicon.png">
 </head>
 <body>
@@ -30,15 +31,9 @@
         </a>
       </div>
 
-      <ul class="nav-menu">
-        <!-- <li><a href="/IAInnovations/html/index.html">Home</a></li>
-        <li><a href="/IAInnovations/html/BusinessTransformation/AboutUs.html">About Us</a></li>
-        <li><a href="/IAInnovations/html/BusinessTransformation/Partnership.html">Partners</a></li>
-        <li><a href="/IAInnovations/html/BusinessTransformation/careers.html">Careers</a></li>
-        <li><a href="/IAInnovations/html/BusinessTransformation/Contact.html">Contact</a></li> -->
-
+      <ul class="nav-menu" id="navMenu">
         <li class="dropdown">
-          <a href="#">Business Transformation</a>
+          <a href="#">Business Transformation <span class="arrow"><b>^</b></span></a>
           <ul class="dropdown-menu">
             <li><a href="/IAInnovations/html/BusinessTransformation/CorporatePerformance.html">Corporate Performance</a></li>
             <li><a href="/IAInnovations/html/BusinessTransformation/EnterpriseData.html">Enterprise Data</a></li>
@@ -53,7 +48,7 @@
         </li>
 
         <li class="dropdown">
-          <a href="#">Digital Experience</a>
+          <a href="#">Digital Experience <span class="arrow">^</span></a>
           <ul class="dropdown-menu">
             <li><a href="/IAInnovations/html/DigitalExperience/DigitalExperience.html">E-Commerce</a></li>
             <li><a href="/IAInnovations/html/DigitalExperience/DigitalExperience.html#digital-marketing-section">Digital Marketing</a></li>
@@ -65,7 +60,7 @@
         </li>
 
         <li class="dropdown">
-          <a href="#">Industry Solutions</a>
+          <a href="#">Industry Solutions <span class="arrow">^</span></a>
           <ul class="dropdown-menu">
             <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html">Financial Services</a></li>
             <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#consumer-markets-section">Consumer Markets</a></li>
@@ -76,7 +71,7 @@
         </li>
 
         <li class="dropdown">
-          <a href="#">Infrastructures</a>
+          <a href="#">Infrastructures <span class="arrow">^</span></a>
           <ul class="dropdown-menu">
             <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html">Cloud Solutions</a></li>
             <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html#information-security-section">Information Security</a></li>
@@ -87,7 +82,7 @@
         </li>
       </ul>
 
-      <div class="hamburger" aria-label="Toggle navigation" aria-expanded="false" role="button" tabindex="0">
+      <div class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" role="button" tabindex="0">
         <span></span>
         <span></span>
         <span></span>
@@ -95,6 +90,7 @@
     </div>
   </nav>
 
+  <!-- KEEP THIS FIRST HERO -->
   <section id="hero" class="hero-section triangle-left about-hero" style="--triangle-rgb: 1, 46, 74;">
     <div class="bg">
       <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1920&q=80" alt="Careers at IA Innovations">
@@ -105,39 +101,84 @@
     </div>
   </section>
 
-  <section class="hero-section right triangle-right about-hero careers-hero-right" style="--triangle-rgb: 1, 113, 185;">
-    <div class="bg">
-      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80" alt="Technology team collaboration" loading="lazy">
+  <!-- NEW HERO SECTION -->
+  <section class="career-hero-modern">
+    <div class="career-hero-modern-content">
+      <div class="career-hero-copy">
+        <h1>Build your future with IA Innovations</h1>
+        <p>
+          Join a team driven by action, innovation, and human-centered technology.
+          We create meaningful digital solutions while helping talented people grow
+          into impactful careers.
+        </p>
+
+        <div class="career-hero-actions">
+          <a href="#open-roles" class="career-btn career-btn-primary">Explore Open Roles</a>
+          <a href="mailto:hr@i-asiatic.com" class="career-btn career-btn-secondary">Send Your Resume</a>
+        </div>
+
+        <div class="career-hero-stats">
+          <div class="career-hero-stat">
+            <strong>10+</strong>
+            <span>Career tracks available</span>
+          </div>
+          <div class="career-hero-stat">
+            <strong>Human-first</strong>
+            <span>Technology and people together</span>
+          </div>
+          <div class="career-hero-stat">
+            <strong>Growth-led</strong>
+            <span>Learning, mentorship, and real impact</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="career-hero-panel">
+        <h3>Why candidates choose IA Innovations</h3>
+        <ul>
+          <li>Work on enterprise, consulting, infrastructure, and digital transformation projects.</li>
+          <li>Collaborate with multidisciplinary teams across technical and business functions.</li>
+          <li>Develop practical expertise while contributing to meaningful client outcomes.</li>
+          <li>Join a culture that values initiative, innovation, and long-term professional growth.</li>
+        </ul>
+      </div>
     </div>
-    <div class="content">
-      <h2>A mission to transform the world with technology</h2>
+  </section>
+
+  <!-- COMPANY INFO -->
+ <section class="company-info-section careers-info-section">
+  <div class="company-info-container">
+    <div class="company-text">
+      <h2>A company built on action, innovation, and real impact</h2>
+
       <p>
-        Join the IA Innovations team as we strive to change and energize communities through development, creation, and delivery of innovative digital services. We set ourselves to look for opportunities to innovate the world around us.
+        The breadth and depth of skills of its key personnel in areas of IT, Education,
+        Leadership Development, and Change Management brings unique value to clients.
+        The IA Innovations team has very strong Project Management, Strategy and Change
+        Management skills partnered with Technical Expertise.
       </p>
+
+      <p>
+        This unique combination mitigates risk for its clients and ensures clients’ success
+        in project implementations. IA Innovations believes that innovation should be focused
+        on human-centric design, blending technology into the routine of individuals and
+        organizations to drive stronger adoption and better long-term outcomes.
+      </p>
+
+      <a href="#open-roles" class="company-link">Explore careers with us</a>
     </div>
-  </section>
 
-  <section class="company-info-section careers-info-section">
-    <div class="company-info-container">
-
-      <div class="company-text">
-        <p>
-          The breadth and depth of skills of its key personnel in areas of IT, Education, Leadership Development, and Change Management brings unique value to clients. The IA Innovations team has very strong Project Management, Strategy and Change Management skills partnered with Technical Expertise. This unique combination mitigates risk for its clients and ensures clients’ success in project implementations.
-        </p>
-
-        <p>
-          IA Innovations believes that innovation should be focused on human-centric design. Its approach and methodology are based on socio-techno principles and discipline. This philosophy focuses on blending technology to an individual and an organization’s routine to ensure a higher rate of adoption of technology, thus bringing forth more positive impact.
-        </p>
-      </div>
-
-      <div class="company-image picture-box">
-        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80" alt="IA Innovations team and careers">
-      </div>
-
+    <div class="company-image picture-box">
+      <img
+        src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80"
+        alt="IA Innovations team and careers"
+      >
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="careers-grid-section">
+  <!-- CAREERS WE OFFER -->
+  <section class="careers-grid-section" id="open-roles">
     <div class="careers-grid-container">
       <div class="section-heading">
         <h2>Careers We Offer</h2>
@@ -159,7 +200,8 @@
                 <h3>Senior Java Developer – Software Engineer</h3>
                 <p>The Senior Software Developer is responsible for designing and developing software applications using sound, repeatable, industry best practices and in accordance with IA’s software development project methodology. The Senior Software Developer will work hands-on writing code while leading other developers on the team.</p>
                 <div class="career-actions">
-                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
+                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
                 </div>
               </div>
             </article>
@@ -175,7 +217,8 @@
                 <h3>Junior Java Developer</h3>
                 <p>A Junior Java Developer who will be part of a team that builds enterprise-grade applications. He/she must also adhere to programming standards, contribute to the entire development lifecycle and work well within a team.</p>
                 <div class="career-actions">
-                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
+                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
                 </div>
               </div>
             </article>
@@ -191,23 +234,25 @@
                 <h3>Web Developer</h3>
                 <p>Responsible for writing web applications programs of moderate to significant complexity and scope. Work with business users to gather requirements, write functional and technical specifications. Perform technical analysis of business requirements and specifications to support development efforts.</p>
                 <div class="career-actions">
-                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
+                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
                 </div>
               </div>
             </article>
 
             <article class="career-card">
               <div class="career-image-wrap">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Senior Data Science">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Senior Data Scientist">
                 <div class="career-overlay">
                   <p>Lead analytics and modeling efforts for data science projects and business insights.</p>
                 </div>
               </div>
               <div class="career-card-content">
-                <h3>Senior Data Science</h3>
+                <h3>Senior Data Scientist</h3>
                 <p>Responsible for providing strategies and project implementation details which include analytical base table structures, modeling approach and accuracy measurements, implement models based on quantitative methods, and define activities, scope, and timelines on data science projects.</p>
                 <div class="career-actions">
-                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
+                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
                 </div>
               </div>
             </article>
@@ -225,23 +270,25 @@
                 <h3>System Consultant</h3>
                 <p>This individual is responsible for the analysis and testing of products/solutions; direct interaction with client to discuss individual needs and objectives; business requirements gathering and analysis; developing agreed solutions and implementing systems.</p>
                 <div class="career-actions">
-                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
+                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
                 </div>
               </div>
             </article>
 
             <article class="career-card">
               <div class="career-image-wrap">
-                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" alt=".Net Developer">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" alt=".NET Developer">
                 <div class="career-overlay">
                   <p>Develop scalable enterprise-grade applications using .NET technologies and team standards.</p>
                 </div>
               </div>
               <div class="career-card-content">
-                <h3>.Net Developer</h3>
-                <p>A .Net Developer is responsible for builduing enterprise-grade applications. He/she must also adhere to programming standards, contribute to the entire development lifecycle and work well within a team.</p>
+                <h3>.NET Developer</h3>
+                <p>A .NET Developer is responsible for building enterprise-grade applications. He/she must also adhere to programming standards, contribute to the entire development lifecycle and work well within a team.</p>
                 <div class="career-actions">
-                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
+                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
                 </div>
               </div>
             </article>
@@ -257,7 +304,8 @@
                 <h3>Business Manager</h3>
                 <p>Responsible for developing, implementing, and executing strategic marketing plans for various business lines of the company with the objective of attracting potential customers and gaining networks and leads.</p>
                 <div class="career-actions">
-                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
+                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
                 </div>
               </div>
             </article>
@@ -273,7 +321,8 @@
                 <h3>Software Sales Executive</h3>
                 <p>Develops and executes strategies for targeted accounts as well as mining and developing existing IA accounts; meet sales quotas; establish, build and manage multi-level relationships within customers and partner organizations.</p>
                 <div class="career-actions">
-                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
+                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
                 </div>
               </div>
             </article>
@@ -291,14 +340,15 @@
                 <h3>Sales and Marketing Associate</h3>
                 <p>Must possess an enthusiastic, career minded, individual, with a strong work ethic and a commitment to teamwork. This position has responsibility for assisting with the many facets of the sales and marketing effort including supporting sales goals, developing and extending various marketing programs, and proposal preparation.</p>
                 <div class="career-actions">
-                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
+                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
                 </div>
               </div>
             </article>
 
             <article class="career-card">
               <div class="career-image-wrap">
-                <img src="https://www.excelsior.edu/wp-content/uploads/2021/08/22-528581_What-does-a-supply-chain-manager-do_1000x568-1.jpg" alt="Supply Chain Coordinator">
+                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80" alt="Supply Chain Coordinator">
                 <div class="career-overlay">
                   <p>Manage purchasing, inventory, planning, warehousing, and supply coordination activities.</p>
                 </div>
@@ -307,7 +357,8 @@
                 <h3>Supply Chain Coordinator</h3>
                 <p>Responsible for managing activities related to strategic or tactical purchasing, material requirements planning, inventory control, warehousing, receiving and releasing; source price quotations and prepare purchase requisitions; monitor inventory levels and reconcile physical inventories and records.</p>
                 <div class="career-actions">
-                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
+                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
                 </div>
               </div>
             </article>
@@ -323,14 +374,15 @@
                 <h3>ELV CAD Designer</h3>
                 <p>To perform ELV Design works including but not limited to CCTV, FDAS, Structured Cabling, Telecommunications, Data Network, Access Control and Audio-Visual layout Drawings, Elevations and System Schematics for assigned projects.</p>
                 <div class="career-actions">
-                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
+                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
                 </div>
               </div>
             </article>
 
             <article class="career-card">
               <div class="career-image-wrap">
-                <img src="https://www.voguefashioninstitute.com/wp-content/uploads/2023/09/Certificate-Course-in-Jewellery-Design-%E2%80%93-CAD-MATRIX-Vogue-Institute-of-Art-and-Design-1024x682.jpg" alt="CAD Designer">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="CAD Designer">
                 <div class="career-overlay">
                   <p>Provide drafting and design support for network, AV, and structured cabling solutions.</p>
                 </div>
@@ -339,7 +391,8 @@
                 <h3>CAD Designer</h3>
                 <p>Responsible for providing independent design and drafting for Structured Cabling, Telecommunications, Data Network, Access Control and Audio-Visual layout Drawings, Elevations and System Schematics; assist sales team to determine client project needs analysis and requirements for Audio visual and Network Solutions.</p>
                 <div class="career-actions">
-                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
+                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
                 </div>
               </div>
             </article>
@@ -348,7 +401,7 @@
           <div class="reusable-card-slide">
             <article class="career-card">
               <div class="career-image-wrap">
-                <img src="https://completesecurityrecruitment.com/wp-content/uploads/2024/05/iStock-639609376-1024x683.jpg" alt="CCTV Technician">
+                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80" alt="CCTV Technician">
                 <div class="career-overlay">
                   <p>Install and service access control, door hardware, alarms, and CCTV systems.</p>
                 </div>
@@ -357,7 +410,8 @@
                 <h3>CCTV Technician</h3>
                 <p>Must have strong knowledge of access control and door hardware installation/service, structured cabling methods and standards, and strong burglar alarm knowledge. Looking for a motivated self-starter who can work independently and find solutions to get jobs done. Long-term employment with an array of benefits for the right person.</p>
                 <div class="career-actions">
-                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
+                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
                 </div>
               </div>
             </article>
@@ -373,7 +427,8 @@
                 <h3>Company Driver</h3>
                 <p>A Company Driver must have a professional driver’s license and is expected to be familiar with the roads of Metro Manila.</p>
                 <div class="career-actions">
-                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
+                  <a href="mailto:hr@i-asiatic.com">Email Resume</a> or
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfqZu4mcDUY_8uWJfDrb4fSiybhCGavZyi6krdeqFEkH9Gs2g/viewform" target="_blank">Answer Online Form</a>
                 </div>
               </div>
             </article>
@@ -387,6 +442,45 @@
           <button class="reusable-slider-dot" type="button" data-slide="2" aria-label="Go to page 3"></button>
           <button class="reusable-slider-dot" type="button" data-slide="3" aria-label="Go to page 4"></button>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW PROCESS SECTION -->
+  <section class="career-process-section">
+    <div class="career-process-container">
+      <div class="career-process-header">
+        <span class="career-eyebrow">How to apply</span>
+        <h2>A simple hiring journey</h2>
+        <p>
+          We want the application process to feel clear, transparent, and easy to follow.
+        </p>
+      </div>
+
+      <div class="career-process-grid">
+        <article class="career-process-step">
+          <div class="career-step-number">1</div>
+          <h3>Explore Roles</h3>
+          <p>Browse opportunities and choose the role that best matches your strengths and interests.</p>
+        </article>
+
+        <article class="career-process-step">
+          <div class="career-step-number">2</div>
+          <h3>Submit Application</h3>
+          <p>Apply online or send your resume directly through email for initial screening.</p>
+        </article>
+
+        <article class="career-process-step">
+          <div class="career-step-number">3</div>
+          <h3>Interview & Assessment</h3>
+          <p>Meet the team, discuss your experience, and show how you can contribute to the role.</p>
+        </article>
+
+        <article class="career-process-step">
+          <div class="career-step-number">4</div>
+          <h3>Join the Team</h3>
+          <p>Start your journey with onboarding, collaboration, and opportunities to grow your impact.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -406,5 +500,6 @@
   </footer>
 
   <script src="/IAInnovations/script.js"></script>
+  <script src="/IAInnovations/js/careers.js"></script>
 </body>
 </html>
