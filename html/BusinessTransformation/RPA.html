@@ -1,99 +1,177 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RPA & KINEX - IA Innovations</title>
+  <title>RPA, KINEX & AI/IoT Platform - IA Innovations</title>
   
-  <link rel="stylesheet" href="/IAInnovations/css/AboutUS.css">
-  <link rel="icon" type="image/png" href="/IAInnovations/images/iafavicon.png">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../css/AboutUS.css">
+  <link rel="icon" type="image/png" href="../../images/iafavicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   
   <style>
-    /* Ensure smooth scrolling when jumping to IDs */
     html {
       scroll-behavior: smooth;
     }
-    /* Offset for the fixed navbar so titles aren't hidden */
-    #rpa-section, #kinex-section {
+
+    #rpa-section,
+    #kinex-section,
+    #ai-iot-section {
       scroll-margin-top: 100px;
+    }
+
+    .feature-section {
+      padding: 80px 20px;
+      background-color: #ffffff;
+    }
+
+    .feature-section.alt-bg {
+      background-color: #f8fbfd;
+    }
+
+    .feature-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .feature-image {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 14px 34px rgba(1, 46, 74, 0.06);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .feature-image:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 22px 48px rgba(1, 46, 74, 0.12);
+    }
+
+    .feature-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s ease;
+    }
+
+    .feature-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .feature-content h2 {
+      font-size: 2.2rem;
+      color: #012e4a;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .feature-content h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 50px;
+      height: 4px;
+      background: linear-gradient(90deg, #0171b9, #bfd744);
+      border-radius: 2px;
+    }
+
+    .feature-content p {
+      color: #5b6870;
+      line-height: 1.8;
+      font-size: 1.05rem;
+      margin-bottom: 15px;
+    }
+
+    @media (max-width: 900px) {
+      .feature-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .feature-section:nth-of-type(even) .feature-image {
+        order: 2;
+      }
     }
   </style>
 </head>
+
 <body>
   <div class="topbar">
     <div class="topbar-container">
       <ul class="topbar-menu">
-        <li><a href="/IAInnovations/html/index.html">Home</a></li>
-        <li><a href="/IAInnovations/html/BusinessTransformation/AboutUs.html">About Us</a></li>
-        <li><a href="/IAInnovations/html/BusinessTransformation/Partnership.html">Partners</a></li>
-        <li><a href="/IAInnovations/html/BusinessTransformation/careers.html">Careers</a></li>
-        <li><a href="/IAInnovations/html/BusinessTransformation/Contact.html">Contact</a></li>
+        <li><a href="../index.html" aria-label="Home" title="Home"><i class="fas fa-home"></i></a></li>
+        <li><a href="./AboutUs.html" aria-label="About Us" title="About Us"><i class="fas fa-info-circle"></i></a></li>
+        <li><a href="./Partnership.html" aria-label="Partners" title="Partners"><i class="fas fa-handshake"></i></a></li>
+        <li><a href="./careers.html" aria-label="Careers" title="Careers"><i class="fas fa-briefcase"></i></a></li>
+        <li><a href="./Contact.html" aria-label="Contact" title="Contact"><i class="fas fa-envelope"></i></a></li>
       </ul>
     </div>
   </div>
 
-
-
   <nav class="navbar">
     <div class="nav-container">
       <div class="logo">
-        <a href="/IAInnovations/html/index.html">
-          <img src="/IAInnovations/images/ia-innovations-logo-white-bg.png" alt="IA Innovations Logo">
+        <a href="../index.html">
+          <img src="../../images/ia-innovations-logo-white-bg.png" alt="IA Innovations Logo">
         </a>
       </div>
 
       <ul class="nav-menu">
-       
-
         <li class="dropdown">
-<a href="#">Business Transformation <span class="arrow">^</span></a>
+          <a href="#">Business Transformation <span class="arrow">^</span></a>
           <ul class="dropdown-menu">
-            <li><a href="/IAInnovations/html/BusinessTransformation/CorporatePerformance.html">Corporate Performance</a></li>
-            <li><a href="/IAInnovations/html/BusinessTransformation/EnterpriseData.html">Enterprise Data</a></li>
-            <li><a href="/IAInnovations/html/BusinessTransformation/EnterpriseResource.html">Enterprise Resources</a></li>
-            <li><a href="/IAInnovations/html/BusinessTransformation/IntegrationApi.html">Integration API</a></li>
-            <li><a href="/IAInnovations/html/BusinessTransformation/ManagementConsulting.html">Management Consulting</a></li>
-            <li><a href="/IAInnovations/html/BusinessTransformation/AppDevelopment.html">App Development</a></li>
-            <li><a href="/IAInnovations/html/BusinessTransformation/ProjectManagement.html">Project Management</a></li>
-            <li><a href="/IAInnovations/html/BusinessTransformation/RPA.html">RPA</a></li>
-            <li><a href="/IAInnovations/html/BusinessTransformation/RPA.html#kinex-section">KINEX.io</a></li>
+            <li><a href="./CorporatePerformance.html">Corporate Performance</a></li>
+            <li><a href="./EnterpriseData.html">Enterprise Data</a></li>
+            <li><a href="./EnterpriseResource.html">Enterprise Resources</a></li>
+            <li><a href="./IntegrationApi.html">Integration API</a></li>
+            <li><a href="./ManagementConsulting.html">Management Consulting</a></li>
+            <li><a href="./AppDevelopment.html">App Development</a></li>
+            <li><a href="./ProjectManagement.html">Project Management</a></li>
+            <li><a href="./RPA.html">RPA</a></li>
+            <li><a href="./RPA.html#kinex-section">KINEX.io</a></li>
+            <li><a href="./RPA.html#ai-iot-section">AI & IoT Platform</a></li>
+            <li><a href="./Solutions.html">Solutions</a></li>
           </ul>
         </li>
 
         <li class="dropdown">
-<a href="#">Digital Experience <span class="arrow">^</span></a>
+          <a href="#">Digital Experience <span class="arrow">^</span></a>
           <ul class="dropdown-menu">
-                <li><a href="/IAInnovations/html/DigitalExperience/DigitalExperience.html">E-Commerce</a></li>
-    <li><a href="/IAInnovations/html/DigitalExperience/DigitalExperience.html#digital-marketing-section">Digital Marketing</a></li>
-    <li><a href="/IAInnovations/html/DigitalExperience/DigitalExperience.html#knowledge-management-section">Knowledge Management</a></li>
-
-
-             <li><a href="/IAInnovations/html/DigitalExperience/MobileExperience.html#mobile-experience-section">Mobile Experience</a></li>
-             <li><a href="/IAInnovations/html/DigitalExperience/MobileExperience.html#web-portal-section">Web and Portal</a></li>
-<li><a href="/IAInnovations/html/DigitalExperience/MobileExperience.html#document-management-section">Document Management</a></li>          </ul>
-        </li>
-
-        <li class="dropdown">
-<a href="#">Industry Solutions <span class="arrow">^</span></a>
-          <ul class="dropdown-menu">
-            
- <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html">Financial Services</a></li>
-<li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#consumer-markets-section">Consumer Markets</a></li>
-<li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#public-sector-section">Public Sector</a></li>
-<li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#financial-services-section">General Business</a></li>
-<li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#consumer-markets-section">Manufacturing</a></li>
+            <li><a href="../DigitalExperience/DigitalExperience.html">E-Commerce</a></li>
+            <li><a href="../DigitalExperience/DigitalExperience.html#digital-marketing-section">Digital Marketing</a></li>
+            <li><a href="../DigitalExperience/DigitalExperience.html#knowledge-management-section">Knowledge Management</a></li>
+            <li><a href="../DigitalExperience/MobileExperience.html#mobile-experience-section">Mobile Experience</a></li>
+            <li><a href="../DigitalExperience/MobileExperience.html#web-portal-section">Web and Portal</a></li>
+            <li><a href="../DigitalExperience/MobileExperience.html#document-management-section">Document Management</a></li>
           </ul>
         </li>
 
         <li class="dropdown">
-<a href="#">Infrastructures <span class="arrow">^</span></a>
+          <a href="#">Industry Solutions <span class="arrow">^</span></a>
           <ul class="dropdown-menu">
-<li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html">Cloud Solutions</a></li>
-            <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html#information-security-section">Information Security</a></li>
-            <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html#security-surveillance-section">Security & Surveillance</a></li>
-            <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html#business-management-section">Business Management</a></li>
-            <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html#devops-section">DevOps</a></li>
+            <li><a href="../IndustrySolutions/FinancialServices.html">Financial Services</a></li>
+            <li><a href="../IndustrySolutions/FinancialServices.html#consumer-markets-section">Consumer Markets</a></li>
+            <li><a href="../IndustrySolutions/FinancialServices.html#public-sector-section">Public Sector</a></li>
+            <li><a href="../IndustrySolutions/FinancialServices.html#financial-services-section">General Business</a></li>
+            <li><a href="../IndustrySolutions/FinancialServices.html#consumer-markets-section">Manufacturing</a></li>
+          </ul>
+        </li>
 
+        <li class="dropdown">
+          <a href="#">Infrastructures <span class="arrow">^</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="../InfrastructureServices/Infrastructure.html">Cloud Solutions</a></li>
+            <li><a href="../InfrastructureServices/Infrastructure.html#information-security-section">Information Security</a></li>
+            <li><a href="../InfrastructureServices/Infrastructure.html#security-surveillance-section">Security & Surveillance</a></li>
+            <li><a href="../InfrastructureServices/Infrastructure.html#business-management-section">Business Management</a></li>
+            <li><a href="../InfrastructureServices/Infrastructure.html#devops-section">DevOps</a></li>
           </ul>
         </li>
       </ul>
@@ -108,7 +186,7 @@
     </div>
     <div class="content">
       <h2>Robotic Process<br>Automation (RPA)</h2>
-      <p class="typing-text" data-text="DIGITIZE. AUTOMATE. TRANSFORM. In today’s competitive business environment, companies are trying to optimize business operations by leveraging the power of automation to transform the way work gets done. The objective is to be agile and increase employee productivity to drive growth. A way to do this is to use bots to automate repetitive human tasks."></p>
+      <p class="typing-text" data-text="DIGITIZE. AUTOMATE. TRANSFORM. Create a digital workforce to scale repetitive work and make your organizational operations more efficient."></p>
     </div>
   </section>
 
@@ -117,58 +195,119 @@
       <img src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=1920&q=80" alt="KINEX IoT Connectivity">
     </div>
     <div class="content">
-      <h2>KINEX: Connect & Simplify</h2>
+      <h2>KINEX.io: Connect & Simplify</h2>
       <p>
-        Connect and simplify. KINEX keeps all your devices and workforce in one place so you can manage them easier and faster. Enhance energy efficiency. Reduce operational costs. Increase customer satisfaction. Streamline your business operations and maximize your profitswith the use of AI, Automation and IoT. Ensure transparency in logistics operations and increase customer satisfaction. 
+        Enhance your organization’s energy efficiency, reduce operational costs, and make smarter decisions with IA Innovations.
       </p>
     </div>
   </section>
 
-  <section class="service-grid-section">
-    <div class="service-grid-container">
-      <div class="section-heading">
-        <h2>Smart Transformation</h2>
-        <p>Combining the power of Robotic Automation and IoT Connectivity.</p>
+  <section class="feature-section">
+    <div class="feature-container">
+      <div class="feature-image">
+        <img src="https://scontent.fceb1-3.fna.fbcdn.net/v/t1.6435-9/72585057_1259065544265308_3677384130212921344_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=13d280&_nc_ohc=dQ1IhiZhEQMQ7kNvwHkwiVY&_nc_oc=AdppJukwX-yYvrlweCR3VLSCZI7q8jm6fOLLNLUrf-y4vbfnDmdlutEbDsRPoImzVPw&_nc_zt=23&_nc_ht=scontent.fceb1-3.fna&_nc_gid=LZdfgUnhMPTat_Nxmu7-gg&_nc_ss=7a389&oh=00_Af30u5CqVWu0f2ARKB1ancuH9zpi87WclA5qKWRXmG7sGA&oe=69F440CC" alt="Robotic Process Automation Display">
       </div>
-      <div class="service-grid">
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="Efficiency">
-            <div class="service-overlay"><p>Enhance energy and operational efficiency.</p></div>
-          </div>
-          <div class="service-card-content">
-            <h3>Operational Efficiency</h3>
-            <p>Reduce operational costs and enhance energy efficiency by automating workflows and connecting assets.</p>
-          </div>
-        </article>
-        <article class="service-card">
-          <div class="service-image-wrap">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="AI Insights">
-            <div class="service-overlay"><p>Data-driven decision making at scale.</p></div>
-          </div>
-          <div class="service-card-content">
-            <h3>AI-Driven Insights</h3>
-            <p>Utilize real-time data from KINEX and RPA bots to make faster, smarter business decisions.</p>
-          </div>
-        </article>
+      <div class="feature-content">
+        <span style="color: #0171b9; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Robotic Process Automation</span>
+        <h2>DIGITIZE. AUTOMATE. TRANSFORM.</h2>
+        <p>Companies are trying to optimize business operations by leveraging the power of automation to transform the way work gets done. The objective is to be agile and increase employee productivity to drive growth.</p>
+        <p>A way to do this is to use bots to automate repetitive human tasks. Automate business tasks with IBM Robotic Process Automation to create a digital workforce to scale repetitive work and make your organizational operations more efficient.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-section alt-bg">
+    <div class="feature-container">
+      <div class="feature-content">
+        <span style="color: #bfd744; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Connect and Simplify</span>
+        <h2>Kinex.io</h2>
+        <p>Let us help you enhance your organization’s energy efficiency, reduce operational costs, make smarter decisions, increase customer satisfaction and simplify your current logistics processes.</p>
+        <p>Streamline your business operations and maximize your profits with the use of AI, Automation and IoT!</p>
+      </div>
+      <div class="feature-image">
+        <img src="https://scontent.fmnl9-2.fna.fbcdn.net/v/t1.6435-9/64468143_1177143695790827_351693770695114752_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=13d280&_nc_ohc=VMVhnZRvKF8Q7kNvwGi63qK&_nc_oc=AdrJkPSPs4r1qn95uIkzT1kJTb0lzNR6_UekKT5T81E6hk8LLzd6ZCOSc2ODYRPHqQ8&_nc_zt=23&_nc_ht=scontent.fmnl9-2.fna&_nc_gid=eb16hN4UkXbs0-yK8FsnyA&_nc_ss=7a389&oh=00_Af1Un-sS1wfzw_OMjItLuc-voq7WS44qTDCnVQKGUxbZQw&oe=69F44AEF" alt="Kinex.io Dashboard">
+      </div>
+    </div>
+  </section>
+
+  <section id="ai-iot-section" class="hero-section triangle-left about-hero" style="--triangle-rgb: 1, 46, 74;">
+    <div class="bg">
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1920&q=80" alt="AI and IoT Platform">
+    </div>
+    <div class="content">
+      <h2>AI &amp; IoT<br>Platform</h2>
+      <p class="typing-text" data-text="A fully managed, cloud-hosted platform that turns connected devices and artificial intelligence into smarter operations and faster innovation."></p>
+    </div>
+  </section>
+
+  <section class="feature-section">
+    <div class="feature-container">
+      <div class="feature-image">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="AI and IoT Platform">
+      </div>
+      <div class="feature-content">
+        <span style="color: #0171b9; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">AI &amp; IoT Platform</span>
+        <h2>Smarter operations through connected intelligence</h2>
+        <p>IA Innovations provides an IoT platform, a fully managed, cloud-hosted service that makes it easy to derive value from Internet of Things (IoT) devices powered by artificial intelligence, helping organizations accelerate operations and innovate.</p>
+        <p>Artificial intelligence (AI) is utilized to continuously monitor and optimize business production processes. With this service, businesses can gain a competitive edge through innovative, data-driven solutions that improve efficiency, visibility, and decision-making.</p>
+        <p>From opportunity assessments and solution validation to model management, the platform helps ensure the efficiency and quality of tailor-fit solutions for each customer.</p>
       </div>
     </div>
   </section>
 
   <footer class="footer">
-    <div class="footer-overlay"></div>
-    <div class="footer-content">
-      <img src="/IAInnovations/images/logo-ia-innovations-footer.png" class="footer-logo" alt="IA Innovations Footer Logo">
-      <p>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="../../images/ia-innovations-logo-white-bg.png" alt="IA Innovations logo">
+          <p>IA Innovations delivers human-centered technology solutions that help organizations transform, innovate, and grow with confidence.</p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/iainnovations/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com/company/ia-innovations-inc-" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/ia.innovations?igsh=MTFmd2ExZmY1cWpxbQ==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../BusinessTransformation/AboutUs.html">About Us</a></li>
+            <li><a href="../BusinessTransformation/Partnership.html">Partners</a></li>
+            <li><a href="../BusinessTransformation/careers.html">Careers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="CorporatePerformance.html">Business Transformation</a></li>
+            <li><a href="../DigitalExperience/DigitalExperience.html">Digital Experience</a></li>
+            <li><a href="../IndustrySolutions/FinancialServices.html">Industry Solutions</a></li>
+            <li><a href="../InfrastructureServices/Infrastructure.html">Infrastructure</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Contact</h4>
+          <p>Email: info@iainnovations.com</p>
+          <p>Phone: +63 283 978 809</p>
+          <p>Location: Philippines</p>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom">
         © 2026 IA Innovations | A Member of the Kairos Group Pte Ltd |
         <a href="#">Terms and Conditions</a> |
         <a href="#">Privacy Policy</a> |
-        <a href="https://www.zwsoft.com/product/zwcad">About ZWCAD</a> |
-        <a href="#">Go to Top</a>
-      </p>
+        <a href="https://www.zwsoft.com/product/zwcad" target="_blank">About ZWCAD</a> |
+        <a href="#hero">Go to Top</a>
+      </div>
     </div>
   </footer>
 
-  <script src="/IAInnovations/script.js"></script>
+  <script src="../../script.js"></script>
 </body>
 </html>

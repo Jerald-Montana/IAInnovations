@@ -1,104 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="X-Frame-Options" content="DENY">
-  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
-  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' https: data:; frame-src https://www.google.com https://formsubmit.co; form-action https://formsubmit.co;">
-  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' https: data:; frame-src https://www.google.com https://formsubmit.co; form-action https://formsubmit.co;" />
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
   <title>About Us - IA Innovations</title>
-  
-  <link rel="stylesheet" href="/IAInnovations/styles.css">
-  <link rel="stylesheet" href="/IAInnovations/css/AboutUS.css">
+
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="../../css/AboutUS.css" />
+  <link rel="icon" type="image/png" href="../../images/iafavicon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
   <style>
-    /* Additional styles specific to the About Us page can go here */
+    :root {
+      --dark-blue: #012e4a;
+      --blue: #0171b9;
+      --lime: #bfd744;
+      --text: #5b6870;
+      --white: #ffffff;
+      --bg-soft: #f8fbfd;
+      --border: rgba(1, 46, 74, 0.08);
+      --shadow-soft: 0 14px 34px rgba(1, 46, 74, 0.06), 0 4px 12px rgba(1, 46, 74, 0.03);
+      --shadow-strong: 0 22px 48px rgba(1, 46, 74, 0.12), 0 8px 18px rgba(1, 46, 74, 0.05);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #ffffff;
+      color: var(--dark-blue);
+    }
+
+    /* TOPBAR */
+    .topbar {
+      background: var(--dark-blue);
+      padding: 8px 20px;
+    }
+
+    .topbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .topbar-menu {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .topbar-menu li a {
+      color: white;
+      text-decoration: none;
+      font-size: 24px;
+      position: relative;
+      transition: color 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .topbar-menu li a:hover {
+      color: var(--blue);
+    }
+
+    .topbar-menu li a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 1px;
+      bottom: -2px;
+      left: 0;
+      background-color: var(--blue);
+      transition: width 0.3s ease;
+    }
+
+    .topbar-menu li a:hover::after {
+      width: 100%;
+    }
+
+    /* =========================================================
+       NEW: MODERN MISSION & VISION SECTION
+       ========================================================= */
+    .mv-modern-section {
+      padding: 90px 20px;
+      background: linear-gradient(135deg, #ffffff 0%, #f8fbfd 100%);
+      position: relative;
+    }
+
+    .mv-modern-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .mv-modern-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .mv-eyebrow {
+      display: inline-block;
+      color: var(--blue);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+
+    .mv-modern-header h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--dark-blue);
+      font-weight: 800;
+      margin: 0;
+    }
+
+    .mv-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    .mv-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 50px 40px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      z-index: 1;
+    }
+
+    /* Gradient Top Border for Cards */
+    .mv-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, var(--blue), var(--lime));
+      opacity: 0.8;
+      transition: opacity 0.3s ease, height 0.3s ease;
+    }
+
+    .mv-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-strong);
+    }
+
+    .mv-card:hover::before {
+      opacity: 1;
+      height: 8px;
+    }
+
+    .mv-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 25px;
+      transition: transform 0.3s ease;
+    }
+
+    .mv-card:hover .mv-icon {
+      transform: scale(1.1) rotate(-5deg);
+    }
+
+    /* Unique Icon Colors based on Palette */
+    .mission-icon {
+      background: rgba(1, 113, 185, 0.1);
+      color: var(--blue);
+    }
+
+    .vision-icon {
+      background: rgba(191, 215, 68, 0.2);
+      color: var(--dark-blue);
+    }
+
+    .mv-card h3 {
+      font-size: 1.6rem;
+      color: var(--dark-blue);
+      margin: 0 0 15px 0;
+      font-weight: 800;
+    }
+
+    .mv-card p {
+      color: var(--text);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .mv-grid {
+        grid-template-columns: 1fr;
+      }
+      .mv-card {
+        padding: 40px 30px;
+      }
+    }
   </style>
-  <link rel="icon" type="image/png" href="/IAInnovations/images/iafavicon.png">
 </head>
 <body>
 
   <div class="topbar">
     <div class="topbar-container">
       <ul class="topbar-menu">
-        <li><a href="/IAInnovations/html/index.html">Home</a></li>
-        <li><a href="/IAInnovations/html/BusinessTransformation/AboutUs.html">About Us</a></li>
-        <li><a href="/IAInnovations/html/BusinessTransformation/Partnership.html">Partners</a></li>
-        <li><a href="/IAInnovations/html/BusinessTransformation/careers.html">Careers</a></li>
-        <li><a href="/IAInnovations/html/BusinessTransformation/Contact.html">Contact</a></li>
+        <li><a href="../index.html" aria-label="Home" title="Home"><i class="fas fa-home"></i></a></li>
+        <li><a href="AboutUs.html" aria-label="About Us" title="About Us"><i class="fas fa-info-circle"></i></a></li>
+        <li><a href="Partnership.html" aria-label="Partners" title="Partners"><i class="fas fa-handshake"></i></a></li>
+        <li><a href="careers.html" aria-label="Careers" title="Careers"><i class="fas fa-briefcase"></i></a></li>
+        <li><a href="Contact.html" aria-label="Contact" title="Contact"><i class="fas fa-envelope"></i></a></li>
       </ul>
     </div>
   </div>
 
+<nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="../index.html">
+<img src="../../images/ia-innovations-logo-white-bg.png" alt="IA Innovations Logo">
+        </a>
+      </div>
 
-  <nav class="navbar">
-  <div class="nav-container">
-    <div class="logo">
-      <a href="/IAInnovations/html/index.html">
-        <img src="/IAInnovations/images/ia-innovations-logo-white-bg.png" alt="IA Innovations Logo">
-      </a>
+      <ul class="nav-menu">
+        <li class="dropdown">
+          <a href="#">Business Transformation <span class="arrow">^</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="CorporatePerformance.html">Corporate Performance</a></li>
+            <li><a href="EnterpriseData.html">Enterprise Data</a></li>
+            <li><a href="EnterpriseResource.html">Enterprise Resources</a></li>
+            <li><a href="IntegrationApi.html">Integration API</a></li>
+            <li><a href="ManagementConsulting.html">Management Consulting</a></li>
+            <li><a href="AppDevelopment.html">App Development</a></li>
+            <li><a href="ProjectManagement.html">Project Management</a></li>
+            <li><a href="RPA.html">RPA</a></li>
+            <li><a href="RPA.html#kinex-section">KINEX.io</a></li>
+            <li><a href="RPA.html#ai-iot-section">AI & IoT Platform</a></li>
+            <li><a href="Solutions.html">Solutions</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Digital Experience <span class="arrow">^</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="../DigitalExperience/DigitalExperience.html">E-Commerce</a></li>
+            <li><a href="../DigitalExperience/DigitalExperience.html#digital-marketing-section">Digital Marketing</a></li>
+            <li><a href="../DigitalExperience/DigitalExperience.html#knowledge-management-section">Knowledge Management</a></li>
+            <li><a href="../DigitalExperience/MobileExperience.html#mobile-experience-section">Mobile Experience</a></li>
+            <li><a href="../DigitalExperience/MobileExperience.html#web-portal-section">Web and Portal</a></li>
+            <li><a href="../DigitalExperience/MobileExperience.html#document-management-section">Document Management</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Industry Solutions <span class="arrow">^</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="../IndustrySolutions/FinancialServices.html">Financial Services</a></li>
+            <li><a href="../IndustrySolutions/FinancialServices.html#consumer-markets-section">Consumer Markets</a></li>
+            <li><a href="../IndustrySolutions/FinancialServices.html#public-sector-section">Public Sector</a></li>
+            <li><a href="../IndustrySolutions/FinancialServices.html#financial-services-section">General Business</a></li>
+            <li><a href="../IndustrySolutions/FinancialServices.html#consumer-markets-section">Manufacturing</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Infrastructures <span class="arrow">^</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="../InfrastructureServices/Infrastructure.html">Cloud Solutions</a></li>
+            <li><a href="../InfrastructureServices/Infrastructure.html#information-security-section">Information Security</a></li>
+            <li><a href="../InfrastructureServices/Infrastructure.html#security-surveillance-section">Security & Surveillance</a></li>
+            <li><a href="../InfrastructureServices/Infrastructure.html#business-management-section">Business Management</a></li>
+            <li><a href="../InfrastructureServices/Infrastructure.html#devops-section">DevOps</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="hamburger"><span></span><span></span><span></span></div>
     </div>
-
-   <ul class="nav-menu">
-      <li class="dropdown">
-<a href="#">Business Transformation <span class="arrow">^</span></a>
-        <ul class="dropdown-menu">
-          <li><a href="/IAInnovations/html/BusinessTransformation/CorporatePerformance.html">Corporate Performance</a></li>
-          <li><a href="/IAInnovations/html/BusinessTransformation/EnterpriseData.html">Enterprise Data</a></li>
-          <li><a href="/IAInnovations/html/BusinessTransformation/EnterpriseResource.html">Enterprise Resources</a></li>
-          <li><a href="/IAInnovations/html/BusinessTransformation/IntegrationApi.html">Integration API</a></li>
-          <li><a href="/IAInnovations/html/BusinessTransformation/ManagementConsulting.html">Management Consulting</a></li>
-          <li><a href="/IAInnovations/html/BusinessTransformation/AppDevelopment.html">App Development</a></li>
-          <li><a href="/IAInnovations/html/BusinessTransformation/ProjectManagement.html">Project Management</a></li>
-          <li><a href="/IAInnovations/html/BusinessTransformation/RPA.html">RPA</a></li>
-          <li><a href="/IAInnovations/html/BusinessTransformation/RPA.html">KINEX</a></li>
-        </ul>
-      </li>
-
-      <li class="dropdown">
-<a href="#">Digital Experience <span class="arrow">^</span></a>
-        <ul class="dropdown-menu">
-           <li><a href="/IAInnovations/html/DigitalExperience/DigitalExperience.html#ecommerce-section">E-Commerce</a></li>
-            <li><a href="/IAInnovations/html/DigitalExperience/DigitalExperience.html#digital-marketing-section">Digital Marketing</a></li>
-            <li><a href="/IAInnovations/html/DigitalExperience/DigitalExperience.html#knowledge-management-section">Knowledge Management</a></li>
-             <li><a href="/IAInnovations/html/DigitalExperience/MobileExperience.html#mobile-experience-section">Mobile Experience</a></li>
-             <li><a href="/IAInnovations/html/DigitalExperience/MobileExperience.html#web-portal-section">Web and Portal</a></li>
-<li><a href="/IAInnovations/html/DigitalExperience/MobileExperience.html#document-management-section">Document Management</a></li>     
-       </ul>
-      </li>
-
-      <li class="dropdown">
-<a href="#">Industry Solutions <span class="arrow">^</span></a>
-        <ul class="dropdown-menu">
-          <li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html">Financial Services</a></li>
-<li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#consumer-markets-section">Consumer Markets</a></li>
-<li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#public-sector-section">Public Sector</a></li>
-<li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#financial-services-section">General Business</a></li>
-<li><a href="/IAInnovations/html/IndustrySolutions/FinancialServices.html#consumer-markets-section">Manufacturing</a></li>
-        </ul>
-      </li>
-
-      <li class="dropdown">
-<a href="#">Infrastructures <span class="arrow">^</span></a>
-        <ul class="dropdown-menu">
-          <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html">Cloud Solutions</a></li>
-            <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html#information-security-section">Information Security</a></li>
-            <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html#security-surveillance-section">Security & Surveillance</a></li>
-            <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html#business-management-section">Business Management</a></li>
-            <li><a href="/IAInnovations/html/InfrastructureServices/Infrastructure.html#devops-section">DevOps</a></li>
-        </ul>
-      </li>
-    </ul>
-
-    <div class="hamburger" aria-label="Toggle navigation" aria-expanded="false" role="button" tabindex="0">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </div>
-</nav>
+  </nav>
 
   <section id="hero" class="hero-section triangle-left about-hero" style="--triangle-rgb: 1, 46, 74;">
     <div class="bg">
@@ -129,62 +325,114 @@
     <div class="company-info-container">
 
       <div class="company-text">
-  <h2 class="company-title">A company built on action, innovation, and positive impact</h2>
+        <h2 class="company-title">A company built on action, innovation, and positive impact</h2>
 
-  <p>
-    I-Asiatic Innovations Phils., Inc., known as IA Innovations is an IT Systems Integrator and Consulting Services company founded in 2008. IA Innovations began its partnership with IBM in June 2012 specializing in Collaboration, Integration, and Analytics Solutions. Within six months, it achieved IBM the status of an Advanced Business Partner from sales and technical certifications, as well as successful client engagements.
-  </p>
+        <p>
+          I-Asiatic Innovations Phils., Inc., known as IA Innovations is an IT Systems Integrator and Consulting Services company founded in 2008. IA Innovations began its partnership with IBM in June 2012 specializing in Collaboration, Integration, and Analytics Solutions. Within six months, it achieved IBM the status of an Advanced Business Partner from sales and technical certifications, as well as successful client engagements.
+        </p>
 
-  <p>
-    IA Innovations is a growing business solutions and services company. We have worked with clients in various sectors, namely Banking, Financial Services, Retail, Manufacturing, Distribution, Education, and the Public Sector. Our areas of expertise are in Marketing Automation, ECommerce, Analytics/Business Intelligence, Web Development, Knowledge and Change Management, and Business Process Management.
-  </p>
+        <p>
+          IA Innovations is a growing business solutions and services company. We have worked with clients in various sectors, namely Banking, Financial Services, Retail, Manufacturing, Distribution, Education, and the Public Sector. Our areas of expertise are in Marketing Automation, ECommerce, Analytics/Business Intelligence, Web Development, Knowledge and Change Management, and Business Process Management.
+        </p>
 
-  <p>
-    We are experts in designing, building, and delivering solutions that work well, look good and are easy to use. We make sure our clients get maximum ROI by using the latest yet proven technologies to achieve their goals faster, better, and cheaper. At IA Innovations, we believe that information plus action equals innovation.
-  </p>
-</div>
+        <p>
+          We are experts in designing, building, and delivering solutions that work well, look good and are easy to use. We make sure our clients get maximum ROI by using the latest yet proven technologies to achieve their goals faster, better, and cheaper. At IA Innovations, we believe that information plus action equals innovation.
+        </p>
+      </div>
 
       <div class="company-image picture-box">
-        <img src="https://scontent.fmnl9-6.fna.fbcdn.net/v/t39.30808-6/484819649_1075819587899771_4566442633288340785_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=110&ccb=1-7&_nc_sid=13d280&_nc_ohc=aHd_Er5UDD0Q7kNvwHY_RBa&_nc_oc=AdoTKEf4NlzX2PRTG4-5sUHoLWl23hDzFwFeBXfb_ZXzl7zO1UglskyyrXO0gS2PGJQ&_nc_zt=23&_nc_ht=scontent.fmnl9-6.fna&_nc_gid=zFBaUU24ERYPMGI_Pm2GeA&_nc_ss=7a30f&oh=00_Afw5g0wvM7PK50uAGXM0CADoI6tu35sIA9_naMYukH8kSQ&oe=69CAB940" alt="IA Innovations Company Office">
+        <img src="https://www.glassdoor.com/imgproxy/vNySQZWTr2LFJ3b4R7MIkE9N_0DLUzYL5YgQJtc1pDw/rs::558/aHR0cHM6Ly9tZWRpYS5nbGFzc2Rvb3IuY29tL2wvODA0MDU2Mi9pYS1pbm5vdmF0aW9ucy0xNjc3NjAyMTUyNDg2LnBuZz9zaWduYXR1cmU9NDNmZTZhZDNmNDg2Mzk4MzZiZmFmZDc3YzgzNWFjNTQ1NjMwYTE3MjFhMWU1YWRiZjJkN2U2Mjg5YjAzNWFmNA" alt="IA Innovations Company Office">
       </div>
 
     </div>
   </section>
 
-  <section class="mission-vision-section">
-    <div class="mv-container">
-
-      <div class="mv-box mission-box">
-        <h2>Mission</h2>
-        <p>
-          We are an information and automation solutions provider committed to deliver innovation for our clients to improve long-term profitability, increase operational efficiencies, and sustain positive transformation.
-        </p>
+  <section class="mv-modern-section">
+    <div class="mv-modern-container">
+      
+      <div class="mv-modern-header">
+        <span class="mv-eyebrow">Our Core Purpose</span>
+        <h2>Driven by Mission, Guided by Vision</h2>
       </div>
 
-      <div class="mv-box vision-box">
-        <h2>Vision</h2>
-        <p>
-          We will be the most preferred Innovation Enabler and Solution Provider in Asia that positively transforms lives, organizations, and nations.
-        </p>
+      <div class="mv-grid">
+        <div class="mv-card">
+          <div class="mv-icon mission-icon">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+          <h3>Our Mission</h3>
+          <p>
+            We are an information and automation solutions provider committed to deliver innovation for our clients to improve long-term profitability, increase operational efficiencies, and sustain positive transformation.
+          </p>
+        </div>
+
+        <div class="mv-card">
+          <div class="mv-icon vision-icon">
+            <i class="fa-solid fa-lightbulb"></i>
+          </div>
+          <h3>Our Vision</h3>
+          <p>
+            We will be the most preferred Innovation Enabler and Solution Provider in Asia that positively transforms lives, organizations, and nations.
+          </p>
+        </div>
       </div>
 
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="footer-overlay"></div>
-    <div class="footer-content">
-      <img src="/IAInnovations/images/logo-ia-innovations-footer.png" class="footer-logo" alt="IA Innovations Footer Logo">
-      <p>
+<footer class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+<img src="/images/ia-innovations-logo-white-bg.png" alt="IA Innovations logo">
+          <p>IA Innovations delivers human-centered technology solutions that help organizations transform, innovate, and grow with confidence.</p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/iainnovations/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com/company/ia-innovations-inc-" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/ia.innovations?igsh=MTFmd2ExZmY1cWpxbQ==" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="AboutUs.html">About Us</a></li>
+            <li><a href="Partnership.html">Partners</a></li>
+            <li><a href="careers.html">Careers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="CorporatePerformance.html">Business Transformation</a></li>
+            <li><a href="../DigitalExperience/DigitalExperience.html">Digital Experience</a></li>
+            <li><a href="../IndustrySolutions/FinancialServices.html">Industry Solutions</a></li>
+            <li><a href="../InfrastructureServices/Infrastructure.html">Infrastructure</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Contact</h4>
+          <p>Email: info@iainnovations.com</p>
+          <p>Phone: +63 283 978 809</p>
+          <p>Location: Philippines</p>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom">
         © 2026 IA Innovations | A Member of the Kairos Group Pte Ltd |
         <a href="#">Terms and Conditions</a> |
         <a href="#">Privacy Policy</a> |
-        <a href="https://www.zwsoft.com/product/zwcad">About ZWCAD</a> |
-        <a href="#">Go to Top</a>
-      </p>
+        <a href="https://www.zwsoft.com/product/zwcad" target="_blank">About ZWCAD</a> |
+        <a href="#hero">Go to Top</a>
+      </div>
     </div>
   </footer>
 
-  <script src="/IAInnovations/script.js"></script>
+  <script src="../../script.js"></script>
 </body>
 </html>
