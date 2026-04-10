@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IA Innovations</title>
 
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/AboutUS.css">
   <link rel="icon" type="image/png" href="../images/iafavicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -639,6 +639,10 @@
       font-weight: 800;
     }
 
+    .featured-number i {
+      font-size: 1.15rem;
+    }
+
     .featured-item h3 {
       color: var(--dark-blue);
       margin-bottom: 7px;
@@ -701,35 +705,91 @@
     }
 
     .cta-section {
-      padding: 0 0 96px;
+      padding: 14px 0 96px;
       background: #ffffff;
     }
 
     .cta-box {
-      text-align: center;
-      padding: 54px 28px;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: stretch;
+      gap: clamp(20px, 3vw, 38px);
+      min-height: 350px;
+      padding: clamp(20px, 3vw, 32px) clamp(24px, 3.8vw, 42px) clamp(10px, 1.8vw, 18px);
       border-radius: 30px;
+      overflow: visible;
       background:
-        radial-gradient(circle at top left, rgba(191, 215, 68, 0.16), transparent 30%),
-        linear-gradient(180deg, #f8fbfd 0%, #eef7fc 100%);
-      border: 1px solid rgba(1, 46, 74, 0.08);
+        radial-gradient(circle at 86% 56%, rgba(1, 46, 74, 0.05) 0 12%, transparent 13%),
+        radial-gradient(circle at 86% 56%, transparent 0 22%, rgba(1, 46, 74, 0.06) 23% 28%, transparent 29%),
+        radial-gradient(circle at 86% 56%, transparent 0 32%, rgba(1, 46, 74, 0.05) 33% 38%, transparent 39%),
+        radial-gradient(circle at 18% 16%, rgba(191, 215, 68, 0.16), transparent 34%),
+        linear-gradient(120deg, rgba(1, 46, 74, 0.09), rgba(1, 113, 185, 0.07) 50%, rgba(191, 215, 68, 0.1));
+      border: 1px solid rgba(1, 46, 74, 0.1);
       box-shadow: var(--shadow-soft);
+      isolation: isolate;
     }
 
-    .cta-box h2 {
+    .cta-box::after {
+      content: none;
+    }
+
+    .cta-copy,
+    /* Step order: 1) Desktop tuning first. 2) Tune Tablet/Mobile only after desktop is approved. */
+    .cta-visual {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 600px;
+    }
+
+    .cta-copy h2 {
       color: var(--dark-blue);
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      line-height: 1.08;
+      font-size: clamp(2rem, 4vw, 3.05rem);
+      line-height: 1.06;
       margin-bottom: 14px;
       font-weight: 800;
     }
 
-    .cta-box p {
-      max-width: 760px;
-      margin: 0 auto 22px;
-      line-height: 1.85;
-      font-size: 1.02rem;
+    .cta-copy p {
+      line-height: 1.82;
+      font-size: 1.03rem;
       color: var(--text);
+      margin-bottom: 24px;
+      max-width: 640px;
+    }
+
+    .cta-copy .btn {
+      width: fit-content;
+      min-width: 150px;
+    }
+
+    .cta-visual {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      min-height: 280px;
+      /* Desktop: keep image edge aligned with card bottom. */
+      margin-bottom: calc(-1 * clamp(10px, 1.8vw, 18px));
+    }
+
+    .cta-visual img {
+      /* Desktop 1) image size */
+      width: min(460px, 106%);
+      height: auto;
+      /* Desktop 2) max image height */
+      max-height: 540px;
+      object-fit: contain;
+      object-position: right bottom;
+      filter: saturate(1.04) contrast(1.03);
+      /* Desktop 3) position/overlap: scaled from bottom-right so head overlaps top while card size stays fixed. */
+      transform-origin: right bottom;
+      transform: translate(10px, 0) scale(1.2);
     }
 
     /* SEARCH RESULTS */
@@ -836,6 +896,41 @@
       .featured-grid,
       .trust-card {
         grid-template-columns: 1fr;
+      }
+
+      .cta-box {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 26px 24px 28px;
+        overflow: hidden;
+      }
+
+      .cta-copy {
+        max-width: 100%;
+      }
+
+      .cta-copy h2 {
+        font-size: clamp(1.9rem, 5.2vw, 2.6rem);
+      }
+
+      .cta-copy p {
+        font-size: 1rem;
+      }
+
+      .cta-visual {
+        min-height: 220px;
+        justify-content: center;
+        margin-bottom: 0;
+      }
+
+      .cta-visual img {
+        /* Tablet/Mobile: adjust only AFTER desktop size/position is confirmed. */
+        /* Tablet/Mobile 1) image size */
+        width: min(360px, 88%);
+        /* Tablet/Mobile 2) max image height */
+        max-height: 380px;
+        /* Tablet/Mobile 3) position */
+        transform: translate(0, 0);
       }
     }
 
@@ -973,6 +1068,40 @@
       .cta-section {
         padding-bottom: 72px;
       }
+
+      .cta-box {
+        text-align: center;
+        padding: 24px 18px;
+        border-radius: 22px;
+      }
+
+      .cta-copy {
+        align-items: center;
+      }
+
+      .cta-copy p {
+        font-size: 0.98rem;
+        line-height: 1.72;
+      }
+
+      .cta-copy .btn {
+        min-width: 0;
+      }
+
+      .cta-copy h2,
+      .cta-copy p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-visual {
+        min-height: 200px;
+      }
+
+      .cta-visual img {
+        width: min(320px, 92%);
+        max-height: 320px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -1094,7 +1223,7 @@
   <div id="default-home-content">
     <section id="hero" class="hero-section about-hero triangle-left" style="--triangle-rgb: 1, 46, 74;">
       <div class="bg">
-        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1920&q=80" alt="Software dashboard and analytics">
+        <img src="/images/stock-image/human-centric.jpg" alt="Software dashboard and analytics">
       </div>
       <div class="content">
         <h2>Technology With A<br>Human-Centric<br>Design</h2>
@@ -1178,7 +1307,7 @@
 
         <div class="featured-list">
           <article class="featured-item reveal">
-            <div class="featured-number">01</div>
+            <div class="featured-number" aria-label="Design icon"><i class="fas fa-pencil-ruler" aria-hidden="true"></i></div>
             <div>
               <h3>We Design</h3>
               <p>Business-centered strategies designed around users, customers, and outcomes.</p>
@@ -1186,7 +1315,7 @@
           </article>
 
           <article class="featured-item reveal">
-            <div class="featured-number">02</div>
+            <div class="featured-number" aria-label="Build icon"><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i></div>
             <div>
               <h3>We Build</h3>
               <p>Collaborative software and application development shaped around business needs.</p>
@@ -1194,7 +1323,7 @@
           </article>
 
           <article class="featured-item reveal">
-            <div class="featured-number">03</div>
+            <div class="featured-number" aria-label="Deliver icon"><i class="fas fa-truck-fast" aria-hidden="true"></i></div>
             <div>
               <h3>We Deliver</h3>
               <p>Digital tools, platforms, and cloud-enabled services that improve performance.</p>
@@ -1202,7 +1331,7 @@
           </article>
 
           <article class="featured-item reveal">
-            <div class="featured-number">04</div>
+            <div class="featured-number" aria-label="Secure icon"><i class="fas fa-shield-alt" aria-hidden="true"></i></div>
             <div>
               <h3>We Support & Secure</h3>
               <p>Reliable support, infrastructure planning, and security for continuity.</p>
@@ -1241,13 +1370,18 @@
     <section class="cta-section" id="contact-cta">
       <div class="container">
         <div class="cta-box reveal">
-          <span class="section-tag" style="color: var(--blue);">Let’s Build Better Solutions</span>
-          <h2>Transform Your Business With Smart, Reliable Digital Innovation</h2>
-          <p>
-            From strategy to implementation, IA Innovations helps organizations create
-            stronger systems, better customer experiences, and future-ready operations.
-          </p>
-          <a href="BusinessTransformation/Contact.html" class="btn btn-primary">Contact Us</a>
+          <div class="cta-copy">
+            <span class="section-tag" style="color: var(--blue);">Let’s Build Better Solutions</span>
+            <h2>Transform Your Business With Smart, Reliable Digital Innovation</h2>
+            <p>
+              From strategy to implementation, IA Innovations helps organizations create
+              stronger systems, better customer experiences, and future-ready operations.
+            </p>
+            <a href="BusinessTransformation/Contact.html" class="btn btn-primary">Contact Us</a>
+          </div>
+          <div class="cta-visual" aria-hidden="true">
+            <img src="/images/stock-image/contact-us-removebg-preview.png" alt="Professional business consultation">
+          </div>
         </div>
       </div>
     </section>
@@ -1326,7 +1460,7 @@
     </div>
   </footer>
 
-  <script src="../script.js"></script>
+  <script src="../js/script.js"></script>
 
   <script>
     const hamburger = document.querySelector('.hamburger');

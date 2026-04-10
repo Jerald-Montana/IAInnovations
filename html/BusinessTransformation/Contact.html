@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -10,7 +10,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' https: data: scontent.fmnl9-3.fna.fbcdn.net scontent.fmnl9-4.fna.fbcdn.net scontent.fmnl9-5.fna.fbcdn.net images.unsplash.com imagedelivery.net; frame-src 'self' https://www.google.com https://formsubmit.co; form-action https://formsubmit.co;" />
   <title>Contact Us - IA Innovations</title>
   
-  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../css/styles.css">
   <link rel="stylesheet" href="../../css/AboutUS.css">
   <link rel="icon" type="image/png" href="../../images/iafavicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -188,6 +188,10 @@
       margin-top: 0;
       margin-bottom: 20px;
       color: #012e4a;
+      font-size: clamp(1.6rem, 2vw, 1.9rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1.15;
     }
 
     /* This wrapper forces exact sizing to prevent jumping */
@@ -196,59 +200,99 @@
       flex-grow: 1;
       width: 100%;
       min-height: 350px;
+      perspective: 1200px;
       border-radius: 12px;
       overflow: hidden;
       background: #f8fbfd;
       box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
     }
 
-    .map-frame, .map-image {
+    .map-flip-inner {
+      position: absolute;
+      inset: 0;
+      transform-style: preserve-3d;
+      transition: transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .map-face {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
+      backface-visibility: hidden;
+      overflow: hidden;
+    }
+
+    .map-face-back {
+      transform: rotateY(-180deg);
+    }
+
+    .map-frame,
+    .map-image {
+      width: 100%;
+      height: 100%;
       border: none;
-      transition: opacity 0.4s ease;
+      display: block;
     }
 
     .map-image {
       object-fit: cover;
-      opacity: 0;
-      pointer-events: none;
-      z-index: 1;
     }
 
-    .map-frame {
-      opacity: 1;
-      z-index: 2;
+    .map-box.show-image .map-flip-inner {
+      transform: rotateY(180deg);
     }
 
-    .map-box.show-image .map-frame {
-      opacity: 0;
+    .map-box.show-image .map-face-front {
       pointer-events: none;
     }
 
-    .map-box.show-image .map-image {
-      opacity: 1;
-      pointer-events: auto;
+    .map-box:not(.show-image) .map-face-back {
+      pointer-events: none;
     }
 
     .map-label {
-      text-align: center;
-      margin-top: 20px;
       cursor: pointer;
-      color: #0171b9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px auto 0;
+      min-height: 46px;
+      width: fit-content;
+      min-width: 230px;
+      appearance: none;
+      font-family: inherit;
+      color: #ffffff;
       font-weight: 700;
-      padding: 12px;
-      background: rgba(1, 113, 185, 0.08);
-      border-radius: 8px;
-      transition: background 0.3s, transform 0.2s;
+      font-size: 0.98rem;
+      letter-spacing: 0.02em;
+      padding: 12px 20px;
+      background: linear-gradient(135deg, #0171b9 0%, #015587 100%);
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 10px 24px rgba(1, 113, 185, 0.28);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
     }
 
     .map-label:hover {
-      background: rgba(1, 113, 185, 0.15);
-      transform: translateY(-2px);
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 14px 28px rgba(1, 113, 185, 0.36);
+      filter: brightness(1.05);
+    }
+
+    .map-label:focus-visible {
+      outline: 3px solid rgba(191, 215, 68, 0.9);
+      outline-offset: 3px;
+    }
+
+    .map-label i {
+      transition: transform 0.35s ease;
+    }
+
+    .map-box.show-image .map-label i {
+      transform: rotate(180deg);
     }
 
     /* =========================================
@@ -417,7 +461,7 @@
 
   <section id="hero" class="hero-section triangle-left about-hero" style="--triangle-rgb: 1, 46, 74;">
     <div class="bg">
-      <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1920&q=80" alt="IA Innovations contact and communication">
+      <img src="/images/stock-image/connect.avif" alt="IA Innovations contact and communication">
     </div>
     <div class="content">
       <h2>Connect with <br>IA Innovations</h2>
@@ -429,10 +473,10 @@
 
   <section class="hero-section right triangle-right about-hero contact-hero-right" style="--triangle-rgb: 1, 113, 185;">
     <div class="bg">
-      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1920&q=80" alt="Team discussion and business meeting" loading="lazy">
+      <img src="/images/stock-image/reachout.avif" alt="Team discussion and business meeting" loading="lazy">
     </div>
     <div class="content">
-      <h2>We’d love to hear from you</h2>
+      <h2>We�d love to hear from you</h2>
       <p>
         Reach out to IA Innovations for inquiries, collaboration, and technology-driven solutions. Our team is ready to connect with you and help bring your ideas into action.
       </p>
@@ -451,10 +495,10 @@
 
               <div class="contact-detail-group" style="margin-bottom: 20px;">
                 <h3 class="icon-heading" style="color: #0171b9; margin-bottom: 10px;">
-                  <img src="../../images/loc2.png" class="heading-icon" alt="Address Icon" onerror="this.style.display='none'; this.nextSibling.textContent='📍 Address';"> Address
+                  <img src="../../images/loc2.png" class="heading-icon" alt="Address Icon" onerror="this.style.display='none'; this.nextSibling.textContent='?? Address';"> Address
                 </h3>
                 <p><strong>Branch Office:</strong></p>
-                <p style="margin-bottom: 10px;">3201 Antel Global Corporate Center, 32nd Floor, 1605 Doña Julia Vargas Ave, Ortigas Center, Pasig</p>
+                <p style="margin-bottom: 10px;">3201 Antel Global Corporate Center, 32nd Floor, 1605 Do�a Julia Vargas Ave, Ortigas Center, Pasig</p>
 
                 <p><strong>Main Office:</strong></p>
                 <p>11th Floor Cyberone Bldg. Eastwood Cyberpark, Brgy. Bagumbayan, Quezon City 1110</p>
@@ -462,14 +506,14 @@
 
               <div class="contact-detail-group" style="margin-bottom: 20px;">
                 <h3 class="icon-heading" style="color: #0171b9; margin-bottom: 10px;">
-                  <img src="../../images/contact.png.png" class="heading-icon" alt="Contact Icon" onerror="this.style.display='none'; this.nextSibling.textContent='📞 Contact No.';"> Contact No.
+                  <img src="../../images/contact.png.png" class="heading-icon" alt="Contact Icon" onerror="this.style.display='none'; this.nextSibling.textContent='?? Contact No.';"> Contact No.
                 </h3>
                 <p>+63 28-9378-809</p>
               </div>
 
               <div class="contact-detail-group">
                 <h3 class="icon-heading" style="color: #0171b9; margin-bottom: 10px;">
-                  <img src="../../images/email.png" class="heading-icon" alt="Email Icon" onerror="this.style.display='none'; this.nextSibling.textContent='✉️ Email Address';"> Email Address
+                  <img src="../../images/email.png" class="heading-icon" alt="Email Icon" onerror="this.style.display='none'; this.nextSibling.textContent='?? Email Address';"> Email Address
                 </h3>
                 <p><a href="mailto:info@iainnovations.com" style="color: #012e4a; text-decoration: none;">info@iainnovations.com</a></p>
               </div>
@@ -481,25 +525,31 @@
               <h2 class="map-box-title">LOCATION</h2>
               
               <div class="map-content-wrapper">
-                <iframe
-                 id="liveMap"
-                 class="map-frame active-view"
-                 src="https://www.google.com/maps?q=Antel%20Global%20Corporate%20Center%20Condo.%20Asso.Inc.%2C%20Ground%20Floor%2C%20Antel%20Global%20Corporate%20Center%2C%201605%20Do%C3%B1a%20Julia%20Vargas%20Ave%2C%20Ortigas%20Center%2C%20Pasig%2C%20Metro%20Manila&z=17&output=embed"
-                 loading="lazy"
-                 referrerpolicy="no-referrer-when-downgrade"
-                 allowfullscreen>
-              </iframe>
+                <div class="map-flip-inner">
+                  <div class="map-face map-face-front">
+                    <iframe
+                      id="liveMap"
+                      class="map-frame"
+                      src="https://www.google.com/maps?q=Antel%20Global%20Corporate%20Center%20Condo.%20Asso.Inc.%2C%20Ground%20Floor%2C%20Antel%20Global%20Corporate%20Center%2C%201605%20Do%C3%B1a%20Julia%20Vargas%20Ave%2C%20Ortigas%20Center%2C%20Pasig%2C%20Metro%20Manila&z=17&output=embed"
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"
+                      allowfullscreen>
+                    </iframe>
+                  </div>
 
-                <img
-                  id="mapImage"
-                  class="map-image"
-                  src="https://imagedelivery.net/4hgeCwftKXWxSyeV7QJJpA/6170b0dd-828a-4b3c-13ae-75487e7a2600/w=600,compression=fast,format=webp"
-                  alt="IA Innovations office building">
+                  <div class="map-face map-face-back">
+                    <img
+                      id="mapImage"
+                      class="map-image"
+                      src="https://imagedelivery.net/4hgeCwftKXWxSyeV7QJJpA/6170b0dd-828a-4b3c-13ae-75487e7a2600/w=600,compression=fast,format=webp"
+                      alt="IA Innovations office building">
+                  </div>
+                </div>
               </div>
 
-              <div class="map-label" id="toggleViewBtn">
-                <span><i class="fa-solid fa-rotate"></i> Click to switch view</span>
-              </div>
+              <button type="button" class="map-label" id="toggleViewBtn" aria-label="Switch to image view" aria-pressed="false">
+                <span><i class="fa-solid fa-rotate"></i> Switch to Image View</span>
+              </button>
             </div>
           </article>
 
@@ -577,7 +627,7 @@
 <img src="../../images/ia-innovations-logo-white-bg.png" alt="IA Innovations logo">
 
           <p>
-            Reach us on our socials:
+            IA Innovations delivers human-centered technology solutions that help organizations transform, innovate, and grow with confidence.
           </p>
 
           <div class="footer-social">
@@ -624,7 +674,7 @@
       <div class="footer-divider"></div>
 
       <div class="footer-bottom">
-        © 2026 IA Innovations | A Member of the Kairos Group Pte Ltd |
+        � 2026 IA Innovations | A Member of the Kairos Group Pte Ltd |
         <a href="#">Terms and Conditions</a> |
         <a href="#">Privacy Policy</a> |
         <a href="https://www.zwsoft.com/product/zwcad" target="_blank">About ZWCAD</a> |
@@ -633,7 +683,7 @@
     </div>
   </footer>
 
-  <script src="../../script.js"></script>
+  <script src="../../js/script.js"></script>
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -643,6 +693,12 @@
       if(toggleBtn && mapBox) {
         toggleBtn.addEventListener("click", function() {
           mapBox.classList.toggle("show-image");
+          const showingImage = mapBox.classList.contains("show-image");
+          toggleBtn.setAttribute("aria-pressed", showingImage ? "true" : "false");
+          toggleBtn.setAttribute("aria-label", showingImage ? "Switch to map view" : "Switch to image view");
+          toggleBtn.innerHTML = showingImage
+            ? '<span><i class="fa-solid fa-rotate"></i> Switch to Map View</span>'
+            : '<span><i class="fa-solid fa-rotate"></i> Switch to Image View</span>';
         });
       }
     });
