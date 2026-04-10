@@ -7,6 +7,15 @@ const dropdownLinks = document.querySelectorAll(".dropdown > a");
 const allNavLinks = document.querySelectorAll(".nav-menu a");
 const sections = document.querySelectorAll(".hero-section");
 
+function releaseDocumentScrollLock() {
+  document.documentElement.style.overflow = "";
+  document.documentElement.style.overflowY = "";
+  document.body.style.overflow = "";
+  document.body.style.overflowY = "";
+}
+
+releaseDocumentScrollLock();
+
 /* =========================
    TOGGLE MOBILE MENU
    ========================= */
@@ -17,6 +26,10 @@ if (hamburger && navMenu) {
 
     const isExpanded = hamburger.classList.contains("active");
     hamburger.setAttribute("aria-expanded", isExpanded ? "true" : "false");
+
+    if (!isExpanded) {
+      releaseDocumentScrollLock();
+    }
   });
 
   hamburger.addEventListener("keypress", (e) => {
@@ -60,6 +73,7 @@ allNavLinks.forEach((link) => {
       navMenu.classList.remove("active");
       hamburger.classList.remove("active");
       hamburger.setAttribute("aria-expanded", "false");
+      releaseDocumentScrollLock();
 
       document.querySelectorAll(".dropdown").forEach((dropdown) => {
         dropdown.classList.remove("active");
@@ -78,9 +92,17 @@ function typeParagraph(paragraph, speed = 16) {
   const section = paragraph.closest(".hero-section");
   const button = section ? section.querySelector(".reveal-btn") : null;
 
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   paragraph.textContent = "";
   paragraph.classList.add("is-typing");
   paragraph.dataset.typed = "true";
+
+  if (reducedMotion) {
+    paragraph.textContent = fullText;
+    paragraph.classList.remove("is-typing");
+    return;
+  }
 
   let i = 0;
 
@@ -119,10 +141,14 @@ if (sections.length > 0) {
 
           const paragraph = entry.target.querySelector(".typing-text");
           typeParagraph(paragraph, 16);
+          observer.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.3 }
+    {
+      threshold: 0.2,
+      rootMargin: "0px 0px -10% 0px"
+    }
   );
 
   sections.forEach((section) => observer.observe(section));
@@ -147,6 +173,8 @@ window.addEventListener("load", () => {
    RESET MENU ON RESIZE
    ========================= */
 window.addEventListener("resize", () => {
+  releaseDocumentScrollLock();
+
   if (window.innerWidth > 768) {
     if (navMenu) navMenu.classList.remove("active");
     if (hamburger) {

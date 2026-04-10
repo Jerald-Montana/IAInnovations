@@ -1,4 +1,16 @@
 /* --- GLOBAL CURVED & BLURRED GRADIENT OVERRIDE --- */
+html,
+body {
+  height: auto;
+  min-height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* .hero-section.about-hero.triangle-left::after {
   clip-path: none !important; 
   background: radial-gradient(
@@ -1481,6 +1493,24 @@ p { font-size: clamp(0.95rem, 1.2vw, 1.1rem); line-height: 1.6; }
 
 .footer-links li + li {
   margin-top: 8px;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.footer-contact-item i {
+  width: 18px;
+  margin-top: 3px;
+  color: var(--green, #bfd744);
+  flex: 0 0 18px;
+}
+
+.footer-contact-item span {
+  display: inline-block;
 }
 
 .footer-social {
