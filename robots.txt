@@ -1,0 +1,20 @@
+# Robots.txt for IA Innovations
+User-agent: *
+Allow: /
+
+# Allow search engines to crawl assets
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+# Disallow admin and private directories (if any)
+Disallow: /.git/
+Disallow: /.vs/
+Disallow: /private/
+Disallow: /admin/
+
+# Crawl delay (optional - adjust based on server capacity)
+Crawl-delay: 1
+
+# Sitemap (update with your domain)
+Sitemap: https://iainnovations.com/sitemap.xml

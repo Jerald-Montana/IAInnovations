@@ -31,6 +31,8 @@ body {
   color: #333;
   line-height: 1.6;
   overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 img {
@@ -79,9 +81,12 @@ img {
 .topbar-menu li a {
   color: white;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 24px;
   position: relative;
   transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .topbar-menu li a:hover {
@@ -187,6 +192,27 @@ img {
   width: 100%;
 }
 
+.nav-menu a.is-current,
+.nav-menu a[aria-current="page"],
+.nav-menu .dropdown > a.is-current-section {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.nav-menu a.is-current::after,
+.nav-menu a[aria-current="page"]::after,
+.nav-menu .dropdown > a.is-current-section::after {
+  width: 100%;
+}
+
+.topbar-menu a.is-current,
+.topbar-menu a[aria-current="page"] {
+  color: var(--green);
+  background: rgba(191, 215, 68, 0.14);
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px rgba(191, 215, 68, 0.2);
+}
+
 /* =========================================
    DROPDOWN MENU
    ========================================= */
@@ -269,9 +295,12 @@ img {
 /* =========================================
    HERO SECTIONS
    ========================================= */
+/* =========================================
+   HERO SECTIONS - IMPROVED RESPONSIVE SIZING
+   ========================================= */
 .hero-section {
   position: relative;
-  min-height: 88vh;
+  min-height: 86vh;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -291,7 +320,9 @@ img {
   height: 100%;
   object-fit: cover;
   opacity: 0.45;
-  transition: transform 1.5s ease;
+  transform: scale(1);
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
 }
 
 .hero-section:hover .bg img {
@@ -306,6 +337,7 @@ img {
   z-index: 1;
 }
 
+/* Triangle overlays - proportional and symmetric */
 .hero-section.about-hero.triangle-left::after {
   content: "";
   position: absolute;
@@ -314,10 +346,12 @@ img {
   background: linear-gradient(
     90deg,
     rgba(var(--triangle-rgb, 1, 46, 74), 0.99) 0%,
-    rgba(var(--triangle-rgb, 1, 46, 74), 0.98) 55%,
-    rgba(var(--triangle-rgb, 1, 46, 74), 0.92) 100%
+    rgba(var(--triangle-rgb, 1, 46, 74), 0.97) 40%,
+    rgba(var(--triangle-rgb, 1, 46, 74), 0.82) 70%,
+    rgba(var(--triangle-rgb, 1, 46, 74), 0.35) 100%
   );
-  clip-path: polygon(0 0, 85% 0, 55% 100%, 0 100%);
+  /* Wider, fuller triangle so hero blocks feel bolder */
+  clip-path: polygon(0 0, 64% 0, 45% 100%, 0 100%);
 }
 
 .hero-section.about-hero.triangle-right::after {
@@ -326,45 +360,61 @@ img {
   inset: 0;
   z-index: 1;
   background: linear-gradient(
-    -90deg,
+    90deg,
     rgba(var(--triangle-rgb, 1, 46, 74), 0.99) 0%,
-    rgba(var(--triangle-rgb, 1, 46, 74), 0.98) 55%,
-    rgba(var(--triangle-rgb, 1, 46, 74), 0.92) 100%
+    rgba(var(--triangle-rgb, 1, 46, 74), 0.97) 40%,
+    rgba(var(--triangle-rgb, 1, 46, 74), 0.82) 70%,
+    rgba(var(--triangle-rgb, 1, 46, 74), 0.35) 100%
   );
-  clip-path: polygon(15% 0, 100% 0, 100% 100%, 45% 100%);
+  /* Mirror of left to keep left/right heroes consistent */
+  clip-path: polygon(36% 0, 100% 0, 100% 100%, 55% 100%);
 }
 
+/* Content container - spacious, positioned clear of triangle, responsive */
 .content {
   position: relative;
-  z-index: 2;
-  width: min(620px, 90%);
+  z-index: 3;
+  width: min(560px, 88%);
   margin-left: clamp(20px, 6vw, 70px);
   margin-right: auto;
   color: var(--white);
   opacity: 0;
   transform: translateY(40px);
-  transition: all 1s ease;
+  transition: opacity 0.55s ease, transform 0.55s ease;
+  will-change: opacity, transform;
+  padding-right: 0;
 }
 
 .hero-section.right .content {
   margin-left: auto;
   margin-right: clamp(20px, 6vw, 70px);
   text-align: right;
+  padding-left: 0;
+  padding-right: 0;
 }
 
+.hero-section.right .content h2,
+.hero-section.right .content p {
+  margin-left: auto;
+}
+
+/* Heading - significantly larger for better prominence */
 .content h2 {
   font-size: clamp(2rem, 5vw, 3.3rem);
   line-height: 1.02;
   margin-bottom: 20px;
   font-weight: 800;
   text-transform: uppercase;
+  max-width: 520px;
 }
 
+/* Paragraph - significantly larger for readability */
 .content p {
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: clamp(1rem, 2vw, 1.16rem);
   margin-bottom: 20px;
-  line-height: 1.5;
+  line-height: 1.7;
   color: var(--white);
+  max-width: 520px;
   transition: color 0.35s ease;
 }
 
@@ -385,20 +435,25 @@ img {
 .partners-hero-right .content h2,
 .contact-hero-right .content h2,
 .careers-hero-right .content h2 {
-  font-size: clamp(1.9rem, 4.6vw, 3rem);
-  line-height: 1.12;
+  font-size: clamp(2rem, 5vw, 3.3rem);
+  line-height: 1.02;
+  margin-bottom: 20px;
+  font-weight: 800;
+  text-transform: uppercase;
+  max-width: 520px;
 }
 
 /* =========================================
    TYPING ANIMATION
    ========================================= */
 .typing-text {
+  display: block;
   min-height: 4.8em;
 }
 
 .typing-text.is-typing {
   border-right: 2px solid rgba(255, 255, 255, 0.9);
-  display: inline;
+  display: inline-block;
   animation: blink 0.8s step-end infinite;
 }
 
@@ -409,6 +464,19 @@ img {
 @keyframes blink {
   50% {
     border-color: transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg img,
+  .content,
+  .hero-section:hover .bg img {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .typing-text.is-typing {
+    animation: none;
   }
 }
 
@@ -435,7 +503,7 @@ img {
   margin-bottom: 24px;
   line-height: 1.85;
   color: #444;
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   text-align: left;
 }
 
@@ -460,7 +528,6 @@ img {
   object-fit: cover;
   display: block;
 }
-
 /* =========================================
    MISSION & VISION SECTION
    ========================================= */
@@ -500,14 +567,14 @@ img {
 }
 
 .mv-box h2 {
-  font-size: 1.8rem;
+  font-size: clamp(2rem, 4vw, 3rem);
   margin-bottom: 16px;
   color: var(--dark-blue);
   font-weight: 700;
 }
 
 .mv-box p {
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   line-height: 1.8;
   text-align: left;
 }
@@ -534,7 +601,7 @@ img {
 }
 
 .section-heading h2 {
-  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-size: clamp(2rem, 4vw, 3.1rem);
   color: var(--dark-blue);
   margin-bottom: 12px;
   font-weight: 800;
@@ -545,7 +612,7 @@ img {
   max-width: 760px;
   margin: 0 auto;
   color: #4c5b66;
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   line-height: 1.7;
 }
 
@@ -651,7 +718,7 @@ img {
 .career-card-content h3,
 .service-card-content h3 {
   color: var(--dark-blue);
-  font-size: 1.25rem;
+  font-size: 1.18rem;
   line-height: 1.35;
   margin-bottom: 12px;
   font-weight: 700;
@@ -661,7 +728,7 @@ img {
 .career-card-content p,
 .service-card-content p {
   color: var(--text);
-  font-size: 1rem;
+  font-size: 1.02rem;
   line-height: 1.72;
   margin-bottom: 18px;
 }
@@ -792,7 +859,7 @@ img {
 .contact-detail-group p {
   color: var(--text);
   line-height: 1.8;
-  font-size: 1rem;
+  font-size: 1.02rem;
   margin-bottom: 8px;
   word-break: break-word;
 }
@@ -954,7 +1021,7 @@ img {
   position: relative;
   padding: 35px 0;
   overflow: hidden;
-  background: url("../images/iafavicon.png") no-repeat left center;
+  
   background-size: 180px;
   background-color: var(--dark-blue);
 }
@@ -1033,7 +1100,7 @@ img {
   }
 
   .content {
-    width: min(560px, 88%);
+    width: min(560px, 90%);
   }
 
   .company-info-container {
@@ -1053,10 +1120,6 @@ img {
    TABLET LANDSCAPE
    ========================================= */
 @media (max-width: 1024px) {
-  .hero-section {
-    min-height: 72vh;
-  }
-
   .nav-menu {
     gap: 12px;
   }
@@ -1144,6 +1207,21 @@ img {
   .map-box {
     padding: 24px;
   }
+
+  /* Tablet-specific hero improvements */
+  .hero-section,
+  .hero-section.right {
+    min-height: clamp(64vh, 74vh, 84vh);
+  }
+
+  .content {
+    width: min(560px, 90%);
+    padding-right: 0;
+  }
+
+  .hero-section.right .content {
+    padding-left: 0;
+  }
 }
 
 /* =========================================
@@ -1224,30 +1302,59 @@ img {
     align-items: center;
   }
 
+  /* Hero sections on mobile - keep large, don't over-shrink */
   .hero-section,
   .hero-section.right {
-    min-height: 65vh;
+    min-height: 68vh;
     justify-content: center;
+    padding: 56px 0;
   }
 
   .content,
   .hero-section.right .content {
     width: min(92%, 620px);
     margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .hero-section.right .content p {
     margin-right: auto;
+    margin-left: auto;
   }
 
-  .hero-section.about-hero.triangle-left::after,
-  .hero-section.about-hero.triangle-right::after {
-    clip-path: polygon(0 0, 100% 0, 100% 68%, 0 100%);
+  .content h2 {
+    font-size: clamp(2rem, 7vw, 2.9rem);
+    margin-bottom: 20px;
+  }
+
+  .content p {
+    font-size: clamp(1rem, 3.2vw, 1.16rem);
+    margin-bottom: 20px;
+    line-height: 1.65;
+  }
+
+  /* Maintain proportional triangles on mobile */
+  .hero-section.about-hero.triangle-left::after {
+    clip-path: polygon(0 0, 64% 0, 45% 100%, 0 100%);
     background: linear-gradient(
-      180deg,
-      rgba(1, 46, 74, 0.95) 0%,
-      rgba(1, 46, 74, 0.86) 100%
+      90deg,
+      rgba(1, 46, 74, 0.98) 0%,
+      rgba(1, 46, 74, 0.92) 62%,
+      rgba(1, 46, 74, 0.45) 100%
+    );
+  }
+
+  .hero-section.about-hero.triangle-right::after {
+    clip-path: polygon(36% 0, 100% 0, 100% 100%, 55% 100%);
+    background: linear-gradient(
+      270deg,
+      rgba(1, 46, 74, 0.98) 0%,
+      rgba(1, 46, 74, 0.92) 62%,
+      rgba(1, 46, 74, 0.45) 100%
     );
   }
 
@@ -1322,6 +1429,167 @@ img {
    SMALL MOBILE
    ========================================= */
 @media (max-width: 480px) {
+  /* Comprehensive mobile optimizations */
+  :root {
+    --shadow-soft: 0 4px 12px rgba(1, 46, 74, 0.04);
+    --shadow-hover: 0 8px 18px rgba(1, 46, 74, 0.06);
+  }
+
+  html { font-size: 13px; }
+
+  .topbar-container,
+  .nav-container,
+  .footer-content,
+  .company-info-container,
+  .mv-container,
+  .partners-grid-container,
+  .careers-grid-container,
+  .service-grid-container,
+  .contact-container {
+    width: 95%;
+  }
+
+  /* Minimal padding on small screens */
+  .topbar { padding: 4px 12px; }
+  .navbar { padding: 8px 12px; }
+  
+  .logo img { height: 32px; }
+  
+  /* Stack all sections */
+  [class*="-grid"], [class*="-container"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Reduce shadows */
+  .partner-card, .mv-box, .service-card {
+    box-shadow: 0 2px 8px rgba(1, 46, 74, 0.03);
+  }
+
+  /* Minimal spacing */
+  section { padding: 35px 0; }
+  
+  /* Responsive typography */
+  h1 { font-size: 1.2rem; }
+  h2 { font-size: 1.1rem; }
+  h3 { font-size: 0.95rem; }
+  
+  /* Touch targets - min 44px */
+  button, .btn, a.action-link {
+    min-height: 44px;
+    padding: 10px 16px;
+  }
+}
+
+/* Tablet & Medium devices */
+@media (max-width: 768px) {
+  :root {
+    --shadow-soft: 0 6px 20px rgba(1, 46, 74, 0.05);
+    --shadow-hover: 0 12px 32px rgba(1, 46, 74, 0.10);
+  }
+
+  .topbar-container,
+  .nav-container,
+  .footer-content,
+  .company-info-container,
+  .mv-container,
+  .partners-grid-container,
+  .careers-grid-container,
+  .service-grid-container,
+  .contact-container {
+    width: 90%;
+  }
+
+  .navbar { padding: 12px 16px; }
+  .logo img { height: 38px; }
+
+  /* Tablet grid - 2 columns */
+  .partners-grid-container,
+  .service-grid-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 18px;
+  }
+
+  .mv-container {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+  }
+
+  section { padding: 50px 0; }
+
+  /* Image heights */
+  .partner-image, .service-image {
+    height: 200px;
+  }
+
+  /* Typography scaling */
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.4rem; }
+  h3 { font-size: 1rem; }
+
+  /* Cards responsive */
+  .partner-card, .service-card {
+    border-radius: 16px;
+  }
+
+  /* Remove hover transforms on small displays */
+  .partner-card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+/* Large phones (600px - 767px) */
+@media (max-width: 767px) and (min-width: 600px) {
+  .topbar-container,
+  .nav-container,
+  .footer-content,
+  .company-info-container,
+  .mv-container,
+  .partners-grid-container,
+  .careers-grid-container,
+  .service-grid-container,
+  .contact-container {
+    width: 92%;
+  }
+
+  .navbar { padding: 14px 16px; }
+
+  .partners-grid-container,
+  .service-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .partner-image, .service-image {
+    height: 220px;
+  }
+}
+
+/* Landscape mode adjustments */
+@media (max-height: 600px) {
+  section { padding: 30px 0; }
+  
+  .navbar { padding: 8px 16px; }
+  
+  h1 { font-size: clamp(1.2rem, 4vw, 2rem); }
+}
+
+/* Print styles */
+@media print {
+  .navbar, .topbar, .footer {
+    display: none;
+  }
+
+  .section-spacing {
+    page-break-inside: avoid;
+  }
+
+  body {
+    font-size: 12pt;
+    background: white;
+  }
+}
+
+@media (max-width: 599px) {
   .nav-container,
   .footer-content,
   .company-info-container,
@@ -1333,17 +1601,13 @@ img {
     width: 94%;
   }
 
-  .hero-section {
-    min-height: 58vh;
-    padding: 40px 0;
-  }
-
   .content h2 {
-    font-size: 1.8rem;
+    font-size: clamp(1.85rem, 7.5vw, 2.2rem);
   }
 
   .content p {
-    font-size: 1rem;
+    font-size: clamp(1rem, 3.8vw, 1.08rem);
+    line-height: 1.6;
   }
 
   .company-info-section {

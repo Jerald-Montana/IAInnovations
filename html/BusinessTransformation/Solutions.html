@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' https: data: scontent.fmnl9-3.fna.fbcdn.net scontent.fmnl9-4.fna.fbcdn.net scontent.fmnl9-5.fna.fbcdn.net images.unsplash.com; connect-src 'self' https://formsubmit.co; frame-src https://www.google.com; form-action https://formsubmit.co;" />
+  <title>Our Solutions - IA Innovations</title>
+  <meta name="description" content="Explore IA Innovations solutions portfolio across transformation, digital experience, infrastructure, and industry services.">
+  <meta name="keywords" content="IA Innovations, digital transformation, AI, RPA, cloud, consulting">
+  <meta name="author" content="IA Innovations">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Our Solutions | IA Innovations">
+  <meta property="og:description" content="A complete portfolio of enterprise digital solutions tailored to your business priorities.">
+  <meta property="og:url" content="https://iainnovations.com/html/BusinessTransformation/Solutions.html">
+  <meta property="og:image" content="https://iainnovations.com/images/iafavicon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://iainnovations.com/html/BusinessTransformation/Solutions.html">
+  
+  <link rel="stylesheet" href="../../css/AboutUS.css">
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <link rel="icon" type="image/png" href="../../images/iafavicon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+  <style>
+    /* =========================================================
+       SOLUTIONS PAGE SPECIFIC CSS
+       ========================================================= */
+    :root {
+      --dark-blue: #012e4a;
+      --blue: #0171b9;
+      --lime: #bfd744;
+      --text: #5b6870;
+      --bg-soft: #f8fbfd;
+      --shadow-soft: 0 14px 34px rgba(1, 46, 74, 0.06);
+      --shadow-strong: 0 22px 48px rgba(1, 46, 74, 0.12);
+    }
+
+    body {
+      font-family: "Segoe UI", Inter, system-ui, sans-serif;
+      background-color: #ffffff;
+      color: var(--dark-blue);
+      margin: 0;
+      padding: 0;
+    }
+
+    /* --- HERO SECTION --- */
+    .solutions-hero {
+      position: relative;
+      padding: 100px 20px; 
+      background: linear-gradient(135deg, var(--dark-blue) 0%, var(--blue) 100%);
+      color: #ffffff;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .solutions-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: #ffffff;
+      transform: skewY(-1.5deg);
+    }
+
+    .solutions-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .solutions-hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      margin: 0 0 15px 0;
+      line-height: 1.1;
+    }
+
+    .solutions-hero p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* --- ALTERNATING FEATURE SECTIONS --- */
+    .products-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .product-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      margin-bottom: 80px; 
+    }
+
+    .product-row:last-child {
+      margin-bottom: 40px;
+    }
+
+    /* Alternating layout for desktop */
+    .product-row:nth-child(even) .product-content {
+      order: -1;
+    }
+
+    .product-image {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .product-image:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-strong);
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s ease;
+    }
+
+    .product-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .product-content {
+      padding: 10px 0;
+    }
+
+    .product-eyebrow {
+      display: inline-block;
+      background: rgba(191, 215, 68, 0.2);
+      color: var(--dark-blue);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .product-title {
+      font-size: 2.2rem;
+      color: var(--dark-blue);
+      margin: 0 0 15px 0;
+      font-weight: 800;
+      position: relative;
+    }
+
+    /* Brand Gradient Accent Line */
+    .product-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 50px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--blue), var(--lime));
+      border-radius: 2px;
+    }
+
+    .product-desc {
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-top: 25px;
+    }
+
+    .product-desc p {
+      margin-bottom: 12px;
+    }
+
+    /* --- CONTACT FORM SECTION --- */
+    .solutions-contact-wrapper {
+      background: var(--bg-soft);
+      padding: 70px 20px; 
+      border-top: 1px solid rgba(1,46,74,0.05);
+    }
+
+    .contact-form-container {
+      max-width: 750px; 
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 40px; 
+      border-radius: 16px;
+      box-shadow: var(--shadow-strong);
+      border-top: 5px solid var(--blue);
+    }
+
+    .contact-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .contact-header h2 {
+      font-size: 1.8rem;
+      color: var(--dark-blue);
+      margin: 0 0 8px 0;
+    }
+
+    .contact-header p {
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--dark-blue);
+      font-size: 0.9rem;
+    }
+
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #dfeaf1;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: all 0.3s ease;
+      background: #fcfdfe;
+    }
+
+    .form-group input:focus, 
+    .form-group select:focus, 
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--blue);
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(1, 113, 185, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .submit-btn {
+      display: inline-block;
+      width: 100%;
+      background: linear-gradient(90deg, var(--dark-blue), var(--blue));
+      color: #ffffff;
+      border: none;
+      padding: 14px 24px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 5px;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(1, 113, 185, 0.25);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    /* =========================================
+       BULLETPROOF POPUP CSS
+       ========================================= */
+    .success-popup-overlay {
+      display: none; 
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(1, 46, 74, 0.85); z-index: 999999;
+      align-items: center; justify-content: center; backdrop-filter: blur(5px);
+    }
+    
+    .success-popup-overlay.show-popup {
+      display: flex !important; 
+    }
+    
+    .success-popup-box {
+      background: white; padding: 40px; border-radius: 12px; text-align: center; 
+      max-width: 400px; width: 90%; box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
+      animation: popupZoom 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    @keyframes popupZoom {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    
+    .done-btn {
+      background: #bfd744; border: none; padding: 12px 36px; font-weight: bold; 
+      border-radius: 6px; cursor: pointer; color: #012e4a; font-size: 1.1rem; 
+      margin-top: 10px; transition: background 0.3s ease, transform 0.2s ease;
+    }
+    
+    .done-btn:hover { background: #a9c833; transform: scale(1.05); }
+
+    /* --- MOBILE RESPONSIVENESS --- */
+    @media (max-width: 900px) {
+      .product-row {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 60px;
+      }
+      
+      /* Reset alternating layout for mobile (Image always on top) */
+      .product-row:nth-child(even) .product-content {
+        order: 0;
+      }
+
+      .product-image img {
+        height: 280px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form-container {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+    <div class="topbar-container">
+      <ul class="topbar-menu">
+        <li><a href="../index.html" aria-label="Home" title="Home"><i class="fas fa-home"></i></a></li>
+        <li><a href="./AboutUs.html" aria-label="About Us" title="About Us"><i class="fas fa-info-circle"></i></a></li>
+        <li><a href="./Partnership.html" aria-label="Partners" title="Partners"><i class="fas fa-handshake"></i></a></li>
+        <li><a href="./careers.html" aria-label="Careers" title="Careers"><i class="fas fa-briefcase"></i></a></li>
+        <li><a href="./Contact.html" aria-label="Contact" title="Contact"><i class="fas fa-envelope"></i></a></li>
+      </ul>
+    </div>
+  </div>
+
+<nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="../index.html">
+<img src="../../images/ia-innovations-logo-white-bg.png" alt="IA Innovations Logo">
+        </a>
+      </div>
+
+      <ul class="nav-menu">
+        <li class="dropdown">
+          <a href="#">Business Transformation <span class="arrow">^</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="./CorporatePerformance.html">Corporate Performance</a></li>
+            <li><a href="./EnterpriseData.html">Enterprise Data</a></li>
+            <li><a href="./EnterpriseResource.html">Enterprise Resources</a></li>
+            <li><a href="./IntegrationApi.html">Integration API</a></li>
+            <li><a href="./ManagementConsulting.html">Management Consulting</a></li>
+            <li><a href="./AppDevelopment.html">App Development</a></li>
+            <li><a href="./ProjectManagement.html">Project Management</a></li>
+            <li><a href="./RPA.html">RPA</a></li>
+            <li><a href="./RPA.html#kinex-section">KINEX.io</a></li>
+            <li><a href="./RPA.html#ai-iot-section">AI & IoT Platform</a></li>
+            <li><a href="./Solutions.html">Solutions</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Digital Experience <span class="arrow">^</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="../DigitalExperience/DigitalExperience.html">E-Commerce</a></li>
+            <li><a href="../DigitalExperience/DigitalExperience.html#digital-marketing-section">Digital Marketing</a></li>
+            <li><a href="../DigitalExperience/DigitalExperience.html#knowledge-management-section">Knowledge Management</a></li>
+            <li><a href="../DigitalExperience/MobileExperience.html#mobile-experience-section">Mobile Experience</a></li>
+            <li><a href="../DigitalExperience/MobileExperience.html#web-portal-section">Web and Portal</a></li>
+            <li><a href="../DigitalExperience/MobileExperience.html#document-management-section">Document Management</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Industry Solutions <span class="arrow">^</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="../IndustrySolutions/FinancialServices.html">Financial Services</a></li>
+            <li><a href="../IndustrySolutions/FinancialServices.html#consumer-markets-section">Consumer Markets</a></li>
+            <li><a href="../IndustrySolutions/FinancialServices.html#public-sector-section">Public Sector</a></li>
+            <li><a href="../IndustrySolutions/FinancialServices.html#financial-services-section">General Business</a></li>
+            <li><a href="../IndustrySolutions/FinancialServices.html#consumer-markets-section">Manufacturing</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#">Infrastructures <span class="arrow">^</span></a>
+          <ul class="dropdown-menu">
+            <li><a href="../InfrastructureServices/Infrastructure.html">Cloud Solutions</a></li>
+            <li><a href="../InfrastructureServices/Infrastructure.html#information-security-section">Information Security</a></li>
+            <li><a href="../InfrastructureServices/Infrastructure.html#security-surveillance-section">Security & Surveillance</a></li>
+            <li><a href="../InfrastructureServices/Infrastructure.html#business-management-section">Business Management</a></li>
+            <li><a href="../InfrastructureServices/Infrastructure.html#devops-section">DevOps</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <section class="solutions-hero">
+    <div class="solutions-hero-content">
+      <h1>Our Solutions</h1>
+      <p>Discover our suite of enterprise products designed to elevate your operations, streamline your workflow, and drive business transformation.</p>
+    </div>
+  </section>
+
+  <section class="products-container">
+    
+    <div class="product-row">
+      <div class="product-image">
+        <img src="/images/stock-image/human-resource.avif" alt="VUE HR Management Interface">
+      </div>
+      <div class="product-content">
+        <span class="product-eyebrow">Human Resources</span>
+        <h2 class="product-title">VUE HR</h2>
+        <div class="product-desc">
+          <p>As the world of work continues to evolve, so too must the tools and systems that support it. IA Innovations is at the forefront of this change, offering innovative human resource management solutions that are designed to help businesses thrive.</p>
+          <p>Our solutions include a Comprehensive HRIS (Human Resource Information Systems), AI-Enabled Timekeeping, and a Robust Payroll solution. We are committed to providing solutions that are human-centric and offer a high degree of automation to help businesses improve their bottom line. Our solutions are designed to streamline HR processes and improve employee satisfaction. <a href="#contact-section" class="inquire-link">Inquire</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-row">
+      <div class="product-image">
+        <img src="/images/stock-image/create-integrated.avif" alt="VUE ERP System Dashboard">
+      </div>
+      <div class="product-content">
+        <span class="product-eyebrow">Enterprise Planning</span>
+        <h2 class="product-title">VUE ERP</h2>
+        <div class="product-desc">
+          <p>With IA Innovation's digital business solutions, our depth of product functionality, and the breadth of our product offering, we enable you to take your business further by automating processes across the enterprise. With our experience in building successful ERP projects and implementations, our ERP business and technology experts can help you automate and transform every part of your business.</p>
+          <p>We offer modern Integrated financial accounting, sales, procurement, and supply chain operations systems modernized with IoT sensors to help your organization create an integrated suite built on unified information architecture, with the functionality needed in each application. These applications connect your business processes within and across departmental, geographical, and line-of-business domains. <a href="#contact-section" class="inquire-link">Inquire</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-row">
+      <div class="product-image">
+        <img src="/images/stock-image/integrate.avif" alt="FSM Grid Field Service App">
+      </div>
+      
+      <div class="product-content">
+        <span class="product-eyebrow">Field Service Management</span>
+        <h2 class="product-title">FSM Grid</h2>
+        <div class="product-desc">
+          <p>IA Innovations brings the best solution for field work management directly to you. With FSM Grid, we provide your organization with a more cohesive internal operation process'covering everything you need and more. Coordinating within your teams, and across different departments, has never been this easy. FSM Grid also helps strengthen your relationship with your clients through other features included.</p>
+          <p>The FSM Grid provides you with an Admin Portal, a Vendor Portal, a Mobile Technician App, and Customer Portal ALL in ONE purchase. This is a cost-efficient way of leveling-up your business. <a href="#contact-section" class="inquire-link">Inquire</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="product-row">
+      <div class="product-image">
+        <img src="/images/stock-image/lending-ratios.jpeg" alt="LENDS Loans End to End System">
+      </div>
+      <div class="product-content">
+        <span class="product-eyebrow">Loan Management</span>
+        <h2 class="product-title">LENDS</h2>
+        <div class="product-desc">
+          <p>IA Innovations offers LENDS (Loans End to End System), an easy-to-use, cloud-based business management software for loan acquisition, servicing, and collection. This digital business solution enables organizations to offer loan products ranging from microfinancing and retail loans to more complex business loans.</p>
+          <p>We provide paperless application processing and quick credit adjudication for customer acquisition, along with smooth loan processing and credit approval workflows.</p>
+          <p>LENDS also supports hassle-free loan collections through user management and account allocation to agents and agencies, with transparent productivity reports and role-based dashboards. <a href="#contact-section" class="inquire-link">Inquire</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact-section" class="solutions-contact-wrapper">
+    <div class="contact-form-container">
+      <div class="contact-header">
+        <h2>Ready to level up your business?</h2>
+        <p>Inquire about our solutions today. Fill out the form below and our team will get in touch with you shortly.</p>
+      </div>
+
+      <form id="secureContactForm" action="https://formsubmit.co/embeddedsystems718@gmail.com" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="Name" placeholder="Last name, First name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="Email_Address" placeholder="john@company.com" required>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="company">Company Name</label>
+            <input type="text" id="company" name="Company" placeholder="Your Organization">
+          </div>
+          <div class="form-group">
+            <label for="solution">Interested Solution</label>
+            <select id="solution" name="Interested_Solution" required>
+              <option value="" disabled selected>Select a Product...</option>
+              <option value="VUE HR">VUE HR</option>
+              <option value="VUE ERP">VUE ERP</option>
+              <option value="FSM Grid">FSM Grid</option>
+              <option value="Other">Other Inquiry</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message / Inquiry Details</label>
+          <textarea id="message" name="Message" placeholder="How can we help transform your business?" required></textarea>
+        </div>
+
+        <input type="hidden" name="_subject" value="New Solutions Inquiry">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="display:none">
+        <input type="hidden" name="_ajax" value="true">
+        
+        <button type="submit" id="submitBtn" class="submit-btn">Send Inquiry <i class="fa-solid fa-paper-plane" style="margin-left: 8px;"></i></button>
+      </form>
+    </div>
+  </section>
+
+  <div class="success-popup-overlay" id="successPopup">
+    <div class="success-popup-box">
+      <h2 style="color: #0171b9; margin-bottom: 15px; font-size: 2rem;">Inquiry Sent!</h2>
+      <p style="color: #44515a; margin-bottom: 25px; font-size: 1.1rem;">Thank you for contacting IA Innovations. We have successfully received your inquiry regarding our solutions.</p>
+      
+      <button class="done-btn" onclick="closePopup()">Done</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="../../images/ia-innovations-logo-white-bg.png" alt="IA Innovations logo">
+
+          <p>
+            IA Innovations delivers human-centered technology solutions that help organizations transform, innovate, and grow with confidence.
+          </p>
+
+          <div class="footer-social">
+            <a href="https://www.facebook.com/iainnovations/" target="_blank" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/ia-innovations-inc-" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.instagram.com/ia.innovations?igsh=MTFmd2ExZmY1cWpxbQ==" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4><i class="fas fa-link"></i> Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../BusinessTransformation/AboutUs.html">About Us</a></li>
+            <li><a href="../BusinessTransformation/Partnership.html">Partners</a></li>
+            <li><a href="../BusinessTransformation/careers.html">Careers</a></li>
+            <li><a href="../BusinessTransformation/Contact.html">Contacts</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4><i class="fas fa-cogs"></i> Services</h4>
+          <ul class="footer-links">
+            <li><a href="../BusinessTransformation/CorporatePerformance.html">Business Transformation</a></li>
+            <li><a href="../DigitalExperience/DigitalExperience.html">Digital Experience</a></li>
+            <li><a href="../IndustrySolutions/FinancialServices.html">Industry Solutions</a></li>
+            <li><a href="../InfrastructureServices/Infrastructure.html">Infrastructure</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4><i class="fas fa-address-book"></i> Contact</h4>
+          <p class="footer-contact-item"><i class="fas fa-envelope"></i><span>info@iainnovations.com</span></p>
+          <p class="footer-contact-item"><i class="fas fa-phone-alt"></i><span>+63 283 978 809</span></p>
+          <p class="footer-contact-item"><i class="fas fa-location-dot"></i><span>Philippines</span></p>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom">
+         2026 IA Innovations | A Member of the Kairos Group Pte Ltd |
+        <a href="#">Terms and Conditions</a> |
+        <a href="#">Privacy Policy</a> |
+        <a href="https://www.zwsoft.com/product/zwcad" target="_blank">About ZWCAD</a> |
+        <a href="#hero">Go to Top</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/script.js"></script>
+
+  <script>
+    document.getElementById('secureContactForm').addEventListener('submit', function(e) {
+      e.preventDefault(); 
+      
+      const form = e.target;
+      const btn = document.getElementById('submitBtn');
+      const originalText = btn.innerHTML;
+      
+      // Update button state to show loading
+      btn.innerText = 'Sending...';
+      btn.disabled = true;
+
+      // Send the data via AJAX fetch
+      fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: {
+            'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          // Success: show the popup and reset
+          document.getElementById('successPopup').classList.add('show-popup');
+          form.reset();
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        } else {
+          // Fail: Need to activate the email via FormSubmit
+          alert("Error: Your message could not be sent. Make sure you have activated this email address through FormSubmit.");
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        }
+      })
+      .catch(error => {
+        alert("Network error: Could not connect to the server.");
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      });
+    });
+
+    function closePopup() {
+      document.getElementById('successPopup').classList.remove('show-popup');
+    }
+  </script>
+
+  <script src="../../js/back-to-top.js"></script>
+  <script src="../../js/analytics-init.js"></script>
+</body>
+</html>
+
+

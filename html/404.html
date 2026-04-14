@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found | IA Innovations</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://iainnovations.com/html/404.html">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" type="image/png" href="../images/iafavicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --blue: #0171b9;
+      --green: #bfd744;
+      --dark-blue: #012e4a;
+      --white: #ffffff;
+      --text: #4f5f69;
+      --light-bg: #f7fbfe;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, var(--dark-blue) 0%, var(--blue) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: var(--text);
+    }
+
+    .error-container {
+      text-align: center;
+      padding: 40px 20px;
+      max-width: 600px;
+      animation: slideUp 0.6s ease-out;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .error-code {
+      font-size: 120px;
+      font-weight: 700;
+      color: var(--green);
+      margin: 0;
+      line-height: 1;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .error-icon {
+      font-size: 60px;
+      color: var(--white);
+      margin: 20px 0;
+      display: block;
+    }
+
+    .error-title {
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--white);
+      margin: 20px 0;
+    }
+
+    .error-message {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.9);
+      margin: 20px 0 40px 0;
+      line-height: 1.6;
+    }
+
+    .error-actions {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 2px solid var(--white);
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: var(--dark-blue);
+      border-color: var(--green);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      border-color: var(--white);
+    }
+
+    .btn-secondary:hover {
+      background: var(--white);
+      color: var(--blue);
+      transform: translateY(-2px);
+    }
+
+    .error-suggestions {
+      margin-top: 50px;
+      text-align: left;
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 5px;
+      margin-top: 40px;
+    }
+
+    .error-suggestions h3 {
+      color: var(--white);
+      margin-top: 0;
+    }
+
+    .error-suggestions ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+    }
+
+    .error-suggestions li {
+      color: rgba(255, 255, 255, 0.9);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .error-suggestions li:last-child {
+      border-bottom: none;
+    }
+
+    .error-suggestions a {
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .error-suggestions a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .error-code {
+        font-size: 80px;
+      }
+
+      .error-title {
+        font-size: 24px;
+      }
+
+      .error-message {
+        font-size: 16px;
+      }
+
+      .error-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="error-container">
+    <h1 class="error-code">404</h1>
+    <i class="fas fa-search error-icon"></i>
+    <h2 class="error-title">Page Not Found</h2>
+    <p class="error-message">Sorry, the page you're looking for doesn't exist or has been moved.</p>
+    
+    <div class="error-actions">
+      <a href="../html/index.html" class="btn btn-primary">
+        <i class="fas fa-home"></i> Go to Home
+      </a>
+      <button class="btn btn-secondary" onclick="history.back()">
+        <i class="fas fa-arrow-left"></i> Go Back
+      </button>
+    </div>
+
+    <div class="error-suggestions">
+      <h3><i class="fas fa-lightbulb"></i> What can you do?</h3>
+      <ul>
+        <li><a href="../html/index.html">Return to Homepage</a></li>
+        <li><a href="../html/BusinessTransformation/AboutUs.html">Learn About Us</a></li>
+        <li><a href="../html/BusinessTransformation/Solutions.html">Explore Solutions</a></li>
+        <li><a href="../html/BusinessTransformation/Contact.html">Contact Us</a></li>
+        <li>Check the URL for typos</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Track 404 errors (optional - requires Analytics setup)
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'page_404', {
+        page_path: window.location.pathname,
+        page_title: '404 Page Not Found'
+      });
+    }
+  </script>
+  <script src="../js/back-to-top.js"></script>
+</body>
+</html>
