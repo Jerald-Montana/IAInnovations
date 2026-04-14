@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -9,6 +9,17 @@
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' https: data: scontent.fmnl9-3.fna.fbcdn.net scontent.fmnl9-4.fna.fbcdn.net scontent.fmnl9-5.fna.fbcdn.net images.unsplash.com imagedelivery.net; frame-src 'self' https://www.google.com https://formsubmit.co; form-action https://formsubmit.co;" />
   <title>Contact Us - IA Innovations</title>
+  <meta name="description" content="Contact IA Innovations to discuss digital transformation, enterprise applications, infrastructure services, and automation opportunities for your business.">
+  <meta name="keywords" content="IA Innovations, digital transformation, AI, RPA, cloud, consulting">
+  <meta name="author" content="IA Innovations">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact IA Innovations">
+  <meta property="og:description" content="Send us your inquiry and our team will get back with practical next steps for your digital goals.">
+  <meta property="og:url" content="https://iainnovations.com/html/BusinessTransformation/Contact.html">
+  <meta property="og:image" content="https://iainnovations.com/images/iafavicon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://iainnovations.com/html/BusinessTransformation/Contact.html">
   
   <link rel="stylesheet" href="../../css/styles.css">
   <link rel="stylesheet" href="../../css/AboutUS.css">
@@ -378,7 +389,34 @@
         gap: 0;
       }
     }
-  </style>
+  
+    /* Auto-added: client-side form validation states */
+    .contact-form input.error,
+    .contact-form textarea.error {
+      border-color: #d32f2f !important;
+      background-color: #ffebee !important;
+    }
+
+    .error-message {
+      color: #d32f2f;
+      font-size: 0.875rem;
+      margin-top: 4px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .form-privacy-note {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: #4f5f69;
+      line-height: 1.6;
+    }
+
+    .form-privacy-note i {
+      color: #0171b9;
+      margin-right: 6px;
+    }
+</style>
 </head>
 <body>
 
@@ -541,7 +579,7 @@
                     <img
                       id="mapImage"
                       class="map-image"
-                      src="https://imagedelivery.net/4hgeCwftKXWxSyeV7QJJpA/6170b0dd-828a-4b3c-13ae-75487e7a2600/w=600,compression=fast,format=webp"
+                      src="/images/stock-image/connect.avif"
                       alt="IA Innovations office building">
                   </div>
                 </div>
@@ -585,6 +623,7 @@
                 <input type="text" name="_honey" style="display:none">
                 
                 <button type="submit" id="submitBtn" class="contact-btn">Send Message</button>
+                <p class="form-privacy-note"><i class="fas fa-shield-alt"></i>Your details are used only to respond to your inquiry.</p>
               </form>
 
               <script>
@@ -705,7 +744,11 @@
     });
   </script>
 
+  <script src="../../js/back-to-top.js"></script>
+  <script src="../../js/form-validation.js"></script>
+  <script src="../../js/analytics-init.js"></script>
 </body>
 </html>
+
 
 

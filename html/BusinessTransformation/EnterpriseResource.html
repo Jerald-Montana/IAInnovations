@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,6 +10,17 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' https: data:; frame-src https://www.google.com https://formsubmit.co; form-action https://formsubmit.co;">
   <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
   <title>Enterprise Resources - IA Innovations</title>
+  <meta name="description" content="Optimize enterprise planning and resource management with solutions that improve visibility, control, and cross-team coordination.">
+  <meta name="keywords" content="IA Innovations, digital transformation, AI, RPA, cloud, consulting">
+  <meta name="author" content="IA Innovations">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Enterprise Resources | IA Innovations">
+  <meta property="og:description" content="Enterprise resource solutions designed to improve planning, utilization, and performance.">
+  <meta property="og:url" content="https://iainnovations.com/html/BusinessTransformation/EnterpriseResource.html">
+  <meta property="og:image" content="https://iainnovations.com/images/iafavicon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://iainnovations.com/html/BusinessTransformation/EnterpriseResource.html">
   
   <link rel="stylesheet" href="../../css/styles.css" />
   <link rel="stylesheet" href="../../css/AboutUS.css" />
@@ -180,7 +191,12 @@
 
             <article class="service-card">
               <div class="service-image-wrap">
-                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80" alt="Custom Development" loading="lazy">
+                <img 
+    $altText = $matches[3]
+    $mappedFile = Get-MappedImage -altText $altText
+    $totalReplaced++
+    "$($matches[1])/images/stock-image/$mappedFile$($matches[2])$altText$($matches[4])"
+   loading="lazy">
                 <div class="service-overlay">
                   <p>Tailored application extensions and portal development.</p>
                 </div>
@@ -281,7 +297,10 @@
 
 
   <script src="../../js/script.js"></script>
+  <script src="../../js/back-to-top.js"></script>
+  <script src="../../js/analytics-init.js"></script>
 </body>
 </html>
+
 
 

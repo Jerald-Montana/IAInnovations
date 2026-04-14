@@ -192,6 +192,27 @@ img {
   width: 100%;
 }
 
+.nav-menu a.is-current,
+.nav-menu a[aria-current="page"],
+.nav-menu .dropdown > a.is-current-section {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.nav-menu a.is-current::after,
+.nav-menu a[aria-current="page"]::after,
+.nav-menu .dropdown > a.is-current-section::after {
+  width: 100%;
+}
+
+.topbar-menu a.is-current,
+.topbar-menu a[aria-current="page"] {
+  color: var(--green);
+  background: rgba(191, 215, 68, 0.14);
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px rgba(191, 215, 68, 0.2);
+}
+
 /* =========================================
    DROPDOWN MENU
    ========================================= */

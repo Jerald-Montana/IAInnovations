@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,6 +10,17 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; img-src 'self' https: data: images.unsplash.com; frame-src 'self' https://www.google.com;">
   <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
   <title>Integration API - IA Innovations</title>
+  <meta name="description" content="Connect systems and streamline data flow with API integration services that improve agility, speed, and reliability.">
+  <meta name="keywords" content="IA Innovations, digital transformation, AI, RPA, cloud, consulting">
+  <meta name="author" content="IA Innovations">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Integration API Services | IA Innovations">
+  <meta property="og:description" content="Secure and scalable API integration for connected enterprise operations.">
+  <meta property="og:url" content="https://iainnovations.com/html/BusinessTransformation/IntegrationApi.html">
+  <meta property="og:image" content="https://iainnovations.com/images/iafavicon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://iainnovations.com/html/BusinessTransformation/IntegrationApi.html">
   
   <link rel="stylesheet" href="../../css/styles.css">
   <link rel="stylesheet" href="../../css/AboutUS.css">
@@ -266,7 +277,12 @@
     <div class="company-info-container">
       
       <div class="company-image picture-box">
-        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80" alt="Enterprise Server and Systems Integration">
+        <img 
+    $altText = $matches[3]
+    $mappedFile = Get-MappedImage -altText $altText
+    $totalReplaced++
+    "$($matches[1])/images/stock-image/$mappedFile$($matches[2])$altText$($matches[4])"
+  >
       </div>
 
       <div class="company-text">
@@ -444,7 +460,10 @@
   </footer>
 
   <script src="../../js/script.js"></script>
+  <script src="../../js/back-to-top.js"></script>
+  <script src="../../js/analytics-init.js"></script>
 </body>
 </html>
+
 
 

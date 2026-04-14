@@ -73,7 +73,7 @@
   RewriteBase /
   
   # Rewrite 404 to custom error page
-  ErrorDocument 404 /404.html
+  ErrorDocument 404 /html/404.html
   
   # Remove .html extension
   RewriteCond %{REQUEST_FILENAME} !-f
@@ -85,7 +85,7 @@
 Options -Indexes
 
 # Prevent access to sensitive files
-<FilesMatch "\.(env|htaccess|txt|md|json|xml|yml|yaml|lock|git|gitignore)$">
+<FilesMatch "\.(env|htaccess|yml|yaml|lock|git|gitignore)$">
   Order allow,deny
   Deny from all
 </FilesMatch>
