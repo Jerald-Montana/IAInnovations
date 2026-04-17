@@ -7,7 +7,7 @@
   padding: 90px 0;
   background:
     linear-gradient(115deg, rgba(1, 46, 74, 0.96) 0%, rgba(1, 46, 74, 0.90) 42%, rgba(1, 113, 185, 0.72) 100%),
-    url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
+    url("/images/stock-image/expand-career.avif") center/cover no-repeat;
   overflow: hidden;
 }
 
@@ -34,6 +34,7 @@
   grid-template-columns: 1.15fr 0.85fr;
   gap: 40px;
   align-items: center;
+  animation: careerHeroReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .career-hero-copy h1 {
@@ -42,6 +43,7 @@
   line-height: 1.06;
   margin-bottom: 18px;
   font-weight: 800;
+  text-shadow: 0 10px 24px rgba(1, 46, 74, 0.28);
 }
 
 .career-hero-copy p {
@@ -51,6 +53,17 @@
   max-width: 640px;
   margin-bottom: 28px;
 }
+
+.career-hero-copy p,
+.career-hero-actions,
+.career-hero-stats,
+.career-hero-panel {
+  animation: careerHeroItemIn 0.75s ease both;
+}
+
+.career-hero-actions { animation-delay: 0.12s; }
+.career-hero-stats { animation-delay: 0.2s; }
+.career-hero-panel { animation-delay: 0.28s; }
 
 .career-hero-actions {
   display: flex;
@@ -69,6 +82,18 @@
   text-decoration: none;
   transition: all 0.3s ease;
   border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.career-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 28%, rgba(255, 255, 255, 0.35) 50%, transparent 72%);
+  transform: translateX(-120%);
+  transition: transform 0.45s ease;
+  pointer-events: none;
 }
 
 .career-btn-primary {
@@ -80,6 +105,10 @@
 .career-btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 16px 34px rgba(1, 113, 185, 0.28);
+}
+
+.career-btn:hover::after {
+  transform: translateX(120%);
 }
 
 .career-btn-secondary {
@@ -105,6 +134,35 @@
   border-radius: 18px;
   padding: 18px;
   backdrop-filter: blur(12px);
+  transition: transform 0.28s ease, border-color 0.28s ease, background-color 0.28s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.career-hero-stat:hover {
+  transform: translateY(-4px);
+  border-color: rgba(191, 215, 68, 0.5);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.career-hero-stat i {
+  width: 38px;
+  height: 38px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(191, 215, 68, 0.14);
+  color: #bfd744;
+  font-size: 1rem;
+  box-shadow: inset 0 0 0 1px rgba(191, 215, 68, 0.14);
+  transition: transform 0.28s ease, background-color 0.28s ease, color 0.28s ease;
+}
+
+.career-hero-stat:hover i {
+  transform: translateY(-1px) scale(1.05);
+  background: rgba(191, 215, 68, 0.18);
+  color: #e5f46f;
 }
 
 .career-hero-stat strong {
@@ -120,6 +178,10 @@
   line-height: 1.5;
 }
 
+.career-hero-stat:hover strong {
+  color: #fff;
+}
+
 .career-hero-panel {
   background: rgba(255, 255, 255, 0.10);
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -127,6 +189,11 @@
   padding: 30px;
   backdrop-filter: blur(16px);
   box-shadow: 0 20px 44px rgba(0, 0, 0, 0.12);
+}
+
+.career-hero-panel:hover {
+  border-color: rgba(191, 215, 68, 0.42);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.16);
 }
 
 .career-hero-panel h3 {
@@ -149,6 +216,14 @@
   display: flex;
   gap: 10px;
   line-height: 1.6;
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.career-hero-panel li:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(3px);
 }
 
 .career-hero-panel li::before {
@@ -158,6 +233,28 @@
   font-size: 1.15rem;
   line-height: 1;
   margin-top: 2px;
+}
+
+@keyframes careerHeroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes careerHeroItemIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* =========================================
@@ -1085,6 +1182,20 @@
 
 /* Reduced motion for users with motion sensitivity */
 @media (prefers-reduced-motion: reduce) {
+  .career-hero-modern-content,
+  .career-hero-copy p,
+  .career-hero-actions,
+  .career-hero-stats,
+  .career-hero-panel {
+    animation: none !important;
+  }
+
+  .career-hero-stat,
+  .career-hero-stat i,
+  .career-hero-panel li {
+    transition: none !important;
+  }
+
   .career-process-step:hover {
     transform: none !important;
   }
@@ -1200,5 +1311,144 @@
       .career-arch-glow {
         transition: none;
         animation: none;
+      }
+    }
+
+    /* =========================================
+       CAREERS OPEN ROLES POLISH (SCOPED)
+       ========================================= */
+    #open-roles .reusable-card-slider {
+      margin-top: 8px;
+    }
+
+    #open-roles .career-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(1, 46, 74, 0.1);
+      box-shadow: 0 12px 30px rgba(1, 46, 74, 0.08);
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    }
+
+    #open-roles .career-card::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--green));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    #open-roles .career-card:hover,
+    #open-roles .career-card:focus-within {
+      transform: translateY(-6px);
+      border-color: rgba(1, 113, 185, 0.26);
+      box-shadow: 0 20px 40px rgba(1, 46, 74, 0.13);
+    }
+
+    #open-roles .career-card:hover::after,
+    #open-roles .career-card:focus-within::after {
+      transform: scaleX(1);
+    }
+
+    #open-roles .career-image-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+
+    #open-roles .career-image-wrap img {
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.45s ease;
+    }
+
+    #open-roles .career-card:hover .career-image-wrap img,
+    #open-roles .career-card:focus-within .career-image-wrap img {
+      transform: scale(1.05);
+      filter: saturate(1.04);
+    }
+
+    #open-roles .career-card-content {
+      padding: 20px 20px 18px;
+    }
+
+    #open-roles .career-card-content h3 {
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+
+    #open-roles .career-card-content p {
+      color: #4c5b66;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    #open-roles .career-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.92rem;
+    }
+
+    #open-roles .career-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid rgba(1, 113, 185, 0.3);
+      color: var(--blue);
+      background: rgba(1, 113, 185, 0.06);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease, color 0.22s ease;
+    }
+
+    #open-roles .career-actions a:hover {
+      transform: translateY(-1px);
+      color: #fff;
+      background: var(--blue);
+      box-shadow: 0 10px 22px rgba(1, 113, 185, 0.24);
+    }
+
+    #open-roles .career-actions a:focus-visible {
+      outline: 3px solid rgba(191, 215, 68, 0.85);
+      outline-offset: 2px;
+    }
+
+    @media (max-width: 768px) {
+      #open-roles .career-card-content {
+        padding: 18px 16px 16px;
+      }
+
+      #open-roles .career-actions {
+        gap: 6px;
+      }
+
+      #open-roles .career-actions a {
+        min-height: 34px;
+        padding: 7px 12px;
+        font-size: 0.86rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #open-roles .career-card,
+      #open-roles .career-card::after,
+      #open-roles .career-image-wrap img,
+      #open-roles .career-actions a {
+        transition: none !important;
+      }
+
+      #open-roles .career-card:hover,
+      #open-roles .career-card:focus-within,
+      #open-roles .career-card:hover .career-image-wrap img,
+      #open-roles .career-card:focus-within .career-image-wrap img,
+      #open-roles .career-actions a:hover {
+        transform: none !important;
       }
     }

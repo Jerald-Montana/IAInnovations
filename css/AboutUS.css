@@ -542,6 +542,139 @@ img {
   position: relative;
 }
 
+/* =========================================
+   ABOUT PAGE: MISSION & VISION POLISH
+   ========================================= */
+/*
+  Overrides are marked !important because AboutUs.html currently defines
+  these selectors in an inline <style> block loaded after external CSS.
+*/
+.mv-modern-section {
+  position: relative !important;
+  padding: 92px 20px !important;
+  background: #ffffff !important;
+  overflow: hidden !important;
+}
+
+.mv-modern-section::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background:
+    radial-gradient(circle at 8% 16%, rgba(1, 113, 185, 0.07), transparent 28%),
+    radial-gradient(circle at 92% 82%, rgba(191, 215, 68, 0.08), transparent 30%) !important;
+}
+
+.mv-modern-container {
+  position: relative !important;
+  z-index: 1 !important;
+  max-width: 1040px !important;
+}
+
+.mv-modern-header {
+  margin-bottom: 44px !important;
+}
+
+.mv-modern-header h2 {
+  letter-spacing: -0.01em !important;
+}
+
+.mv-grid {
+  gap: 24px !important;
+}
+
+.mv-card {
+  border-radius: 22px !important;
+  border: 1px solid rgba(1, 46, 74, 0.1) !important;
+  background: #ffffff !important;
+  box-shadow: 0 14px 34px rgba(1, 46, 74, 0.08), 0 6px 18px rgba(1, 46, 74, 0.04) !important;
+  transition:
+    transform 0.36s ease,
+    box-shadow 0.36s ease,
+    border-color 0.36s ease !important;
+  animation: mvCardRise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.mv-card:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.mv-card::before {
+  height: 4px !important;
+  background: #0171b9 !important;
+  opacity: 0.22 !important;
+  transition: opacity 0.32s ease, height 0.32s ease !important;
+}
+
+.mv-card:hover {
+  transform: translateY(-8px) !important;
+  border-color: rgba(1, 113, 185, 0.3) !important;
+  box-shadow: 0 22px 44px rgba(1, 46, 74, 0.13), 0 8px 22px rgba(1, 46, 74, 0.06) !important;
+}
+
+.mv-card:hover::before {
+  opacity: 0.86 !important;
+  height: 6px !important;
+}
+
+.mv-icon {
+  box-shadow: inset 0 0 0 1px rgba(1, 46, 74, 0.08);
+  transition: transform 0.32s ease, box-shadow 0.32s ease !important;
+}
+
+.mv-card:hover .mv-icon {
+  transform: translateY(-2px) scale(1.06) !important;
+  box-shadow: inset 0 0 0 1px rgba(1, 46, 74, 0.12), 0 10px 20px rgba(1, 46, 74, 0.12);
+}
+
+.mv-card h3 {
+  margin-bottom: 12px !important;
+}
+
+.mv-card p {
+  color: #4d5c66 !important;
+}
+
+@keyframes mvCardRise {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .mv-modern-section {
+    padding: 76px 18px !important;
+  }
+
+  .mv-grid {
+    gap: 18px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .mv-card {
+    padding: 36px 26px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mv-card {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .mv-card:hover,
+  .mv-card:hover .mv-icon {
+    transform: none !important;
+  }
+}
+
 .mv-container::after {
   content: "";
   position: absolute;

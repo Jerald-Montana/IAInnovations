@@ -536,7 +536,7 @@ section:not(.hero-section):not(.footer)::before {
 .company-info-container {
   display: grid;
   grid-template-columns: 1.08fr 0.92fr;
-  align-items: center;
+  align-items: start;
   gap: 56px;
 }
 
@@ -593,7 +593,7 @@ section:not(.hero-section):not(.footer)::before {
   background: transparent !important;
   padding: 0 !important;
   box-shadow: none !important;
-  align-self: center;
+  align-self: start;
   overflow: visible;
 }
 
@@ -617,8 +617,9 @@ section:not(.hero-section):not(.footer)::before {
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 100%;
-  min-height: 420px;
+  height: auto;
+  min-height: 220px;
+  max-height: 340px;
   object-fit: cover;
   display: block;
   border-radius: 32px !important;
@@ -662,21 +663,24 @@ section:not(.hero-section):not(.footer)::before {
 
 /* Keep the DevOps narrative image more compact in Infrastructure page */
 .devops-company-info .company-image.picture-box img {
-  min-height: 300px;
-  max-height: 360px;
+  min-height: 160px;
+  max-height: 180px;
+  height: 180px;
 }
 
 @media (max-width: 992px) {
   .devops-company-info .company-image.picture-box img {
-    min-height: 240px;
-    max-height: 300px;
+    min-height: 150px;
+    max-height: 170px;
+    height: 170px;
   }
 }
 
 @media (max-width: 768px) {
   .devops-company-info .company-image.picture-box img {
-    min-height: 210px;
-    max-height: 260px;
+    min-height: 140px;
+    max-height: 160px;
+    height: 160px;
   }
 }
 
@@ -687,7 +691,8 @@ section:not(.hero-section):not(.footer)::before {
   }
 
   .company-image.picture-box img {
-    min-height: 320px;
+    min-height: 190px;
+    max-height: 260px;
     border-radius: 26px !important;
   }
 
@@ -712,7 +717,8 @@ section:not(.hero-section):not(.footer)::before {
   }
 
   .company-image.picture-box img {
-    min-height: 260px;
+    min-height: 160px;
+    max-height: 220px;
     border-radius: 22px !important;
   }
 
@@ -1006,7 +1012,8 @@ p { font-size: clamp(0.95rem, 1.2vw, 1.1rem); line-height: 1.6; }
 
   /* Company info images */
   .company-image.picture-box img {
-    min-height: 340px;
+    min-height: 190px;
+    max-height: 260px;
   }
 }
 
@@ -1175,7 +1182,8 @@ p { font-size: clamp(0.95rem, 1.2vw, 1.1rem); line-height: 1.6; }
   }
 
   .company-image.picture-box img {
-    min-height: 280px;
+    min-height: 160px;
+    max-height: 220px;
   }
 
   .company-image.picture-box::before {
@@ -1439,7 +1447,8 @@ p { font-size: clamp(0.95rem, 1.2vw, 1.1rem); line-height: 1.6; }
   }
 
   .company-image.picture-box img {
-    min-height: 240px;
+    min-height: 150px;
+    max-height: 200px;
   }
 
   .company-eyebrow {
@@ -1593,9 +1602,6 @@ p { font-size: clamp(0.95rem, 1.2vw, 1.1rem); line-height: 1.6; }
     font-size: 0.8rem;
   }
 }
-  position: relative;
-  z-index: 2;
-}
 
 .footer-grid {
   display: grid;
@@ -1737,5 +1743,162 @@ p { font-size: clamp(0.95rem, 1.2vw, 1.1rem); line-height: 1.6; }
 @media (max-width: 480px) {
   .footer-bottom {
     font-size: 0.85rem;
+  }
+}
+
+/* =========================================
+   Manufacturing Deck - Industry Solutions
+   ========================================= */
+.manufacturing-deck-section {
+  position: relative;
+  padding: clamp(48px, 7vw, 84px) 0;
+  background:
+    radial-gradient(120% 100% at 0% 0%, rgba(1, 113, 185, 0.12) 0%, rgba(1, 113, 185, 0) 58%),
+    radial-gradient(120% 100% at 100% 100%, rgba(191, 215, 68, 0.15) 0%, rgba(191, 215, 68, 0) 56%),
+    #f4f8fb;
+}
+
+.manufacturing-deck-container {
+  width: min(1140px, 92%);
+  margin: 0 auto;
+}
+
+.manufacturing-heading h2 {
+  max-width: 980px;
+}
+
+.manufacturing-intro-text {
+  max-width: 940px;
+  margin: 14px auto 0;
+  display: grid;
+  gap: 12px;
+  color: #1f3342;
+}
+
+.manufacturing-intro-text p {
+  margin: 0;
+  line-height: 1.75;
+}
+
+.manufacturing-deck {
+  margin-top: clamp(26px, 4vw, 40px);
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0;
+  padding: 8px 10px 4px;
+  overflow: visible;
+}
+
+.manufacturing-card {
+  position: relative;
+  flex: 0 0 220px;
+  width: 220px;
+  min-height: 280px;
+  padding: 20px 16px 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(1, 46, 74, 0.16);
+  background: linear-gradient(165deg, rgba(1, 46, 74, 0.96) 0%, rgba(1, 113, 185, 0.94) 100%);
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(1, 46, 74, 0.18), 0 1px 3px rgba(1, 46, 74, 0.12);
+  transform-origin: center bottom;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, z-index 0.28s ease;
+  overflow: hidden;
+  margin-left: -56px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.manufacturing-card:first-child {
+  margin-left: 0;
+}
+
+.manufacturing-card:nth-child(1) { transform: rotate(-3.5deg) translateY(8px); z-index: 1; }
+.manufacturing-card:nth-child(2) { transform: rotate(-2deg) translateY(2px); z-index: 2; }
+.manufacturing-card:nth-child(3) { transform: rotate(0.8deg) translateY(-2px); z-index: 3; }
+.manufacturing-card:nth-child(4) { transform: rotate(2.4deg) translateY(2px); z-index: 2; }
+.manufacturing-card:nth-child(5) { transform: rotate(3.8deg) translateY(8px); z-index: 1; }
+
+.manufacturing-card::before {
+  content: "";
+  position: absolute;
+  inset: -60% -25% auto auto;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(191, 215, 68, 0.45) 0%, rgba(191, 215, 68, 0) 72%);
+  pointer-events: none;
+}
+
+.manufacturing-card:hover {
+  transform: translateY(-16px) rotate(0deg) scale(1.04);
+  border-color: rgba(191, 215, 68, 0.75);
+  box-shadow: 0 20px 38px rgba(1, 46, 74, 0.32);
+  z-index: 9;
+}
+
+.manufacturing-card.is-active,
+.manufacturing-card:focus-visible {
+  transform: translateY(-20px) rotate(0deg) scale(1.06);
+  border-color: rgba(191, 215, 68, 0.92);
+  box-shadow: 0 24px 42px rgba(1, 46, 74, 0.36);
+  z-index: 10;
+  outline: none;
+}
+
+.manufacturing-card h3 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  line-height: 1.3;
+  color: #bfd744;
+}
+
+.manufacturing-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.93);
+}
+
+@media (max-width: 1200px) {
+  .manufacturing-deck {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scrollbar-width: thin;
+  }
+
+  .manufacturing-card {
+    flex-basis: 250px;
+    width: 250px;
+    margin-left: -70px;
+  }
+}
+
+@media (max-width: 860px) {
+  .manufacturing-deck {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    overflow: visible;
+    padding: 0;
+  }
+
+  .manufacturing-card,
+  .manufacturing-card:first-child {
+    width: 100%;
+    flex: 1 1 auto;
+    margin-left: 0;
+    transform: none;
+  }
+}
+
+@media (max-width: 580px) {
+  .manufacturing-deck {
+    grid-template-columns: 1fr;
+  }
+
+  .manufacturing-card {
+    min-height: 0;
   }
 }

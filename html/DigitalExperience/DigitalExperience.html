@@ -37,6 +37,22 @@
     #knowledge-management-section {
       scroll-margin-top: 100px;
     }
+
+    /* Page-specific size override: keep this company image at about half height */
+    .km-half-height.company-image.picture-box img {
+      min-height: 210px;
+      max-height: 220px;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      .km-half-height.company-image.picture-box img {
+        min-height: 170px;
+        max-height: 180px;
+        height: 180px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -83,7 +99,7 @@
         <li class="dropdown">
 <a href="#">Digital Experience <span class="arrow">^</span></a>
           <ul class="dropdown-menu">
-            <li><a href="./DigitalExperience.html">E-Commerce</a></li>
+            <li><a href="./DigitalExperience.html#ecommerce-section">E-Commerce</a></li>
             <li><a href="./DigitalExperience.html#digital-marketing-section">Digital Marketing</a></li>
             <li><a href="./DigitalExperience.html#knowledge-management-section">Knowledge Management</a></li>
             <li><a href="./MobileExperience.html#mobile-experience-section">Mobile Experience</a></li>
@@ -335,7 +351,7 @@
 
   <section class="company-info-section">
     <div class="company-info-container">
-      <div class="company-image picture-box">
+      <div class="company-image picture-box km-half-height">
         <img src="/images/stock-image/info-management.avif" alt="Knowledge Management Framework">
       </div>
       <div class="company-text">
@@ -367,7 +383,7 @@
 
             <article class="service-card">
               <div class="service-image-wrap">
-                <img src="/images/stock-image/business-manager.avif" alt="Knowledge Roles" loading="lazy">
+                <img src="/images/stock-image/pexels-ann-h-45017-7422276.jpg" alt="Knowledge Roles" loading="lazy">
                 <div class="service-overlay"><p>Organize and categorize each knowledge management roles to better manage the system and come up with effective results.</p></div>
               </div>
               <div class="service-card-content">
