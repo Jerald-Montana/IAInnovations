@@ -369,6 +369,120 @@
       margin: 0;
     }
 
+    /* =========================================
+       MISSION ARROW FIX: CONTINUOUS STRIKE 
+       ========================================= */
+
+    /* 1. Ensure the card allows arrows to overflow */
+    .mission-card {
+      overflow: visible !important;
+    }
+
+    .mission-card .mission-icon {
+      position: relative;
+      z-index: 10;
+    }
+
+    /* 2. The Arrow Shaft: Thicker, forced to display, and hardcoded blue */
+    .mission-arrow {
+      position: absolute;
+      left: -30px; 
+      display: block !important; 
+      width: 36px;
+      height: 6px;
+      background-color: #0171b9 !important; 
+      border-radius: 6px;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 20;
+      box-shadow: 0 0 10px rgba(1, 113, 185, 0.6);
+    }
+
+    /* 3. The Arrowhead */
+    .mission-arrow::after {
+      content: "";
+      position: absolute;
+      right: -12px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-left: 14px solid #0171b9;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+    }
+
+    /* 4. Vertical Placement Alignment */
+    .arrow-1 { top: 56px; }
+    .arrow-2 { top: 84px; }
+    .arrow-3 { top: 112px; }
+
+    /* 5. INFINITE LOOP ON HOVER: Fires continuously */
+    .mission-card:hover .arrow-1 {
+      animation: targetStrike 1.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+    .mission-card:hover .arrow-2 {
+      animation: targetStrike 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.2s infinite;
+    }
+    .mission-card:hover .arrow-3 {
+      animation: targetStrike 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.4s infinite;
+    }
+
+    /* 6. Pulse the target continuously as they hit */
+    .mission-card:hover .mission-icon::after {
+      animation: missionImpact 1.4s ease-out 0.2s infinite;
+    }
+
+    /* 7. The Animations */
+    @keyframes targetStrike {
+      0% {
+        opacity: 0;
+        transform: translateX(0);
+      }
+      15% {
+        opacity: 1; /* Fade in */
+      }
+      60% {
+        opacity: 1;
+        transform: translateX(85px); /* Hits the center of the icon */
+      }
+      75% {
+        opacity: 0;
+        transform: translateX(95px) scale(0.4); /* Shrinks/disappears on impact */
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(95px);
+      }
+    }
+
+    .mission-card .mission-icon::after {
+      content: "";
+      position: absolute;
+      inset: -9px;
+      border-radius: 24px;
+      border: 2px solid rgba(191, 215, 68, 0.25);
+      opacity: 0;
+      transform: scale(0.88);
+      pointer-events: none;
+    }
+
+    @keyframes missionImpact {
+      0% {
+        opacity: 0;
+        transform: scale(0.88);
+        border-color: rgba(191, 215, 68, 0.25);
+      }
+      35% {
+        opacity: 1;
+        transform: scale(1.08);
+        border-color: rgba(191, 215, 68, 0.95);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(1.2);
+        border-color: rgba(191, 215, 68, 0.12);
+      }
+    }
+
     @keyframes mvCardIn {
       0% {
         opacity: 0;
@@ -555,17 +669,20 @@
       </div>
 
       <div class="mv-grid">
-        <div class="mv-card">
+        <div class="mv-card mission-card">
           <div class="mv-icon mission-icon">
             <i class="fa-solid fa-bullseye"></i>
           </div>
+          <span class="mission-arrow arrow-1" aria-hidden="true"></span>
+          <span class="mission-arrow arrow-2" aria-hidden="true"></span>
+          <span class="mission-arrow arrow-3" aria-hidden="true"></span>
           <h3>Our Mission</h3>
           <p>
             We are an information and automation solutions provider committed to deliver innovation for our clients to improve long-term profitability, increase operational efficiencies, and sustain positive transformation.
           </p>
         </div>
 
-        <div class="mv-card">
+        <div class="mv-card vision-card">
           <div class="mv-icon vision-icon">
             <i class="fa-solid fa-lightbulb"></i>
           </div>
@@ -693,5 +810,3 @@
   </script>
 </body>
 </html>
-
-

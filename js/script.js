@@ -236,6 +236,43 @@ function setupFeaturedItemStaggerReveal() {
 
 setupFeaturedItemStaggerReveal();
 
+function setupReusableCardScatterReveal() {
+  const sliders = Array.from(document.querySelectorAll(".reusable-card-slider"));
+  if (sliders.length === 0) return;
+
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const revealSlider = (slider) => {
+    slider.classList.add("scatter-ready");
+    if (reducedMotion) {
+      slider.classList.add("is-visible");
+      return;
+    }
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries, observerInstance) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          slider.classList.add("is-visible");
+          observerInstance.unobserve(entry.target);
+        });
+      }, {
+        threshold: 0.22,
+        rootMargin: "0px 0px -10% 0px"
+      });
+
+      observer.observe(slider);
+      return;
+    }
+
+    slider.classList.add("is-visible");
+  };
+
+  sliders.forEach(revealSlider);
+}
+
+setupReusableCardScatterReveal();
+
 function releaseDocumentScrollLock() {
   document.documentElement.style.overflow = "";
   document.documentElement.style.overflowY = "";
