@@ -600,7 +600,7 @@
               <h2 style="color: #012e4a; margin-top: 0; margin-bottom: 25px;">Message Us</h2>
               
               <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-              <form class="contact-form" id="secureContactForm" action="https://formsubmit.co/info@iainnovations.com" method="POST" target="hidden_iframe" onsubmit="showPopup()">
+              <form class="contact-form" id="secureContactForm" action="https://formsubmit.co/info@iainnovations.com" method="POST" target="hidden_iframe">
                 
                 <div class="form-row">
                   <input type="text" name="name" placeholder="Full Name" required>
@@ -622,9 +622,10 @@
                 </div>
 
                 <input type="hidden" name="_subject" value="New IA Innovations Inquiry">
-                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_captcha" value="true">
                 <input type="hidden" name="_template" value="table">
-                <input type="text" name="_honey" style="display:none">
+                <input type="hidden" name="_form_opened_at" id="formOpenedAt" value="">
+                <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden;" aria-hidden="true">
                 
                 <button type="submit" id="submitBtn" class="contact-btn">Send Message</button>
                 <p class="form-privacy-note"><i class="fas fa-shield-alt"></i>Your details are used only to respond to your inquiry.</p>

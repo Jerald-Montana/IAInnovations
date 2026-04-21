@@ -3,15 +3,38 @@
  * Provides client-side form validation for contact forms
  */
 
+const MIN_SECONDS_TO_SUBMIT = 4;
+const SUBMIT_COOLDOWN_SECONDS = 45;
+const LAST_SUBMIT_KEY = 'ia_contact_last_submit';
+
 function initializeFormValidation() {
   const forms = document.querySelectorAll('.contact-form');
   
   forms.forEach(form => {
+    const openedAtField = form.querySelector('input[name="_form_opened_at"]');
+    if (openedAtField) {
+      openedAtField.value = String(Date.now());
+    }
+
     form.addEventListener('submit', function(e) {
       if (!validateForm(this)) {
         e.preventDefault();
         return false;
       }
+
+      if (!passesAntiSpamChecks(this)) {
+        e.preventDefault();
+        return false;
+      }
+
+      lockSubmitButton(this);
+      rememberSubmissionTime();
+
+      if (typeof window.showPopup === 'function') {
+        window.showPopup();
+      }
+
+      return true;
     });
 
     // Real-time validation on input
@@ -43,9 +66,52 @@ function validateForm(form) {
   return isValid;
 }
 
+function passesAntiSpamChecks(form) {
+  const honeypotField = form.querySelector('input[name="_honey"]');
+  if (honeypotField && honeypotField.value.trim() !== '') {
+    return false;
+  }
+
+  const openedAtField = form.querySelector('input[name="_form_opened_at"]');
+  if (openedAtField) {
+    const openedAt = Number(openedAtField.value);
+    const elapsedMs = Date.now() - openedAt;
+    if (!Number.isFinite(openedAt) || elapsedMs < MIN_SECONDS_TO_SUBMIT * 1000) {
+      alert('Please wait a few seconds before submitting your message.');
+      return false;
+    }
+  }
+
+  const lastSubmission = Number(localStorage.getItem(LAST_SUBMIT_KEY) || 0);
+  const cooldownMs = SUBMIT_COOLDOWN_SECONDS * 1000;
+  if (Date.now() - lastSubmission < cooldownMs) {
+    alert('Please wait before sending another message.');
+    return false;
+  }
+
+  return true;
+}
+
+function lockSubmitButton(form) {
+  const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
+  if (!submitButton) {
+    return;
+  }
+
+  submitButton.disabled = true;
+  setTimeout(() => {
+    submitButton.disabled = false;
+  }, 6000);
+}
+
+function rememberSubmissionTime() {
+  localStorage.setItem(LAST_SUBMIT_KEY, String(Date.now()));
+}
+
 function validateField(field) {
   const value = field.value.trim();
   const type = field.type;
+  const tagName = field.tagName.toLowerCase();
   let isValid = true;
   let errorMessage = '';
 
@@ -74,12 +140,11 @@ function validateField(field) {
           errorMessage = 'Subject must be at least 3 characters';
         }
         break;
-      case 'textarea':
-        if (value.length < 10) {
-          isValid = false;
-          errorMessage = 'Message must be at least 10 characters';
-        }
-        break;
+    }
+
+    if (tagName === 'textarea' && value.length < 20) {
+      isValid = false;
+      errorMessage = 'Message must be at least 20 characters';
     }
   }
 
