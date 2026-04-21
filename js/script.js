@@ -110,17 +110,12 @@ function setupSectionScrollHighlight() {
       }
     });
 
+    // Do not force a fallback hash when no tracked section has crossed the
+    // viewport offset yet. This avoids incorrectly rewriting URLs to the
+    // first submenu hash (for example, consumer markets on initial load).
     if (!activeHash) {
-      let firstHash = sectionTargets[0].hash;
-      let minTop = Infinity;
-      sectionTargets.forEach(({ hash, section }) => {
-        const top = section.getBoundingClientRect().top;
-        if (top < minTop) {
-          minTop = top;
-          firstHash = hash;
-        }
-      });
-      activeHash = firstHash;
+      applyCurrentNavigationState();
+      return;
     }
 
     if (!activeHash || activeHash === window.location.hash.toLowerCase()) {
@@ -681,7 +676,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /* =========================
    GLOBAL SEARCH SCRIPT
    ========================= */
-const allServices = [
+window.allServices = [
   { category: "App Development", title: "Architecture and Design", description: "Create the composite architecture of your application to be scalable, reliable, available and manageable.", overlay: "Build scalable, reliable, and manageable application frameworks.", image: "", link: "/IAInnovations/html/BusinessTransformation/AppDevelopment.html", deepContent: "mobile app smartphone applications development customized business needs marketing technology" },
   { category: "App Development", title: "Production and Development", description: "Carefully plan the production and development stage of your application by starting with the basics, and building from the ground up.", overlay: "Carefully planned development from the ground up.", image: "", link: "/IAInnovations/html/BusinessTransformation/AppDevelopment.html", deepContent: "mobile app smartphone applications development customized business needs marketing technology" },
   { category: "App Development", title: "Integration", description: "Use the appropriate set of tools for building your software application and integrate to one or more APIs.", overlay: "Seamlessly connect software applications and APIs.", image: "", link: "/IAInnovations/html/BusinessTransformation/AppDevelopment.html", deepContent: "mobile app smartphone applications development api integration" },
