@@ -245,8 +245,9 @@
       inset: 0;
       pointer-events: none;
       background:
-        radial-gradient(circle at 8% 14%, rgba(1, 113, 185, 0.08), transparent 28%),
-        radial-gradient(circle at 90% 84%, rgba(191, 215, 68, 0.1), transparent 30%);
+        linear-gradient(135deg, rgba(1, 113, 185, 0.05) 0%, rgba(255, 255, 255, 0) 50%, rgba(191, 215, 68, 0.05) 100%),
+        radial-gradient(circle at 10% 20%, rgba(1, 113, 185, 0.08), transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(191, 215, 68, 0.1), transparent 30%);
     }
 
     .mv-modern-container {
@@ -282,7 +283,8 @@
     .mv-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+      gap: 32px;
+      align-items: stretch;
     }
 
     .mv-card {
@@ -300,6 +302,14 @@
 
     .mv-card:nth-child(2) {
       animation-delay: 0.12s;
+    }
+
+    .mission-card {
+      background: linear-gradient(145deg, #ffffff 0%, #f0f7ff 100%);
+    }
+
+    .vision-card {
+      background: linear-gradient(145deg, #ffffff 0%, #f9fff0 100%);
     }
 
     /* Clean top accent line */
@@ -340,19 +350,37 @@
     }
 
     .mv-card:hover .mv-icon {
-      transform: translateY(-2px) scale(1.06);
-      box-shadow: inset 0 0 0 1px rgba(1, 46, 74, 0.12), 0 10px 20px rgba(1, 46, 74, 0.12);
+      transform: translateY(-2px) scale(1.1);
+      box-shadow: inset 0 0 0 1px rgba(1, 46, 74, 0.12), 0 15px 30px rgba(1, 46, 74, 0.15);
     }
 
     /* Unique Icon Colors based on Palette */
     .mission-icon {
-      background: rgba(1, 113, 185, 0.1);
+      background: rgba(1, 113, 185, 0.15);
       color: var(--blue);
     }
 
     .vision-icon {
-      background: rgba(191, 215, 68, 0.2);
+      background: rgba(191, 215, 68, 0.25);
       color: var(--dark-blue);
+      transition: all 0.4s ease;
+    }
+
+    .vision-card:hover .vision-icon {
+      background: var(--lime);
+      color: var(--dark-blue);
+      box-shadow: 0 0 30px rgba(191, 215, 68, 0.5);
+    }
+
+    .vision-card:hover .vision-icon i {
+      color: #ffffff;
+      filter: drop-shadow(0 0 12px #ffffff) drop-shadow(0 0 20px var(--lime));
+      animation: bulbPulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes bulbPulse {
+      0%, 100% { filter: drop-shadow(0 0 12px #ffffff) drop-shadow(0 0 20px var(--lime)); }
+      50% { filter: drop-shadow(0 0 18px #ffffff) drop-shadow(0 0 30px var(--lime)); transform: scale(1.05); }
     }
 
     .mv-card h3 {
@@ -386,49 +414,41 @@
     /* 2. The Arrow Shaft: Thicker, forced to display, and hardcoded blue */
     .mission-arrow {
       position: absolute;
-      left: -30px; 
+      left: -40px; 
       display: block !important; 
-      width: 36px;
-      height: 6px;
+      width: 32px;
+      height: 5px;
       background-color: #0171b9 !important; 
-      border-radius: 6px;
+      border-radius: 5px;
       opacity: 0;
       pointer-events: none;
       z-index: 20;
-      box-shadow: 0 0 10px rgba(1, 113, 185, 0.6);
+      box-shadow: 0 0 12px rgba(1, 113, 185, 0.6);
     }
 
     /* 3. The Arrowhead */
     .mission-arrow::after {
       content: "";
       position: absolute;
-      right: -12px;
+      right: -10px;
       top: 50%;
       transform: translateY(-50%);
-      border-left: 14px solid #0171b9;
-      border-top: 8px solid transparent;
-      border-bottom: 8px solid transparent;
+      border-left: 12px solid #0171b9;
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
     }
 
     /* 4. Vertical Placement Alignment */
-    .arrow-1 { top: 56px; }
-    .arrow-2 { top: 84px; }
-    .arrow-3 { top: 112px; }
+    .arrow-1 { top: 72px; }
 
     /* 5. INFINITE LOOP ON HOVER: Fires continuously */
     .mission-card:hover .arrow-1 {
-      animation: targetStrike 1.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-    }
-    .mission-card:hover .arrow-2 {
-      animation: targetStrike 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.2s infinite;
-    }
-    .mission-card:hover .arrow-3 {
-      animation: targetStrike 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.4s infinite;
+      animation: targetStrike 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     }
 
     /* 6. Pulse the target continuously as they hit */
     .mission-card:hover .mission-icon::after {
-      animation: missionImpact 1.4s ease-out 0.2s infinite;
+      animation: missionImpact 1.2s ease-out infinite;
     }
 
     /* 7. The Animations */
@@ -440,17 +460,17 @@
       15% {
         opacity: 1; /* Fade in */
       }
-      60% {
+      50% {
         opacity: 1;
-        transform: translateX(85px); /* Hits the center of the icon */
+        transform: translateX(95px); /* Hits the center of the icon */
       }
-      75% {
+      65% {
         opacity: 0;
-        transform: translateX(95px) scale(0.4); /* Shrinks/disappears on impact */
+        transform: translateX(105px) scale(0.3); /* Shrinks/disappears on impact */
       }
       100% {
         opacity: 0;
-        transform: translateX(95px);
+        transform: translateX(105px);
       }
     }
 
@@ -466,20 +486,21 @@
     }
 
     @keyframes missionImpact {
-      0% {
+      0%, 45% {
         opacity: 0;
-        transform: scale(0.88);
-        border-color: rgba(191, 215, 68, 0.25);
+        transform: scale(0.8);
+        border-color: rgba(191, 215, 68, 0);
       }
-      35% {
+      50% {
         opacity: 1;
-        transform: scale(1.08);
+        transform: scale(1);
         border-color: rgba(191, 215, 68, 0.95);
+        box-shadow: 0 0 20px rgba(191, 215, 68, 0.4);
       }
       100% {
         opacity: 0;
-        transform: scale(1.2);
-        border-color: rgba(191, 215, 68, 0.12);
+        transform: scale(1.4);
+        border-color: rgba(191, 215, 68, 0);
       }
     }
 
@@ -674,8 +695,6 @@
             <i class="fa-solid fa-bullseye"></i>
           </div>
           <span class="mission-arrow arrow-1" aria-hidden="true"></span>
-          <span class="mission-arrow arrow-2" aria-hidden="true"></span>
-          <span class="mission-arrow arrow-3" aria-hidden="true"></span>
           <h3>Our Mission</h3>
           <p>
             We are an information and automation solutions provider committed to deliver innovation for our clients to improve long-term profitability, increase operational efficiencies, and sustain positive transformation.

@@ -6,6 +6,7 @@ const navMenu = document.querySelector(".nav-menu");
 const dropdownLinks = document.querySelectorAll(".dropdown > a");
 const allNavLinks = document.querySelectorAll(".nav-menu a");
 const sections = document.querySelectorAll(".hero-section");
+const MOBILE_NAV_BREAKPOINT = 980;
 
 function normalizePath(pathname) {
   if (!pathname) return "/";
@@ -269,7 +270,7 @@ if (hamburger && navMenu) {
    ========================= */
 dropdownLinks.forEach((item) => {
   item.addEventListener("click", (e) => {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= MOBILE_NAV_BREAKPOINT) {
       e.preventDefault();
 
       const parent = item.parentElement;
@@ -291,7 +292,7 @@ dropdownLinks.forEach((item) => {
 allNavLinks.forEach((link) => {
   link.addEventListener("click", () => {
     if (
-      window.innerWidth <= 768 &&
+      window.innerWidth <= MOBILE_NAV_BREAKPOINT &&
       !link.parentElement.classList.contains("dropdown")
     ) {
       navMenu.classList.remove("active");
@@ -399,7 +400,7 @@ window.addEventListener("load", () => {
 window.addEventListener("resize", () => {
   releaseDocumentScrollLock();
 
-  if (window.innerWidth > 768) {
+  if (window.innerWidth > MOBILE_NAV_BREAKPOINT) {
     if (navMenu) navMenu.classList.remove("active");
     if (hamburger) {
       hamburger.classList.remove("active");

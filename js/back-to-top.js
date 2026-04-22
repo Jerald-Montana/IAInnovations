@@ -179,7 +179,7 @@ function initializeBackToTop() {
 
         @media (max-width: 768px) {
           .back-to-top-btn {
-            bottom: 20px;
+            bottom: 110px;
             right: 20px;
             width: 45px;
             height: 45px;
@@ -193,7 +193,7 @@ function initializeBackToTop() {
 
         @media (max-width: 480px) {
           .back-to-top-btn {
-            bottom: 15px;
+            bottom: 100px;
             right: 15px;
             width: 40px;
             height: 40px;

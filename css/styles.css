@@ -1902,3 +1902,100 @@ p { font-size: clamp(0.95rem, 1.2vw, 1.1rem); line-height: 1.6; }
     min-height: 0;
   }
 }
+
+/* =========================================
+   TARGETED RESPONSIVE ADDITIONS
+   Fills gaps not covered by existing queries
+   ========================================= */
+
+/* --- Global safe-guards --- */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* --- Topbar: hide search on mobile to prevent overflow --- */
+@media (max-width: 767px) {
+  .topbar { padding: 6px 12px; }
+  .search-container { display: none; }
+  .topbar-container { justify-content: flex-start; }
+  .topbar-menu {
+    gap: 12px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .topbar-menu::-webkit-scrollbar { display: none; }
+  .content h2 { font-size: clamp(1.6rem, 6vw, 2.6rem); }
+}
+
+/* --- Footer: 2-col at 992px before 1080px single-col break --- */
+@media (max-width: 992px) and (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+}
+
+/* --- Hamburger: minimum 44px touch target --- */
+.hamburger {
+  min-width: 44px;
+  min-height: 44px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- Buttons: minimum 44px touch target on mobile --- */
+@media (max-width: 767px) {
+  .btn,
+  .btn-primary,
+  .btn-secondary,
+  .contact-btn,
+  .career-btn {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* --- Dropdown: prevent overflow past viewport --- */
+@media (max-width: 992px) {
+  .dropdown-menu {
+    left: auto;
+    right: 0;
+    min-width: 180px;
+    max-width: calc(100vw - 32px);
+  }
+}
+
+/* --- Tables: horizontal scroll on mobile --- */
+@media (max-width: 767px) {
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* --- Partnership page sp-header text on small screens --- */
+@media (max-width: 576px) {
+  .sp-header h2 { font-size: 1.6rem; }
+  .sp-card { height: auto; min-height: 240px; }
+}
+
+/* --- Hero section on very small screens --- */
+@media (max-width: 575px) {
+  .hero-section {
+    min-height: 60vh;
+    padding: 44px 0;
+  }
+  .content {
+    width: 92%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .content p { font-size: 0.95rem; }
+  .tech-core { margin: 0 auto 16px; }
+}
