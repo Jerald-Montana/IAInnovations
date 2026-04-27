@@ -400,6 +400,17 @@
   .career-hero-panel {
     padding: 22px;
   }
+
+  .career-hero-panel li {
+    font-size: 0.88rem;
+    padding: 6px 8px;
+    gap: 8px;
+  }
+
+  .career-hero-panel li::before {
+    font-size: 0.9rem;
+    margin-top: 1px;
+  }
 }
 /* =========================================
    ABOUT US - COMPANY INFO MODERN REUSE

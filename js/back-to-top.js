@@ -8,7 +8,7 @@ function initializeBackToTop() {
   let backToTopBtn = document.getElementById('backToTopBtn');
 
   function getScrollTop() {
-    return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    return window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
   }
 
   function getMaxScroll() {
@@ -45,7 +45,7 @@ function initializeBackToTop() {
           --pulse-color: rgba(191, 215, 68, 0.45);
           position: fixed;
           bottom: 30px;
-          right: 30px;
+          right: 90px; /* Offset from right to avoid chatbot overlap */
           width: 50px;
           height: 50px;
           background:
@@ -60,8 +60,8 @@ function initializeBackToTop() {
           align-items: center;
           justify-content: center;
           overflow: visible;
-          z-index: 9999;
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          z-index: 11000;
+          transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
           box-shadow: 0 4px 12px rgba(1, 46, 74, 0.3);
         }
 
@@ -124,7 +124,7 @@ function initializeBackToTop() {
         }
 
         .back-to-top-btn.show {
-          display: flex;
+          display: flex !important;
           animation: fadeIn 0.3s ease;
         }
 
@@ -212,7 +212,7 @@ function initializeBackToTop() {
   function handleBackToTopVisibility() {
     const scrollTop = getScrollTop();
     const maxScroll = getMaxScroll();
-    const revealThreshold = Math.min(300, maxScroll * 0.15);
+    const revealThreshold = 250; // Simple fixed threshold for better reliability
 
     if (maxScroll > 120 && scrollTop > revealThreshold) {
       backToTopBtn.classList.add('show');
@@ -225,6 +225,7 @@ function initializeBackToTop() {
 
   // Show/hide button on scroll
   window.addEventListener('scroll', handleBackToTopVisibility, { passive: true });
+  document.addEventListener('scroll', handleBackToTopVisibility, { passive: true });
 
   window.addEventListener('resize', handleBackToTopVisibility);
   window.addEventListener('load', handleBackToTopVisibility);

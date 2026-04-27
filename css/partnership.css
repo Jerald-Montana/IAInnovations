@@ -276,11 +276,62 @@
 
 @media (max-width: 768px) {
   .sp-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 
   .sp-card {
-    height: 260px;
+    height: 230px;
+  }
+
+  .sp-front .sp-label {
+    font-size: 0.65rem;
+    padding: 4px 10px;
+    margin-bottom: 8px;
+  }
+
+  .sp-generic-icon {
+    width: 54px;
+    height: 54px;
+    margin-bottom: 10px;
+    border-radius: 14px;
+  }
+
+  .sp-generic-icon i {
+    font-size: 1.5rem;
+  }
+
+  .sp-front h3 {
+    font-size: 1.1rem;
+  }
+
+  .sp-back {
+    padding: 15px;
+  }
+
+  .sp-content h4 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+
+  .sp-content p {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 400px) {
+  .sp-grid {
+    gap: 12px;
+  }
+  
+  .sp-card {
+    height: 210px;
+  }
+  
+  .sp-front h3 {
+    font-size: 1rem;
   }
 }
 
@@ -420,8 +471,8 @@
 }
 
 .platform-card-front .career-card-content p {
-  margin-bottom: 0;
-  flex: 1 1 auto;
+  margin-bottom: 12px;
+  flex: 0 1 auto;
   width: 100%;
 }
 
@@ -461,16 +512,56 @@
 
 @media (max-width: 768px) {
   .platform-card,
-  .platform-card-face {
-    min-height: 360px;
-  }
-
+  .platform-card-face,
   .platform-card-inner {
-    min-height: 360px;
+    min-height: 280px;
+    height: auto;
   }
 
   .platform-card-front .career-image-wrap {
-    height: 165px;
+    height: 120px;
+  }
+
+  .platform-card-front .career-card-content {
+    padding: 12px;
+    gap: 6px;
+  }
+
+  .platform-card-front .career-card-content h3 {
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+  }
+
+  .platform-card-front .career-card-content p {
+    font-size: 0.72rem;
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
+
+  .platform-card-front .career-card-content .platform-card-toggle {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    margin-top: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .platform-card,
+  .platform-card-face,
+  .platform-card-inner {
+    min-height: 260px;
+  }
+
+  .platform-card-front .career-image-wrap {
+    height: 110px;
+  }
+
+  .platform-card-front .career-card-content {
+    padding: 10px;
+  }
+
+  .platform-card-front .career-card-content h3 {
+    font-size: 0.9rem;
   }
 }
 

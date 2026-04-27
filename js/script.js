@@ -245,7 +245,8 @@ releaseDocumentScrollLock();
    TOGGLE MOBILE MENU
    ========================= */
 if (hamburger && navMenu) {
-  hamburger.addEventListener("click", () => {
+  hamburger.addEventListener("click", (e) => {
+    e.stopPropagation(); // Prevent immediate close from click-outside listener
     navMenu.classList.toggle("active");
     hamburger.classList.toggle("active");
 
@@ -263,46 +264,83 @@ if (hamburger && navMenu) {
       hamburger.click();
     }
   });
+
+  // CLOSE WHEN CLICKING OUTSIDE
+  document.addEventListener("click", (e) => {
+    if (navMenu.classList.contains("active")) {
+      const isClickInsideMenu = navMenu.contains(e.target);
+      const isClickOnHamburger = hamburger.contains(e.target);
+
+      if (!isClickInsideMenu && !isClickOnHamburger) {
+        navMenu.classList.remove("active");
+        hamburger.classList.remove("active");
+        hamburger.setAttribute("aria-expanded", "false");
+        releaseDocumentScrollLock();
+
+        document.querySelectorAll(".dropdown").forEach((dropdown) => {
+          dropdown.classList.remove("active");
+        });
+      }
+    }
+  });
 }
 
 /* =========================
-   MOBILE DROPDOWN TOGGLE
+   MOBILE DROPDOWN TOGGLE (Robust Delegation)
    ========================= */
-dropdownLinks.forEach((item) => {
-  item.addEventListener("click", (e) => {
-    if (window.innerWidth <= MOBILE_NAV_BREAKPOINT) {
+if (navMenu) {
+  navMenu.addEventListener("click", (e) => {
+    const link = e.target.closest(".dropdown > a");
+    if (link && window.innerWidth <= MOBILE_NAV_BREAKPOINT) {
       e.preventDefault();
+      const parent = link.parentElement;
 
-      const parent = item.parentElement;
-
-      document.querySelectorAll(".dropdown").forEach((dropdown) => {
-        if (dropdown !== parent) {
-          dropdown.classList.remove("active");
+      // Close other open dropdowns
+      document.querySelectorAll(".dropdown.active").forEach((openDropdown) => {
+        if (openDropdown !== parent) {
+          openDropdown.classList.remove("active");
         }
       });
 
+      // Toggle current dropdown
       parent.classList.toggle("active");
     }
   });
-});
+}
 
 /* =========================
    CLOSE MOBILE MENU WHEN LINK IS CLICKED
    ========================= */
 allNavLinks.forEach((link) => {
   link.addEventListener("click", () => {
-    if (
-      window.innerWidth <= MOBILE_NAV_BREAKPOINT &&
-      !link.parentElement.classList.contains("dropdown")
-    ) {
-      navMenu.classList.remove("active");
-      hamburger.classList.remove("active");
-      hamburger.setAttribute("aria-expanded", "false");
-      releaseDocumentScrollLock();
+    if (window.innerWidth <= MOBILE_NAV_BREAKPOINT) {
+      // For standard links, close immediately.
+      // For dropdown triggers, we let the delegation handle the toggle.
+      const isDropdownTrigger = link.parentElement.classList.contains("dropdown");
+      
+      if (!isDropdownTrigger) {
+        navMenu.classList.remove("active");
+        hamburger.classList.remove("active");
+        hamburger.setAttribute("aria-expanded", "false");
+        releaseDocumentScrollLock();
 
-      document.querySelectorAll(".dropdown").forEach((dropdown) => {
-        dropdown.classList.remove("active");
-      });
+        document.querySelectorAll(".dropdown").forEach((dropdown) => {
+          dropdown.classList.remove("active");
+        });
+      } else {
+        // If it IS a dropdown item (child of dropdown-menu), it should close the menu
+        const isDropdownItem = link.closest(".dropdown-menu");
+        if (isDropdownItem) {
+          navMenu.classList.remove("active");
+          hamburger.classList.remove("active");
+          hamburger.setAttribute("aria-expanded", "false");
+          releaseDocumentScrollLock();
+
+          document.querySelectorAll(".dropdown").forEach((dropdown) => {
+            dropdown.classList.remove("active");
+          });
+        }
+      }
     }
   });
 });
@@ -527,16 +565,22 @@ function initializeReusableCardSliders(root = document) {
     
     if (!track || !dotsContainer) return;
 
-    // Find the actual cards (ignores accidental wrappers)
-    const cards = track.querySelectorAll("article, .career-card, .service-card, .contact-card");
-    if (cards.length === 0) return;
+    // Find slides first, fallback to cards if no slides
+    let scrollItems = track.querySelectorAll(".reusable-card-slide");
+    const isSlideBased = scrollItems.length > 0;
+    
+    if (!isSlideBased) {
+      scrollItems = track.querySelectorAll("article, .career-card, .service-card, .contact-card");
+    }
 
-    const firstCard = cards[0];
+    if (scrollItems.length === 0) return;
+
+    const firstItem = scrollItems[0];
 
     // 1. Create Dots Dynamically based on total cards
     let dots = Array.from(dotsContainer.querySelectorAll(".reusable-slider-dot"));
     if (dots.length === 0) {
-      const totalDots = cards.length > 1 ? cards.length - 1 : 1; 
+      const totalDots = scrollItems.length; 
       for (let i = 0; i < totalDots; i++) {
         const dot = document.createElement("button");
         dot.classList.add("reusable-slider-dot");
@@ -548,8 +592,8 @@ function initializeReusableCardSliders(root = document) {
 
     // Helper function to safely calculate swipe distance
     function getScrollStep() {
-      const gap = parseInt(window.getComputedStyle(track).gap) || 24;
-      return firstCard.offsetWidth + gap;
+      const gap = parseInt(window.getComputedStyle(track).gap) || 0;
+      return firstItem.offsetWidth + gap;
     }
 
     // 2. Click Dots to Scroll
