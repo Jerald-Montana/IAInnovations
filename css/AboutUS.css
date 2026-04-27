@@ -194,14 +194,14 @@ img {
 
 .nav-menu a.is-current,
 .nav-menu a[aria-current="page"],
-.nav-menu .dropdown > a.is-current-section {
+.nav-menu .dropdown>a.is-current-section {
   color: var(--blue);
   font-weight: 700;
 }
 
 .nav-menu a.is-current::after,
 .nav-menu a[aria-current="page"]::after,
-.nav-menu .dropdown > a.is-current-section::after {
+.nav-menu .dropdown>a.is-current-section::after {
   width: 100%;
 }
 
@@ -343,13 +343,11 @@ img {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(
-    90deg,
-    rgba(var(--triangle-rgb, 1, 46, 74), 0.99) 0%,
-    rgba(var(--triangle-rgb, 1, 46, 74), 0.97) 40%,
-    rgba(var(--triangle-rgb, 1, 46, 74), 0.82) 70%,
-    rgba(var(--triangle-rgb, 1, 46, 74), 0.35) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(var(--triangle-rgb, 1, 46, 74), 0.99) 0%,
+      rgba(var(--triangle-rgb, 1, 46, 74), 0.97) 40%,
+      rgba(var(--triangle-rgb, 1, 46, 74), 0.82) 70%,
+      rgba(var(--triangle-rgb, 1, 46, 74), 0.35) 100%);
   /* Wider, fuller triangle so hero blocks feel bolder */
   clip-path: polygon(0 0, 64% 0, 45% 100%, 0 100%);
 }
@@ -359,13 +357,11 @@ img {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(
-    90deg,
-    rgba(var(--triangle-rgb, 1, 46, 74), 0.99) 0%,
-    rgba(var(--triangle-rgb, 1, 46, 74), 0.97) 40%,
-    rgba(var(--triangle-rgb, 1, 46, 74), 0.82) 70%,
-    rgba(var(--triangle-rgb, 1, 46, 74), 0.35) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(var(--triangle-rgb, 1, 46, 74), 0.99) 0%,
+      rgba(var(--triangle-rgb, 1, 46, 74), 0.97) 40%,
+      rgba(var(--triangle-rgb, 1, 46, 74), 0.82) 70%,
+      rgba(var(--triangle-rgb, 1, 46, 74), 0.35) 100%);
   /* Mirror of left to keep left/right heroes consistent */
   clip-path: polygon(36% 0, 100% 0, 100% 100%, 55% 100%);
 }
@@ -468,6 +464,7 @@ img {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .bg img,
   .content,
   .hero-section:hover .bg img {
@@ -528,6 +525,7 @@ img {
   object-fit: cover;
   display: block;
 }
+
 /* =========================================
    MISSION & VISION SECTION
    ========================================= */
@@ -540,6 +538,140 @@ img {
   display: flex;
   gap: 50px;
   position: relative;
+}
+
+/* =========================================
+   ABOUT PAGE: MISSION & VISION POLISH
+   ========================================= */
+/*
+  Overrides are marked !important because AboutUs.html currently defines
+  these selectors in an inline <style> block loaded after external CSS.
+*/
+.mv-modern-section {
+  position: relative !important;
+  padding: 92px 20px !important;
+  background: #ffffff !important;
+  overflow: hidden !important;
+}
+
+.mv-modern-section::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background:
+    radial-gradient(circle at 8% 16%, rgba(1, 113, 185, 0.07), transparent 28%),
+    radial-gradient(circle at 92% 82%, rgba(191, 215, 68, 0.08), transparent 30%) !important;
+}
+
+.mv-modern-container {
+  position: relative !important;
+  z-index: 1 !important;
+  max-width: 1040px !important;
+}
+
+.mv-modern-header {
+  margin-bottom: 44px !important;
+}
+
+.mv-modern-header h2 {
+  letter-spacing: -0.01em !important;
+}
+
+.mv-grid {
+  gap: 24px !important;
+}
+
+.mv-card {
+  border-radius: 22px !important;
+  border: 1px solid rgba(1, 46, 74, 0.1) !important;
+  background: #ffffff !important;
+  box-shadow: 0 14px 34px rgba(1, 46, 74, 0.08), 0 6px 18px rgba(1, 46, 74, 0.04) !important;
+  transition:
+    transform 0.36s ease,
+    box-shadow 0.36s ease,
+    border-color 0.36s ease !important;
+  animation: mvCardRise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.mv-card:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.mv-card::before {
+  height: 4px !important;
+  background: #0171b9 !important;
+  opacity: 0.22 !important;
+  transition: opacity 0.32s ease, height 0.32s ease !important;
+}
+
+.mv-card:hover {
+  transform: translateY(-8px) !important;
+  border-color: rgba(1, 113, 185, 0.3) !important;
+  box-shadow: 0 22px 44px rgba(1, 46, 74, 0.13), 0 8px 22px rgba(1, 46, 74, 0.06) !important;
+}
+
+.mv-card:hover::before {
+  opacity: 0.86 !important;
+  height: 6px !important;
+}
+
+.mv-icon {
+  box-shadow: inset 0 0 0 1px rgba(1, 46, 74, 0.08);
+  transition: transform 0.32s ease, box-shadow 0.32s ease !important;
+}
+
+.mv-card:hover .mv-icon {
+  transform: translateY(-2px) scale(1.06) !important;
+  box-shadow: inset 0 0 0 1px rgba(1, 46, 74, 0.12), 0 10px 20px rgba(1, 46, 74, 0.12);
+}
+
+.mv-card h3 {
+  margin-bottom: 12px !important;
+}
+
+.mv-card p {
+  color: #4d5c66 !important;
+}
+
+@keyframes mvCardRise {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .mv-modern-section {
+    padding: 76px 18px !important;
+  }
+
+  .mv-grid {
+    gap: 18px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .mv-card {
+    padding: 36px 26px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mv-card {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .mv-card:hover,
+  .mv-card:hover .mv-icon {
+    transform: none !important;
+  }
 }
 
 .mv-container::after {
@@ -681,11 +813,9 @@ img {
 .service-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(1, 46, 74, 0.15) 0%,
-    rgba(1, 46, 74, 0.92) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(1, 46, 74, 0.15) 0%,
+      rgba(1, 46, 74, 0.92) 100%);
   color: #ffffff;
   display: flex;
   align-items: flex-end;
@@ -775,11 +905,9 @@ img {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(1, 46, 74, 0.08) 0%,
-    rgba(1, 46, 74, 0.82) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(1, 46, 74, 0.08) 0%,
+      rgba(1, 46, 74, 0.82) 100%);
   opacity: 0;
   transition: opacity 0.35s ease;
   pointer-events: none;
@@ -1021,7 +1149,7 @@ img {
   position: relative;
   padding: 35px 0;
   overflow: hidden;
-  
+
   background-size: 180px;
   background-color: var(--dark-blue);
 }
@@ -1242,61 +1370,108 @@ img {
 
   .nav-menu {
     position: absolute;
-    top: calc(100% + 10px);
+    top: calc(100% + 5px);
     right: 0;
     width: 100%;
     background: var(--white);
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    padding: 15px 0;
-    display: none;
+    padding: 15px 0 25px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
     border-top: 1px solid #eee;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     z-index: 999;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 0 0 12px 12px;
   }
 
   .nav-menu.active {
     display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
 
-  .nav-menu > li {
+  .nav-menu>li {
     width: 100%;
+    padding: 0 20px;
   }
 
-  .nav-menu > li > a {
-    display: block;
-    padding: 14px 20px;
+  .nav-menu>li>a {
+    display: inline-block;
+    padding: 14px 0;
+    width: auto;
+  }
+
+  /* Remove hover effects on mobile */
+  .nav-menu li a:hover {
+    color: inherit;
+    background: transparent;
+  }
+
+  .nav-menu li a:hover::after {
+    width: 0 !important;
+  }
+
+  /* Underline only words for current page */
+  .nav-menu a.is-current::after,
+  .nav-menu a[aria-current="page"]::after,
+  .nav-menu .dropdown.active>a::after {
+    width: 100% !important;
+    left: 0;
   }
 
   .dropdown-menu {
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    box-shadow: none;
-    border-radius: 0;
-    padding: 0;
-    display: none;
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+    padding: 0 40px;
+    /* Increased indentation */
+    background: rgba(0, 0, 0, 0.05);
+    /* Lighter background */
+    border-radius: 6px;
+    margin: 4px 0;
     width: 100%;
     min-width: unset;
     max-width: unset;
   }
 
   .dropdown.active .dropdown-menu {
-    display: block;
+    max-height: 500px;
+    opacity: 1;
+    padding: 10px 40px;
+  }
+
+  .dropdown .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    margin-left: 6px;
+    font-family: monospace;
+  }
+
+  .dropdown.active>a .arrow {
+    transform: rotate(180deg);
   }
 
   .dropdown-menu li a {
-    padding: 12px 34px;
-    font-size: 14px;
+    padding: 10px 0;
+    /* Container handles indentation */
+    font-size: 0.8rem;
+    opacity: 0.85;
+    background: transparent !important;
+    /* Force no hover background on mobile as requested */
   }
 
   .dropdown-menu li a:hover {
-    padding-left: 40px;
+    padding-left: 24px;
   }
 
-  .dropdown > a {
+  .dropdown>a {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1340,22 +1515,18 @@ img {
   /* Maintain proportional triangles on mobile */
   .hero-section.about-hero.triangle-left::after {
     clip-path: polygon(0 0, 64% 0, 45% 100%, 0 100%);
-    background: linear-gradient(
-      90deg,
-      rgba(1, 46, 74, 0.98) 0%,
-      rgba(1, 46, 74, 0.92) 62%,
-      rgba(1, 46, 74, 0.45) 100%
-    );
+    background: linear-gradient(90deg,
+        rgba(1, 46, 74, 0.98) 0%,
+        rgba(1, 46, 74, 0.92) 62%,
+        rgba(1, 46, 74, 0.45) 100%);
   }
 
   .hero-section.about-hero.triangle-right::after {
     clip-path: polygon(36% 0, 100% 0, 100% 100%, 55% 100%);
-    background: linear-gradient(
-      270deg,
-      rgba(1, 46, 74, 0.98) 0%,
-      rgba(1, 46, 74, 0.92) 62%,
-      rgba(1, 46, 74, 0.45) 100%
-    );
+    background: linear-gradient(270deg,
+        rgba(1, 46, 74, 0.98) 0%,
+        rgba(1, 46, 74, 0.92) 62%,
+        rgba(1, 46, 74, 0.45) 100%);
   }
 
   .partners-grid-section,
@@ -1429,13 +1600,16 @@ img {
    SMALL MOBILE
    ========================================= */
 @media (max-width: 480px) {
+
   /* Comprehensive mobile optimizations */
   :root {
     --shadow-soft: 0 4px 12px rgba(1, 46, 74, 0.04);
     --shadow-hover: 0 8px 18px rgba(1, 46, 74, 0.06);
   }
 
-  html { font-size: 13px; }
+  html {
+    font-size: 13px;
+  }
 
   .topbar-container,
   .nav-container,
@@ -1450,31 +1624,53 @@ img {
   }
 
   /* Minimal padding on small screens */
-  .topbar { padding: 4px 12px; }
-  .navbar { padding: 8px 12px; }
-  
-  .logo img { height: 32px; }
-  
+  .topbar {
+    padding: 4px 12px;
+  }
+
+  .navbar {
+    padding: 8px 12px;
+  }
+
+  .logo img {
+    height: 32px;
+  }
+
   /* Stack all sections */
-  [class*="-grid"], [class*="-container"] {
+  [class*="-grid"],
+  [class*="-container"] {
     grid-template-columns: 1fr !important;
   }
 
   /* Reduce shadows */
-  .partner-card, .mv-box, .service-card {
+  .partner-card,
+  .mv-box,
+  .service-card {
     box-shadow: 0 2px 8px rgba(1, 46, 74, 0.03);
   }
 
   /* Minimal spacing */
-  section { padding: 35px 0; }
-  
+  section {
+    padding: 35px 0;
+  }
+
   /* Responsive typography */
-  h1 { font-size: 1.2rem; }
-  h2 { font-size: 1.1rem; }
-  h3 { font-size: 0.95rem; }
-  
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  h3 {
+    font-size: 0.95rem;
+  }
+
   /* Touch targets - min 44px */
-  button, .btn, a.action-link {
+  button,
+  .btn,
+  a.action-link {
     min-height: 44px;
     padding: 10px 16px;
   }
@@ -1499,8 +1695,13 @@ img {
     width: 90%;
   }
 
-  .navbar { padding: 12px 16px; }
-  .logo img { height: 38px; }
+  .navbar {
+    padding: 12px 16px;
+  }
+
+  .logo img {
+    height: 38px;
+  }
 
   /* Tablet grid - 2 columns */
   .partners-grid-container,
@@ -1514,20 +1715,32 @@ img {
     gap: 24px;
   }
 
-  section { padding: 50px 0; }
+  section {
+    padding: 50px 0;
+  }
 
   /* Image heights */
-  .partner-image, .service-image {
+  .partner-image,
+  .service-image {
     height: 200px;
   }
 
   /* Typography scaling */
-  h1 { font-size: 1.8rem; }
-  h2 { font-size: 1.4rem; }
-  h3 { font-size: 1rem; }
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
 
   /* Cards responsive */
-  .partner-card, .service-card {
+  .partner-card,
+  .service-card {
     border-radius: 16px;
   }
 
@@ -1539,6 +1752,7 @@ img {
 
 /* Large phones (600px - 767px) */
 @media (max-width: 767px) and (min-width: 600px) {
+
   .topbar-container,
   .nav-container,
   .footer-content,
@@ -1551,7 +1765,9 @@ img {
     width: 92%;
   }
 
-  .navbar { padding: 14px 16px; }
+  .navbar {
+    padding: 14px 16px;
+  }
 
   .partners-grid-container,
   .service-grid-container {
@@ -1559,23 +1775,33 @@ img {
     gap: 20px;
   }
 
-  .partner-image, .service-image {
+  .partner-image,
+  .service-image {
     height: 220px;
   }
 }
 
 /* Landscape mode adjustments */
 @media (max-height: 600px) {
-  section { padding: 30px 0; }
-  
-  .navbar { padding: 8px 16px; }
-  
-  h1 { font-size: clamp(1.2rem, 4vw, 2rem); }
+  section {
+    padding: 30px 0;
+  }
+
+  .navbar {
+    padding: 8px 16px;
+  }
+
+  h1 {
+    font-size: clamp(1.2rem, 4vw, 2rem);
+  }
 }
 
 /* Print styles */
 @media print {
-  .navbar, .topbar, .footer {
+
+  .navbar,
+  .topbar,
+  .footer {
     display: none;
   }
 
@@ -1590,6 +1816,7 @@ img {
 }
 
 @media (max-width: 599px) {
+
   .nav-container,
   .footer-content,
   .company-info-container,
@@ -1674,6 +1901,7 @@ img {
     font-size: 12px;
   }
 }
+
 /* =========================================
    NAVBAR PRESERVE-DESKTOP FIX
    Keeps original layout, prevents ugly wrap
@@ -1694,7 +1922,7 @@ img {
   margin-left: auto;
 }
 
-.nav-menu > li {
+.nav-menu>li {
   flex-shrink: 0;
 }
 
@@ -1755,11 +1983,11 @@ img {
     display: flex;
   }
 
-  .nav-menu > li {
+  .nav-menu>li {
     width: 100%;
   }
 
-  .nav-menu > li > a {
+  .nav-menu>li>a {
     display: block;
     padding: 13px 18px;
     font-size: 0.96rem;
@@ -1807,4 +2035,817 @@ img {
   .nav-menu {
     width: min(100%, 100vw - 24px);
   }
+}
+
+/* =========================================
+   MISSION & VISION - CATCHY UPGRADE
+   External overrides use !important because AboutUs.html includes
+   mission/vision styles in an inline <style> block.
+   ========================================= */
+.mv-modern-section {
+  position: relative !important;
+  padding: clamp(74px, 8vw, 104px) 20px !important;
+  background: #eaf4ff !important;
+  overflow: hidden !important;
+}
+
+.mv-modern-section::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background:
+    radial-gradient(circle at 12% 16%, rgba(1, 113, 185, 0.16), transparent 26%),
+    radial-gradient(circle at 84% 78%, rgba(1, 113, 185, 0.14), transparent 30%),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.28));
+}
+
+.mv-modern-section::after {
+  content: "";
+  position: absolute;
+  right: -140px;
+  top: -140px;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(1, 113, 185, 0.2), rgba(1, 113, 185, 0) 70%);
+  pointer-events: none;
+}
+
+.mv-modern-container {
+  position: relative !important;
+  z-index: 1 !important;
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+}
+
+.mv-modern-header {
+  text-align: center !important;
+  margin-bottom: clamp(34px, 4vw, 52px) !important;
+}
+
+.mv-eyebrow {
+  display: inline-block !important;
+  margin-bottom: 12px !important;
+  letter-spacing: 0.15em !important;
+  color: var(--blue) !important;
+  font-weight: 800 !important;
+}
+
+.mv-modern-header h2 {
+  margin: 0 !important;
+  font-size: clamp(2rem, 4vw, 3.1rem) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.02em !important;
+  color: #012e4a !important;
+}
+
+.mv-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: clamp(20px, 2.5vw, 32px) !important;
+}
+
+.mv-card {
+  position: relative !important;
+  border-radius: 26px !important;
+  border: 1px solid rgba(1, 113, 185, 0.22) !important;
+  padding: clamp(28px, 3vw, 44px) !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+  box-shadow: 0 14px 30px rgba(1, 46, 74, 0.1), 0 5px 14px rgba(1, 113, 185, 0.08) !important;
+  backdrop-filter: blur(6px);
+  overflow: hidden !important;
+  isolation: isolate;
+  transition:
+    transform 0.34s ease,
+    box-shadow 0.34s ease,
+    border-color 0.34s ease !important;
+}
+
+.mv-card::before {
+  content: none !important;
+}
+
+.mv-card::after {
+  content: "";
+  position: absolute;
+  right: -90px;
+  top: -90px;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(1, 113, 185, 0.14), rgba(1, 113, 185, 0) 70%);
+  z-index: -1;
+}
+
+.mv-card:hover {
+  transform: translateY(-10px) !important;
+  border-color: rgba(1, 113, 185, 0.42) !important;
+  box-shadow: 0 24px 48px rgba(1, 46, 74, 0.18), 0 10px 22px rgba(1, 113, 185, 0.13) !important;
+}
+
+.mission-card {
+  background: linear-gradient(145deg, #ffffff 0%, #f3f9ff 100%) !important;
+  box-shadow: inset 4px 0 0 rgba(1, 113, 185, 0.72), 0 14px 30px rgba(1, 46, 74, 0.1) !important;
+  overflow: visible !important;
+}
+
+.vision-card {
+  background: linear-gradient(145deg, #ffffff 0%, #eef7ff 100%) !important;
+  box-shadow: inset 4px 0 0 rgba(1, 113, 185, 0.55), 0 14px 30px rgba(1, 46, 74, 0.1) !important;
+}
+
+.mv-icon {
+  width: 80px !important;
+  height: 80px !important;
+  border-radius: 22px !important;
+  margin-bottom: 22px !important;
+  font-size: 2.15rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 12px 24px rgba(1, 46, 74, 0.16), inset 0 0 0 1px rgba(255, 255, 255, 0.35) !important;
+}
+
+.mission-icon {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #0171b9, #00a7ef) !important;
+}
+
+.vision-icon {
+  color: #0a2d45 !important;
+  background: linear-gradient(135deg, #d8f16b, #bfd744) !important;
+}
+
+.mv-card h3 {
+  font-size: clamp(1.45rem, 2.2vw, 1.9rem) !important;
+  margin: 0 0 12px !important;
+  color: #012e4a !important;
+  line-height: 1.2 !important;
+}
+
+.mv-card p {
+  margin: 0 !important;
+  color: #465867 !important;
+  font-size: 1.04rem !important;
+  line-height: 1.82 !important;
+}
+
+.mission-arrow {
+  left: -28px !important;
+  top: 80px !important;
+  width: 22px !important;
+  height: 3px !important;
+  background: #0171b9 !important;
+  border-radius: 999px !important;
+  box-shadow: 0 0 9px rgba(1, 113, 185, 0.35) !important;
+}
+
+.mission-arrow::after {
+  right: -7px !important;
+  border-left: 8px solid #0171b9 !important;
+  border-top: 4px solid transparent !important;
+  border-bottom: 4px solid transparent !important;
+}
+
+.mission-card:hover .arrow-1 {
+  animation: targetStrikeCenter 1.08s cubic-bezier(0.4, 0, 0.2, 1) infinite !important;
+}
+
+.mission-card .mission-icon {
+  position: relative !important;
+}
+
+.mission-card:hover .mission-icon::after {
+  animation: missionImpactCenter 1.08s ease-out infinite !important;
+}
+
+@keyframes targetStrikeCenter {
+  0% {
+    opacity: 0;
+    transform: translateX(0);
+  }
+
+  14% {
+    opacity: 1;
+  }
+
+  58% {
+    opacity: 1;
+    transform: translateX(74px);
+  }
+
+  72% {
+    opacity: 0;
+    transform: translateX(80px) scale(0.45);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+}
+
+@keyframes missionImpactCenter {
+
+  0%,
+  44% {
+    opacity: 0;
+    transform: scale(0.84);
+    border-color: rgba(191, 215, 68, 0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+    border-color: rgba(191, 215, 68, 0.92);
+    box-shadow: 0 0 16px rgba(191, 215, 68, 0.32);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.34);
+    border-color: rgba(191, 215, 68, 0);
+  }
+}
+
+.vision-card:hover .vision-icon {
+  transform: translateY(-2px) scale(1.08) !important;
+  box-shadow: 0 0 28px rgba(191, 215, 68, 0.55), 0 14px 26px rgba(1, 46, 74, 0.14) !important;
+}
+
+.vision-card:hover .vision-icon i {
+  animation: mvBulbPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes mvBulbPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.85));
+  }
+
+  50% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 1));
+  }
+}
+
+@media (max-width: 900px) {
+  .mv-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  .mv-card {
+    padding: 30px 24px !important;
+  }
+
+  .mission-arrow {
+    top: 74px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .mv-card,
+  .mv-icon,
+  .mission-arrow,
+  .vision-card .vision-icon i {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .mv-card:hover,
+  .vision-card:hover .vision-icon {
+    transform: none !important;
+  }
+}
+
+/* =========================================
+   FOOTER DEFINITIVE OVERRIDE - AboutUS.css
+   Ensures consistency across all sub-pages
+   ========================================= */
+
+/* Desktop: 4-column grid, left-aligned */
+.footer {
+  background: var(--dark-blue, #012e4a) !important;
+  padding: 60px 0 24px !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.footer-container {
+  width: min(1200px, 92%) !important;
+  margin: 0 auto !important;
+  position: relative !important;
+  z-index: 2 !important;
+  padding-left: clamp(14px, 3vw, 24px) !important;
+  padding-right: clamp(14px, 3vw, 24px) !important;
+  box-sizing: border-box !important;
+}
+
+.footer-grid {
+  display: grid !important;
+  grid-template-columns: 1.35fr 0.85fr 0.85fr 1fr !important;
+  gap: 36px !important;
+  padding-bottom: 32px !important;
+  align-items: start !important;
+  text-align: left !important;
+}
+
+.footer-brand {
+  text-align: left !important;
+}
+
+.footer-brand img {
+  height: 48px !important;
+  width: auto !important;
+  display: block !important;
+}
+
+.footer h4 {
+  color: #fff !important;
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 14px !important;
+  letter-spacing: 0.03em !important;
+  text-transform: uppercase !important;
+}
+
+.footer p,
+.footer li,
+.footer a {
+  color: rgba(255,255,255,0.78) !important;
+  line-height: 1.8 !important;
+  font-size: 0.9rem !important;
+  text-decoration: none !important;
+  list-style: none !important;
+}
+
+.footer a:hover {
+  color: var(--green, #bfd744) !important;
+}
+
+.footer-links {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.footer-links li + li {
+  margin-top: 8px !important;
+}
+
+.footer-contact-item {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+  margin-top: 8px !important;
+  text-align: left !important;
+}
+
+.footer-contact-item i {
+  width: 18px !important;
+  margin-top: 3px !important;
+  color: var(--green, #bfd744) !important;
+  flex: 0 0 18px !important;
+}
+
+.footer-social {
+  display: flex !important;
+  gap: 10px !important;
+  margin-top: 18px !important;
+  flex-wrap: wrap !important;
+  justify-content: flex-start !important;
+}
+
+.footer-social a {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(255,255,255,0.08) !important;
+  border: 1px solid rgba(255,255,255,0.14) !important;
+  color: #fff !important;
+  font-size: 1rem !important;
+  transition: 0.3s ease !important;
+  overflow: hidden !important;
+  flex-shrink: 0 !important;
+}
+
+.footer-social a:hover {
+  background: var(--green, #bfd744) !important;
+  color: var(--dark-blue, #012e4a) !important;
+  transform: translateY(-3px) !important;
+}
+
+.footer-divider {
+  height: 1px !important;
+  width: 100% !important;
+  background: rgba(255,255,255,0.14) !important;
+  margin: 4px 0 18px !important;
+}
+
+.footer-bottom {
+  text-align: center !important;
+  font-size: 0.88rem !important;
+  line-height: 2 !important;
+  color: rgba(255,255,255,0.7) !important;
+}
+
+.footer-bottom a {
+  color: rgba(255,255,255,0.82) !important;
+  white-space: nowrap !important;
+}
+
+.footer-bottom a:hover {
+  color: var(--green, #bfd744) !important;
+}
+
+/* Tablet: 2-col */
+@media (max-width: 1100px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 28px !important;
+  }
+}
+
+/* Mobile: single column, left-aligned */
+@media (max-width: 640px) {
+  .footer {
+    padding: 44px 0 20px !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .footer-grid,
+  .footer-brand,
+  .footer-links,
+  .footer-links li,
+  .footer-links li a,
+  .footer-contact-item {
+    text-align: left !important;
+    justify-content: flex-start !important;
+  }
+
+  .footer-links li a {
+    display: block !important;
+  }
+
+  .footer-bottom {
+    font-size: 0.8rem !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 2px 6px !important;
+  }
+}
+
+
+/* =========================================
+   MOBILE HAMBURGER NAV - DEFINITIVE FIX
+   Fixes: jump/disappear, arrow, colors,
+   underlines, indentation
+   ========================================= */
+
+/* Anchor for absolutely-positioned menu */
+.navbar {
+  position: relative !important;
+}
+.nav-container {
+  position: relative !important;
+}
+
+@media (max-width: 980px) {
+
+  /* ── Nav panel ──────────────────────────── */
+  .nav-menu {
+    position: absolute !important;
+    top: 100% !important;       /* flush below navbar - no jump gap */
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-height: 72vh !important;
+    overflow-y: auto !important;
+    background: #ffffff !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    padding: 6px 0 14px !important;
+    /* Use display:none/flex only - no opacity/transform animation
+       that causes scroll jump when dropdown opens */
+    display: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    transition: none !important;
+    box-shadow: 0 10px 28px rgba(1, 46, 74, 0.14) !important;
+    border-radius: 0 0 14px 14px !important;
+    border-top: 2px solid rgba(1, 113, 185, 0.12) !important;
+    z-index: 9999 !important;
+  }
+
+  .nav-menu.active {
+    display: flex !important;
+  }
+
+  /* ── Top-level list items ───────────────── */
+  .nav-menu > li {
+    width: 100% !important;
+    padding: 0 !important;
+    border-bottom: 1px solid rgba(1, 46, 74, 0.06) !important;
+  }
+
+  .nav-menu > li:last-child {
+    border-bottom: none !important;
+  }
+
+  /* ── Top-level links: flex row ──────────── */
+  .nav-menu > li > a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 13px 20px !important;
+    font-size: 0.94rem !important;
+    font-weight: 600 !important;
+    color: var(--dark-blue, #012e4a) !important;
+    text-decoration: none !important;
+    background: transparent !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    transition: color 0.2s ease, background-color 0.2s ease !important;
+  }
+
+  /* Kill full-width ::after underline on top-level items */
+  .nav-menu > li > a::after {
+    display: none !important;
+    content: none !important;
+    width: 0 !important;
+  }
+
+  /* Hover state for top-level: light bg, no underline */
+  .nav-menu > li > a:hover {
+    color: var(--blue, #0171b9) !important;
+    background: rgba(1, 113, 185, 0.04) !important;
+    text-decoration: none !important;
+  }
+
+  /* Active dropdown trigger: blue tint */
+  .dropdown.active > a {
+    color: var(--blue, #0171b9) !important;
+    background: rgba(1, 113, 185, 0.05) !important;
+  }
+
+  /* ── Arrow indicator ────────────────────── */
+  /* Default (closed): ^ rotated 180° = pointing DOWN ↓ */
+  .nav-menu > li > a .arrow {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 22px !important;
+    height: 22px !important;
+    font-size: 0.85rem !important;
+    font-family: monospace !important;
+    color: #8a9aaa !important;
+    flex-shrink: 0 !important;
+    transition: transform 0.3s ease, color 0.2s ease !important;
+    transform: rotate(180deg) !important; /* ^ → points DOWN (closed) */
+  }
+
+  /* Active (open): ^ points UP ↑ */
+  .dropdown.active > a .arrow {
+    transform: rotate(0deg) !important;
+    color: var(--blue, #0171b9) !important;
+  }
+
+  /* ── Dropdown panel ─────────────────────── */
+  .dropdown-menu {
+    position: static !important;
+    display: none !important;
+    max-height: none !important;
+    overflow: visible !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    padding: 4px 0 8px 0 !important;
+    margin: 0 !important;
+    background: #f8fbfd !important;
+    border-top: 1px solid rgba(1, 46, 74, 0.07) !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    transition: none !important;
+  }
+
+  .dropdown.active .dropdown-menu {
+    display: block !important;
+  }
+
+  /* ── Dropdown items: indented ───────────── */
+  .dropdown-menu li {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .dropdown-menu li a {
+    display: block !important;
+    padding: 9px 20px 9px 40px !important;  /* ← 40px left indent */
+    font-size: 0.85rem !important;
+    font-weight: 400 !important;
+    color: #4c5b66 !important;
+    text-decoration: none !important;
+    background: transparent !important;
+    transition: color 0.2s ease !important;
+    /* Kill the ::after pseudo underline */
+    position: static !important;
+  }
+
+  /* Kill ::after on dropdown items */
+  .dropdown-menu li a::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  /* Hover: color only, no background */
+  .dropdown-menu li a:hover {
+    color: var(--blue, #0171b9) !important;
+    background: transparent !important;
+    padding-left: 40px !important; /* prevent the old padding-left:24px shift */
+  }
+
+  /* Current page item: underline ONLY the text word */
+  .dropdown-menu li a.is-current,
+  .dropdown-menu li a[aria-current="page"] {
+    color: var(--blue, #0171b9) !important;
+    text-decoration: underline !important;
+    text-decoration-color: var(--blue, #0171b9) !important;
+    text-underline-offset: 3px !important;
+    font-weight: 600 !important;
+    background: transparent !important;
+  }
+}
+
+
+/* =========================================
+   FOOTER ICON FIX - mobile & desktop
+   Ensures Font Awesome icons render correctly
+   in social circles, h4 headers, contact rows
+   ========================================= */
+
+/* h4 section header icons (Quick Links, Services, Contact) */
+.footer h4 i {
+  font-size: 0.95rem !important;
+  margin-right: 7px !important;
+  color: var(--green, #bfd744) !important;
+  display: inline-block !important;
+  width: auto !important;
+  line-height: 1 !important;
+}
+
+/* Social icon circles: fix icon sizing inside the <a> */
+.footer-social a i {
+  font-size: 1rem !important;
+  line-height: 1 !important;
+  display: block !important;
+  color: inherit !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Contact row icons (envelope, phone, location) */
+.footer-contact-item i {
+  font-size: 0.9rem !important;
+  width: 18px !important;
+  flex: 0 0 18px !important;
+  margin-top: 3px !important;
+  color: var(--green, #bfd744) !important;
+  display: inline-block !important;
+  line-height: 1.5 !important;
+}
+
+/* Prevent the broad .footer a rule from squashing icon line-height */
+.footer-social a {
+  line-height: 1 !important;
+  font-size: 1rem !important;
+}
+
+/* On mobile: keep social icons correct size */
+@media (max-width: 640px) {
+  .footer-social a {
+    width: 42px !important;
+    height: 42px !important;
+    font-size: 1rem !important;
+    line-height: 1 !important;
+  }
+
+  .footer-social a i {
+    font-size: 1rem !important;
+    line-height: 1 !important;
+    display: block !important;
+  }
+
+  .footer h4 i {
+    font-size: 0.9rem !important;
+    margin-right: 6px !important;
+  }
+
+  .footer-contact-item i {
+    font-size: 0.88rem !important;
+    width: 16px !important;
+    flex: 0 0 16px !important;
+  }
+}
+
+
+/* =========================================
+   FOOTER ICONS - CORRECTED FIX
+   Replaces previous icon fix that used
+   display:block which broke Font Awesome
+   ========================================= */
+
+/* Font Awesome icons inside footer: must stay inline-block */
+.footer i,
+.footer-contact-item i,
+.footer h4 i,
+.footer-social a i {
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+
+/* h4 header icons */
+.footer h4 i {
+  font-size: 0.88rem !important;
+  margin-right: 6px !important;
+  color: var(--green, #bfd744) !important;
+  opacity: 1 !important;
+  line-height: 1 !important;
+}
+
+/* Contact row icons */
+.footer-contact-item {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+  margin-top: 8px !important;
+}
+
+.footer-contact-item i {
+  margin-top: 2px !important;
+  font-size: 0.88rem !important;
+  width: 16px !important;
+  flex: 0 0 16px !important;
+  color: var(--green, #bfd744) !important;
+  opacity: 1 !important;
+  line-height: 1.5 !important;
+  display: inline-block !important;
+}
+
+/* Social icon circles */
+.footer-social {
+  display: flex !important;
+  gap: 10px !important;
+  margin-top: 16px !important;
+  flex-wrap: wrap !important;
+}
+
+.footer-social a {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(255,255,255,0.08) !important;
+  border: 1px solid rgba(255,255,255,0.18) !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  transition: 0.3s ease !important;
+  overflow: hidden !important;
+  flex-shrink: 0 !important;
+  line-height: 1 !important;
+  font-size: 1rem !important;
+}
+
+.footer-social a i {
+  font-size: 1rem !important;
+  line-height: 1 !important;
+  display: inline-block !important;
+  color: inherit !important;
+  width: auto !important;
+  height: auto !important;
+  vertical-align: middle !important;
+}
+
+.footer-social a:hover {
+  background: var(--green, #bfd744) !important;
+  color: var(--dark-blue, #012e4a) !important;
+  transform: translateY(-3px) !important;
 }

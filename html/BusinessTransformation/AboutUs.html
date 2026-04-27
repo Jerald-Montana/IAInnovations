@@ -101,22 +101,165 @@
     }
 
     /* =========================================================
+       ABOUT HERO: INTERACTIVE MATH CORE
+       ========================================================= */
+    .math-core {
+      position: relative;
+      width: 118px;
+      height: 118px;
+      margin: 0 0 18px;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform 0.25s ease;
+    }
+
+    .math-core:hover {
+      transform: translateY(-2px);
+    }
+
+    .math-core:focus-visible {
+      outline: 3px solid rgba(191, 215, 68, 0.92);
+      outline-offset: 7px;
+      border-radius: 16px;
+    }
+
+    .math-core-center {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 1.1rem;
+      line-height: 1;
+      background: rgba(1, 113, 185, 0.28);
+      border: 2px solid #0171b9;
+      box-shadow: 0 0 12px rgba(1, 113, 185, 0.45);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      z-index: 3;
+    }
+
+    .math-ring {
+      position: absolute;
+      border-radius: 50%;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .math-ring-a {
+      width: 58px;
+      height: 58px;
+      border: 1px dashed rgba(255, 255, 255, 0.65);
+      z-index: 2;
+    }
+
+    .math-ring-b {
+      width: 88px;
+      height: 88px;
+      border: 2px solid transparent;
+      border-top-color: rgba(1, 113, 185, 0.7);
+      border-bottom-color: rgba(1, 113, 185, 0.7);
+      z-index: 1;
+    }
+
+    .math-ring-c {
+      width: 112px;
+      height: 112px;
+      border: 1px dotted rgba(191, 215, 68, 0.75);
+      z-index: 0;
+    }
+
+    .math-token {
+      position: absolute;
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 0.74rem;
+      line-height: 1;
+      color: #012e4a;
+      background: #bfd744;
+      box-shadow: 0 0 10px rgba(191, 215, 68, 0.45);
+      transition: transform 0.3s ease, background 0.3s ease;
+      z-index: 4;
+    }
+
+    .math-token.t1 { top: 2px; left: 50%; transform: translateX(-50%); }
+    .math-token.t2 { right: 6px; top: 50%; transform: translateY(-50%); }
+    .math-token.t3 { bottom: 2px; left: 50%; transform: translateX(-50%); }
+    .math-token.t4 { left: 6px; top: 50%; transform: translateY(-50%); }
+
+    .math-core.active .math-ring-a {
+      animation: aboutMathSpin 2.6s linear infinite;
+      border-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .math-core.active .math-ring-b {
+      animation: aboutMathSpinReverse 2s linear infinite;
+      border-top-color: #0ea5e9;
+      border-bottom-color: #0ea5e9;
+      box-shadow: 0 0 12px rgba(14, 165, 233, 0.3);
+    }
+
+    .math-core.active .math-ring-c {
+      animation: aboutMathSpin 3.8s linear infinite;
+      border-color: rgba(191, 215, 68, 0.95);
+    }
+
+    .math-core.active .math-core-center {
+      transform: scale(1.16);
+      box-shadow: 0 0 18px rgba(14, 165, 233, 0.5), 0 0 24px rgba(191, 215, 68, 0.26);
+    }
+
+    .math-core.active .math-token {
+      background: #e8f79f;
+      transform: translateY(-1px);
+    }
+
+    @keyframes aboutMathSpin {
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes aboutMathSpinReverse {
+      100% { transform: rotate(-360deg); }
+    }
+
+    /* =========================================================
        NEW: MODERN MISSION & VISION SECTION
        ========================================================= */
     .mv-modern-section {
-      padding: 90px 20px;
-      background: linear-gradient(135deg, #ffffff 0%, #f8fbfd 100%);
+      padding: 92px 20px;
+      background: #ffffff;
       position: relative;
+      overflow: hidden;
+    }
+
+    .mv-modern-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(135deg, rgba(1, 113, 185, 0.05) 0%, rgba(255, 255, 255, 0) 50%, rgba(191, 215, 68, 0.05) 100%),
+        radial-gradient(circle at 10% 20%, rgba(1, 113, 185, 0.08), transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(191, 215, 68, 0.1), transparent 30%);
     }
 
     .mv-modern-container {
-      max-width: 1000px;
+      position: relative;
+      z-index: 1;
+      max-width: 1040px;
       margin: 0 auto;
     }
 
     .mv-modern-header {
       text-align: center;
-      margin-bottom: 50px;
+      margin-bottom: 44px;
     }
 
     .mv-eyebrow {
@@ -134,47 +277,63 @@
       color: var(--dark-blue);
       font-weight: 800;
       margin: 0;
+      letter-spacing: -0.01em;
     }
 
     .mv-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
+      gap: 32px;
+      align-items: stretch;
     }
 
     .mv-card {
       background: var(--white);
-      border-radius: 24px;
+      border-radius: 22px;
       padding: 50px 40px;
-      box-shadow: var(--shadow-soft);
+      box-shadow: 0 14px 34px rgba(1, 46, 74, 0.08), 0 6px 16px rgba(1, 46, 74, 0.04);
       position: relative;
       overflow: hidden;
-      border: 1px solid var(--border);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      border: 1px solid rgba(1, 46, 74, 0.1);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
       z-index: 1;
+      animation: mvCardIn 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
     }
 
-    /* Gradient Top Border for Cards */
+    .mv-card:nth-child(2) {
+      animation-delay: 0.12s;
+    }
+
+    .mission-card {
+      background: linear-gradient(145deg, #ffffff 0%, #f0f7ff 100%);
+    }
+
+    .vision-card {
+      background: linear-gradient(145deg, #ffffff 0%, #f9fff0 100%);
+    }
+
+    /* Clean top accent line */
     .mv-card::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 6px;
-      background: linear-gradient(90deg, var(--blue), var(--lime));
-      opacity: 0.8;
+      height: 4px;
+      background: var(--blue);
+      opacity: 0.22;
       transition: opacity 0.3s ease, height 0.3s ease;
     }
 
     .mv-card:hover {
-      transform: translateY(-10px);
-      box-shadow: var(--shadow-strong);
+      transform: translateY(-8px);
+      border-color: rgba(1, 113, 185, 0.3);
+      box-shadow: 0 22px 46px rgba(1, 46, 74, 0.13), 0 8px 20px rgba(1, 46, 74, 0.06);
     }
 
     .mv-card:hover::before {
-      opacity: 1;
-      height: 8px;
+      opacity: 0.9;
+      height: 6px;
     }
 
     .mv-icon {
@@ -186,22 +345,42 @@
       justify-content: center;
       font-size: 2rem;
       margin-bottom: 25px;
-      transition: transform 0.3s ease;
+      box-shadow: inset 0 0 0 1px rgba(1, 46, 74, 0.08);
+      transition: transform 0.32s ease, box-shadow 0.32s ease;
     }
 
     .mv-card:hover .mv-icon {
-      transform: scale(1.1) rotate(-5deg);
+      transform: translateY(-2px) scale(1.1);
+      box-shadow: inset 0 0 0 1px rgba(1, 46, 74, 0.12), 0 15px 30px rgba(1, 46, 74, 0.15);
     }
 
     /* Unique Icon Colors based on Palette */
     .mission-icon {
-      background: rgba(1, 113, 185, 0.1);
+      background: rgba(1, 113, 185, 0.15);
       color: var(--blue);
     }
 
     .vision-icon {
-      background: rgba(191, 215, 68, 0.2);
+      background: rgba(191, 215, 68, 0.25);
       color: var(--dark-blue);
+      transition: all 0.4s ease;
+    }
+
+    .vision-card:hover .vision-icon {
+      background: var(--lime);
+      color: var(--dark-blue);
+      box-shadow: 0 0 30px rgba(191, 215, 68, 0.5);
+    }
+
+    .vision-card:hover .vision-icon i {
+      color: #ffffff;
+      filter: drop-shadow(0 0 12px #ffffff) drop-shadow(0 0 20px var(--lime));
+      animation: bulbPulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes bulbPulse {
+      0%, 100% { filter: drop-shadow(0 0 12px #ffffff) drop-shadow(0 0 20px var(--lime)); }
+      50% { filter: drop-shadow(0 0 18px #ffffff) drop-shadow(0 0 30px var(--lime)); transform: scale(1.05); }
     }
 
     .mv-card h3 {
@@ -218,12 +397,146 @@
       margin: 0;
     }
 
+    /* =========================================
+       MISSION ARROW FIX: CONTINUOUS STRIKE 
+       ========================================= */
+
+    /* 1. Ensure the card allows arrows to overflow */
+    .mission-card {
+      overflow: visible !important;
+    }
+
+    .mission-card .mission-icon {
+      position: relative;
+      z-index: 10;
+    }
+
+    /* 2. The Arrow Shaft: Thicker, forced to display, and hardcoded blue */
+    .mission-arrow {
+      position: absolute;
+      left: -40px; 
+      display: block !important; 
+      width: 32px;
+      height: 5px;
+      background-color: #0171b9 !important; 
+      border-radius: 5px;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 20;
+      box-shadow: 0 0 12px rgba(1, 113, 185, 0.6);
+    }
+
+    /* 3. The Arrowhead */
+    .mission-arrow::after {
+      content: "";
+      position: absolute;
+      right: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-left: 12px solid #0171b9;
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+    }
+
+    /* 4. Vertical Placement Alignment */
+    .arrow-1 { top: 72px; }
+
+    /* 5. INFINITE LOOP ON HOVER: Fires continuously */
+    .mission-card:hover .arrow-1 {
+      animation: targetStrike 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    /* 6. Pulse the target continuously as they hit */
+    .mission-card:hover .mission-icon::after {
+      animation: missionImpact 1.2s ease-out infinite;
+    }
+
+    /* 7. The Animations */
+    @keyframes targetStrike {
+      0% {
+        opacity: 0;
+        transform: translateX(0);
+      }
+      15% {
+        opacity: 1; /* Fade in */
+      }
+      50% {
+        opacity: 1;
+        transform: translateX(95px); /* Hits the center of the icon */
+      }
+      65% {
+        opacity: 0;
+        transform: translateX(105px) scale(0.3); /* Shrinks/disappears on impact */
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(105px);
+      }
+    }
+
+    .mission-card .mission-icon::after {
+      content: "";
+      position: absolute;
+      inset: -9px;
+      border-radius: 24px;
+      border: 2px solid rgba(191, 215, 68, 0.25);
+      opacity: 0;
+      transform: scale(0.88);
+      pointer-events: none;
+    }
+
+    @keyframes missionImpact {
+      0%, 45% {
+        opacity: 0;
+        transform: scale(0.8);
+        border-color: rgba(191, 215, 68, 0);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1);
+        border-color: rgba(191, 215, 68, 0.95);
+        box-shadow: 0 0 20px rgba(191, 215, 68, 0.4);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(1.4);
+        border-color: rgba(191, 215, 68, 0);
+      }
+    }
+
+    @keyframes mvCardIn {
+      0% {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .math-core,
+      .math-core-center,
+      .math-ring,
+      .math-token,
+      .mv-card {
+        animation: none;
+        transition: none;
+      }
+
+      .mv-card:hover,
+      .mv-card:hover .mv-icon {
+        transform: none;
+      }
+    }
+
     @media (max-width: 768px) {
       .mv-grid {
         grid-template-columns: 1fr;
       }
       .mv-card {
-        padding: 40px 30px;
+        padding: 38px 28px;
       }
     }
   </style>
@@ -286,8 +599,8 @@
             <li><a href="../IndustrySolutions/FinancialServices.html">Financial Services</a></li>
             <li><a href="../IndustrySolutions/FinancialServices.html#consumer-markets-section">Consumer Markets</a></li>
             <li><a href="../IndustrySolutions/FinancialServices.html#public-sector-section">Public Sector</a></li>
-            <li><a href="../IndustrySolutions/FinancialServices.html#financial-services-section">General Business</a></li>
-            <li><a href="../IndustrySolutions/FinancialServices.html#consumer-markets-section">Manufacturing</a></li>
+            <li><a href="../IndustrySolutions/FinancialServices.html#general-business-section">General Business</a></li>
+            <li><a href="../IndustrySolutions/FinancialServices.html#manufacturing-section">Manufacturing</a></li>
           </ul>
         </li>
 
@@ -312,6 +625,16 @@
       <img src="/images/stock-image/solution-provider.jpg" alt="Team collaboration">
     </div>
     <div class="content">
+      <div class="math-core" id="about-math-core" aria-label="Interactive math core">
+        <div class="math-ring math-ring-a" aria-hidden="true"></div>
+        <div class="math-ring math-ring-b" aria-hidden="true"></div>
+        <div class="math-ring math-ring-c" aria-hidden="true"></div>
+        <div class="math-token t1" data-slot="0">+</div>
+        <div class="math-token t2" data-slot="1">-</div>
+        <div class="math-token t3" data-slot="2">=</div>
+        <div class="math-token t4" data-slot="3">%</div>
+        <div class="math-core-center" id="about-main-symbol">+</div>
+      </div>
       <h2>Solutions Provider<br>With Positive Impact</h2>
       <p class="typing-text" data-text="We are committed to deliver innovation for our clients by providing information and automation solutions."></p>
     </div>
@@ -326,7 +649,7 @@
       <p class="typing-text accent-after" data-text="We believe that Information + Action = Innovation."></p>
       <p>
         Our approach and methodology are based on socio-techno principles and discipline.
-        This philosophy focuses on blending technology to an individual and an organizationâ€™s
+        This philosophy focuses on blending technology to an individual and an organization's
         routine to ensure a higher rate of adoption of technology, thus bringing forth more positive impact.
       </p>
     </div>
@@ -367,17 +690,18 @@
       </div>
 
       <div class="mv-grid">
-        <div class="mv-card">
+        <div class="mv-card mission-card">
           <div class="mv-icon mission-icon">
             <i class="fa-solid fa-bullseye"></i>
           </div>
+          <span class="mission-arrow arrow-1" aria-hidden="true"></span>
           <h3>Our Mission</h3>
           <p>
             We are an information and automation solutions provider committed to deliver innovation for our clients to improve long-term profitability, increase operational efficiencies, and sustain positive transformation.
           </p>
         </div>
 
-        <div class="mv-card">
+        <div class="mv-card vision-card">
           <div class="mv-icon vision-icon">
             <i class="fa-solid fa-lightbulb"></i>
           </div>
@@ -402,13 +726,13 @@
           </p>
 
           <div class="footer-social">
-            <a href="https://www.facebook.com/iainnovations/" target="_blank" aria-label="Facebook">
+            <a href="https://www.facebook.com/iainnovations/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="https://www.linkedin.com/company/ia-innovations-inc-" target="_blank" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/company/ia-innovations-inc-" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <i class="fab fa-linkedin-in"></i>
             </a>
-            <a href="https://www.instagram.com/ia.innovations?igsh=MTFmd2ExZmY1cWpxbQ==" target="_blank" aria-label="Instagram">
+            <a href="https://www.instagram.com/ia.innovations?igsh=MTFmd2ExZmY1cWpxbQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <i class="fab fa-instagram"></i>
             </a>
           </div>
@@ -418,17 +742,17 @@
           <h4><i class="fas fa-link"></i> Quick Links</h4>
           <ul class="footer-links">
             <li><a href="../index.html">Home</a></li>
-            <li><a href="../BusinessTransformation/AboutUs.html">About Us</a></li>
-            <li><a href="../BusinessTransformation/Partnership.html">Partners</a></li>
-            <li><a href="../BusinessTransformation/careers.html">Careers</a></li>
-            <li><a href="../BusinessTransformation/Contact.html">Contacts</a></li>
+            <li><a href="./AboutUs.html">About Us</a></li>
+            <li><a href="./Partnership.html">Partners</a></li>
+            <li><a href="./careers.html">Careers</a></li>
+            <li><a href="./Contact.html">Contacts</a></li>
           </ul>
         </div>
 
         <div>
           <h4><i class="fas fa-cogs"></i> Services</h4>
           <ul class="footer-links">
-            <li><a href="../BusinessTransformation/CorporatePerformance.html">Business Transformation</a></li>
+            <li><a href="./CorporatePerformance.html">Business Transformation</a></li>
             <li><a href="../DigitalExperience/DigitalExperience.html">Digital Experience</a></li>
             <li><a href="../IndustrySolutions/FinancialServices.html">Industry Solutions</a></li>
             <li><a href="../InfrastructureServices/Infrastructure.html">Infrastructure</a></li>
@@ -446,19 +770,63 @@
       <div class="footer-divider"></div>
 
       <div class="footer-bottom">
-         2026 IA Innovations | A Member of the Kairos Group Pte Ltd |
+        &copy; 2026 IA Innovations | A Member of the Kairos Group Pte Ltd |
         <a href="#">Terms and Conditions</a> |
         <a href="#">Privacy Policy</a> |
-        <a href="https://www.zwsoft.com/product/zwcad" target="_blank">About ZWCAD</a> |
+        <a href="https://www.zwsoft.com/product/zwcad" target="_blank" rel="noopener noreferrer">About ZWCAD</a> |
         <a href="#hero">Go to Top</a>
       </div>
     </div>
   </footer>
 
   <script src="../../js/script.js"></script>
+  <script src="../../js/chatbot.js"></script>
   <script src="../../js/back-to-top.js"></script>
   <script src="../../js/analytics-init.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const mathCore = document.getElementById("about-math-core");
+      const mainSymbol = document.getElementById("about-main-symbol");
+      const tokens = mathCore ? Array.from(mathCore.querySelectorAll(".math-token")) : [];
+      const symbolPool = ["+", "-", "=", "%", "*", "/", "<", ">", "!", "~"];
+      let symbolIndex = 0;
+      let symbolTimer = null;
+
+      if (!mathCore || !mainSymbol) return;
+
+      mathCore.setAttribute("role", "button");
+      mathCore.setAttribute("tabindex", "0");
+      mathCore.setAttribute("aria-pressed", "false");
+
+      const refreshSymbols = () => {
+        mainSymbol.textContent = symbolPool[symbolIndex % symbolPool.length];
+        tokens.forEach((token, slot) => {
+          token.textContent = symbolPool[(symbolIndex + slot + 1) % symbolPool.length];
+        });
+        symbolIndex += 1;
+      };
+
+      const toggleMathCore = () => {
+        const isActive = mathCore.classList.toggle("active");
+        mathCore.setAttribute("aria-pressed", String(isActive));
+
+        if (isActive) {
+          refreshSymbols();
+          symbolTimer = window.setInterval(refreshSymbols, 620);
+        } else if (symbolTimer) {
+          window.clearInterval(symbolTimer);
+          symbolTimer = null;
+        }
+      };
+
+      mathCore.addEventListener("click", toggleMathCore);
+      mathCore.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          toggleMathCore();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
-
-

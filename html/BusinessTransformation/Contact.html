@@ -568,7 +568,7 @@
                     <iframe
                       id="liveMap"
                       class="map-frame"
-                      src="https://www.google.com/maps?q=Antel%20Global%20Corporate%20Center%20Condo.%20Asso.Inc.%2C%20Ground%20Floor%2C%20Antel%20Global%20Corporate%20Center%2C%201605%20Do%C3%B1a%20Julia%20Vargas%20Ave%2C%20Ortigas%20Center%2C%20Pasig%2C%20Metro%20Manila&z=17&output=embed"
+                      src="https://www.google.com/maps?q=Antel%20Global%20Corporate%20Center%20Condo.%20Asso.Inc.%2C%201605%20Do%27a%20Julia%20Vargas%20Ave%2C%20Ortigas%20Center%2C%20Pasig%2C%20Metro%20Manila&ll=14.5837525,121.0628632&z=19&output=embed"
                       loading="lazy"
                       referrerpolicy="no-referrer-when-downgrade"
                       allowfullscreen>
@@ -576,17 +576,21 @@
                   </div>
 
                   <div class="map-face map-face-back">
-                    <img
-                      id="mapImage"
-                      class="map-image"
-                      src="/images/stock-image/connect.avif"
-                      alt="IA Innovations office building">
+                    <iframe
+                      id="streetView"
+                      class="map-frame"
+                      src="https://www.google.com/maps?q=Antel%20Global%20Corporate%20Center%20Condo.%20Asso.Inc.%2C%201605%20Do%27a%20Julia%20Vargas%20Ave%2C%20Ortigas%20Center%2C%20Pasig%2C%20Metro%20Manila&layer=c&cbll=14.5837525,121.0628632&cbp=12,0,0,0,0&output=svembed"
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"
+                      allowfullscreen
+                      title="Street view at Antel Global Corporate Center">
+                    </iframe>
                   </div>
                 </div>
               </div>
 
-              <button type="button" class="map-label" id="toggleViewBtn" aria-label="Switch to image view" aria-pressed="false">
-                <span><i class="fa-solid fa-rotate"></i> Switch to Image View</span>
+              <button type="button" class="map-label" id="toggleViewBtn" aria-label="Switch to street view" aria-pressed="false">
+                <span><i class="fa-solid fa-rotate"></i> Switch to Street View</span>
               </button>
             </div>
           </article>
@@ -596,7 +600,7 @@
               <h2 style="color: #012e4a; margin-top: 0; margin-bottom: 25px;">Message Us</h2>
               
               <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-              <form class="contact-form" id="secureContactForm" action="https://formsubmit.co/embeddedsystems718@gmail.com" method="POST" target="hidden_iframe" onsubmit="showPopup()">
+              <form class="contact-form" id="secureContactForm" action="https://formsubmit.co/info@iainnovations.com" method="POST" target="hidden_iframe">
                 
                 <div class="form-row">
                   <input type="text" name="name" placeholder="Full Name" required>
@@ -618,9 +622,10 @@
                 </div>
 
                 <input type="hidden" name="_subject" value="New IA Innovations Inquiry">
-                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_captcha" value="true">
                 <input type="hidden" name="_template" value="table">
-                <input type="text" name="_honey" style="display:none">
+                <input type="hidden" name="_form_opened_at" id="formOpenedAt" value="">
+                <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden;" aria-hidden="true">
                 
                 <button type="submit" id="submitBtn" class="contact-btn">Send Message</button>
                 <p class="form-privacy-note"><i class="fas fa-shield-alt"></i>Your details are used only to respond to your inquiry.</p>
@@ -659,7 +664,7 @@
     </div>
   </div>
 
-    <footer class="footer">
+      <footer class="footer">
     <div class="footer-container">
       <div class="footer-grid">
         <div class="footer-brand">
@@ -670,13 +675,13 @@
           </p>
 
           <div class="footer-social">
-            <a href="https://www.facebook.com/iainnovations/" target="_blank" aria-label="Facebook">
+            <a href="https://www.facebook.com/iainnovations/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="https://www.linkedin.com/company/ia-innovations-inc-" target="_blank" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/company/ia-innovations-inc-" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <i class="fab fa-linkedin-in"></i>
             </a>
-            <a href="https://www.instagram.com/ia.innovations?igsh=MTFmd2ExZmY1cWpxbQ==" target="_blank" aria-label="Instagram">
+            <a href="https://www.instagram.com/ia.innovations?igsh=MTFmd2ExZmY1cWpxbQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <i class="fab fa-instagram"></i>
             </a>
           </div>
@@ -686,17 +691,17 @@
           <h4><i class="fas fa-link"></i> Quick Links</h4>
           <ul class="footer-links">
             <li><a href="../index.html">Home</a></li>
-            <li><a href="../BusinessTransformation/AboutUs.html">About Us</a></li>
-            <li><a href="../BusinessTransformation/Partnership.html">Partners</a></li>
-            <li><a href="../BusinessTransformation/careers.html">Careers</a></li>
-            <li><a href="../BusinessTransformation/Contact.html">Contacts</a></li>
+            <li><a href="./AboutUs.html">About Us</a></li>
+            <li><a href="./Partnership.html">Partners</a></li>
+            <li><a href="./careers.html">Careers</a></li>
+            <li><a href="./Contact.html">Contacts</a></li>
           </ul>
         </div>
 
         <div>
           <h4><i class="fas fa-cogs"></i> Services</h4>
           <ul class="footer-links">
-            <li><a href="../BusinessTransformation/CorporatePerformance.html">Business Transformation</a></li>
+            <li><a href="./CorporatePerformance.html">Business Transformation</a></li>
             <li><a href="../DigitalExperience/DigitalExperience.html">Digital Experience</a></li>
             <li><a href="../IndustrySolutions/FinancialServices.html">Industry Solutions</a></li>
             <li><a href="../InfrastructureServices/Infrastructure.html">Infrastructure</a></li>
@@ -714,16 +719,20 @@
       <div class="footer-divider"></div>
 
       <div class="footer-bottom">
-         2026 IA Innovations | A Member of the Kairos Group Pte Ltd |
+        &copy; 2026 IA Innovations | A Member of the Kairos Group Pte Ltd |
         <a href="#">Terms and Conditions</a> |
         <a href="#">Privacy Policy</a> |
-        <a href="https://www.zwsoft.com/product/zwcad" target="_blank">About ZWCAD</a> |
+        <a href="https://www.zwsoft.com/product/zwcad" target="_blank" rel="noopener noreferrer">About ZWCAD</a> |
         <a href="#hero">Go to Top</a>
       </div>
     </div>
   </footer>
 
   <script src="../../js/script.js"></script>
+  <script src="../../js/chatbot.js"></script>
+  <script src="../../js/back-to-top.js"></script>
+  <script src="../../js/form-validation.js"></script>
+  <script src="../../js/analytics-init.js"></script>
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
@@ -735,20 +744,13 @@
           mapBox.classList.toggle("show-image");
           const showingImage = mapBox.classList.contains("show-image");
           toggleBtn.setAttribute("aria-pressed", showingImage ? "true" : "false");
-          toggleBtn.setAttribute("aria-label", showingImage ? "Switch to map view" : "Switch to image view");
+          toggleBtn.setAttribute("aria-label", showingImage ? "Switch to map view" : "Switch to street view");
           toggleBtn.innerHTML = showingImage
             ? '<span><i class="fa-solid fa-rotate"></i> Switch to Map View</span>'
-            : '<span><i class="fa-solid fa-rotate"></i> Switch to Image View</span>';
+            : '<span><i class="fa-solid fa-rotate"></i> Switch to Street View</span>';
         });
       }
     });
   </script>
-
-  <script src="../../js/back-to-top.js"></script>
-  <script src="../../js/form-validation.js"></script>
-  <script src="../../js/analytics-init.js"></script>
 </body>
 </html>
-
-
-

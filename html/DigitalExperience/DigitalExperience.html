@@ -37,6 +37,22 @@
     #knowledge-management-section {
       scroll-margin-top: 100px;
     }
+
+    /* Page-specific size override: keep this company image at about half height */
+    .km-half-height.company-image.picture-box img {
+      min-height: 210px;
+      max-height: 220px;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      .km-half-height.company-image.picture-box img {
+        min-height: 170px;
+        max-height: 180px;
+        height: 180px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -83,7 +99,7 @@
         <li class="dropdown">
 <a href="#">Digital Experience <span class="arrow">^</span></a>
           <ul class="dropdown-menu">
-            <li><a href="./DigitalExperience.html">E-Commerce</a></li>
+            <li><a href="./DigitalExperience.html#ecommerce-section">E-Commerce</a></li>
             <li><a href="./DigitalExperience.html#digital-marketing-section">Digital Marketing</a></li>
             <li><a href="./DigitalExperience.html#knowledge-management-section">Knowledge Management</a></li>
             <li><a href="./MobileExperience.html#mobile-experience-section">Mobile Experience</a></li>
@@ -98,8 +114,8 @@
             <li><a href="../IndustrySolutions/FinancialServices.html">Financial Services</a></li>
             <li><a href="../IndustrySolutions/FinancialServices.html#consumer-markets-section">Consumer Markets</a></li>
             <li><a href="../IndustrySolutions/FinancialServices.html#public-sector-section">Public Sector</a></li>
-            <li><a href="../IndustrySolutions/FinancialServices.html#financial-services-section">General Business</a></li>
-            <li><a href="../IndustrySolutions/FinancialServices.html#consumer-markets-section">Manufacturing</a></li>
+            <li><a href="../IndustrySolutions/FinancialServices.html#general-business-section">General Business</a></li>
+            <li><a href="../IndustrySolutions/FinancialServices.html#manufacturing-section">Manufacturing</a></li>
           </ul>
         </li>
 
@@ -335,7 +351,7 @@
 
   <section class="company-info-section">
     <div class="company-info-container">
-      <div class="company-image picture-box">
+      <div class="company-image picture-box km-half-height">
         <img src="/images/stock-image/info-management.avif" alt="Knowledge Management Framework">
       </div>
       <div class="company-text">
@@ -367,7 +383,7 @@
 
             <article class="service-card">
               <div class="service-image-wrap">
-                <img src="/images/stock-image/business-manager.avif" alt="Knowledge Roles" loading="lazy">
+                <img src="/images/stock-image/pexels-ann-h-45017-7422276.jpg" alt="Knowledge Roles" loading="lazy">
                 <div class="service-overlay"><p>Organize and categorize each knowledge management roles to better manage the system and come up with effective results.</p></div>
               </div>
               <div class="service-card-content">
@@ -407,7 +423,7 @@
     </div>
   </section>
 
-    <footer class="footer">
+  <footer class="footer">
     <div class="footer-container">
       <div class="footer-grid">
         <div class="footer-brand">
@@ -418,13 +434,13 @@
           </p>
 
           <div class="footer-social">
-            <a href="https://www.facebook.com/iainnovations/" target="_blank" aria-label="Facebook">
+            <a href="https://www.facebook.com/iainnovations/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="https://www.linkedin.com/company/ia-innovations-inc-" target="_blank" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/company/ia-innovations-inc-" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <i class="fab fa-linkedin-in"></i>
             </a>
-            <a href="https://www.instagram.com/ia.innovations?igsh=MTFmd2ExZmY1cWpxbQ==" target="_blank" aria-label="Instagram">
+            <a href="https://www.instagram.com/ia.innovations?igsh=MTFmd2ExZmY1cWpxbQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <i class="fab fa-instagram"></i>
             </a>
           </div>
@@ -445,7 +461,7 @@
           <h4><i class="fas fa-cogs"></i> Services</h4>
           <ul class="footer-links">
             <li><a href="../BusinessTransformation/CorporatePerformance.html">Business Transformation</a></li>
-            <li><a href="../DigitalExperience/DigitalExperience.html">Digital Experience</a></li>
+            <li><a href="./DigitalExperience.html">Digital Experience</a></li>
             <li><a href="../IndustrySolutions/FinancialServices.html">Industry Solutions</a></li>
             <li><a href="../InfrastructureServices/Infrastructure.html">Infrastructure</a></li>
           </ul>
@@ -462,20 +478,18 @@
       <div class="footer-divider"></div>
 
       <div class="footer-bottom">
-         2026 IA Innovations | A Member of the Kairos Group Pte Ltd |
+        &copy; 2026 IA Innovations | A Member of the Kairos Group Pte Ltd |
         <a href="#">Terms and Conditions</a> |
         <a href="#">Privacy Policy</a> |
-        <a href="https://www.zwsoft.com/product/zwcad" target="_blank">About ZWCAD</a> |
+        <a href="https://www.zwsoft.com/product/zwcad" target="_blank" rel="noopener noreferrer">About ZWCAD</a> |
         <a href="#hero">Go to Top</a>
       </div>
     </div>
   </footer>
 
   <script src="../../js/script.js"></script>
+  <script src="../../js/chatbot.js"></script>
   <script src="../../js/back-to-top.js"></script>
   <script src="../../js/analytics-init.js"></script>
 </body>
 </html>
-
-
-

@@ -1,0 +1,585 @@
+:root {
+  --dark-blue: #012e4a;
+  --blue: #0171b9;
+  --lime: #bfd744;
+}
+
+/* TOPBAR */
+.topbar {
+  background: var(--dark-blue);
+  padding: 8px 20px;
+}
+
+.topbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.topbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.topbar-menu li a {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  position: relative;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topbar-menu li a:hover {
+  color: var(--blue);
+}
+
+.topbar-menu li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--blue);
+  transition: width 0.3s ease;
+}
+
+.topbar-menu li a:hover::after {
+  width: 100%;
+}
+
+/* =========================================================
+   STRATEGIC PARTNERS GRID CSS (Compact & Text-Only)
+   ========================================================= */
+.strategic-partners-section {
+  padding: 80px 20px;
+  background-color: #f8fbfd;
+  font-family: "Segoe UI", sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.strategic-partners-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 12% 16%, rgba(1, 113, 185, 0.08), transparent 30%),
+    radial-gradient(circle at 88% 82%, rgba(191, 215, 68, 0.12), transparent 32%);
+}
+
+.sp-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sp-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.sp-eyebrow {
+  color: #0171b9;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.sp-header h2 {
+  font-size: 2.3rem;
+  color: #012e4a;
+  margin: 0 0 10px 0;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+/* 2 Rows, 3 Columns Grid */
+.sp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* SMALLER, SLEEKER CARDS */
+.sp-card {
+  position: relative;
+  height: 270px;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid rgba(1, 46, 74, 0.08);
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(1, 46, 74, 0.08);
+  cursor: pointer;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.sp-card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--lime));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.sp-card:hover,
+.sp-card:focus-within {
+  transform: translateY(-4px);
+  border-color: rgba(1, 113, 185, 0.24);
+  box-shadow: 0 18px 38px rgba(1, 46, 74, 0.14);
+}
+
+.sp-card:hover::after,
+.sp-card:focus-within::after {
+  transform: scaleX(1);
+}
+
+/* Front of the Card (Logos) */
+.sp-front {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+  padding: 20px;
+  text-align: center;
+}
+
+.sp-card:hover .sp-generic-icon,
+.sp-card:focus-within .sp-generic-icon {
+  transform: translateY(-1px) scale(1.04);
+  box-shadow: 0 10px 24px rgba(1, 46, 74, 0.16);
+}
+
+.sp-front .sp-label {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(1, 113, 185, 0.08);
+  color: #0171b9;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sp-generic-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(1, 46, 74, 0.08), rgba(1, 113, 185, 0.12));
+  border: 1px solid rgba(1, 46, 74, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.sp-generic-icon i {
+  font-size: 1.9rem;
+  color: #012e4a;
+}
+
+.sp-front h3 {
+  font-size: 1.3rem;
+  color: #012e4a;
+  font-weight: 800;
+  margin: 0;
+}
+
+/* Back of the Card (Information on Hover) */
+.sp-back {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #012e4a, #0171b9);
+  color: #ffffff;
+  padding: 20px;
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hover Effects */
+.sp-card:hover .sp-front {
+  transform: translateY(-25px);
+  opacity: 0;
+}
+
+.sp-card:hover .sp-back {
+  transform: translateY(0);
+}
+
+/* Scrollable Text Area for Long Info */
+.sp-content {
+  overflow-y: auto;
+  padding-right: 8px;
+  height: 100%;
+}
+
+/* Custom thin scrollbar */
+.sp-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sp-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.sp-content::-webkit-scrollbar-thumb {
+  background: #bfd744;
+  border-radius: 4px;
+}
+
+.sp-content h4 {
+  color: #bfd744;
+  font-size: 1.15rem;
+  margin: 0 0 8px 0;
+  font-weight: 800;
+}
+
+.sp-content p {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin: 0 0 10px 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .sp-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .sp-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .sp-card {
+    height: 230px;
+  }
+
+  .sp-front .sp-label {
+    font-size: 0.65rem;
+    padding: 4px 10px;
+    margin-bottom: 8px;
+  }
+
+  .sp-generic-icon {
+    width: 54px;
+    height: 54px;
+    margin-bottom: 10px;
+    border-radius: 14px;
+  }
+
+  .sp-generic-icon i {
+    font-size: 1.5rem;
+  }
+
+  .sp-front h3 {
+    font-size: 1.1rem;
+  }
+
+  .sp-back {
+    padding: 15px;
+  }
+
+  .sp-content h4 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+
+  .sp-content p {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 400px) {
+  .sp-grid {
+    gap: 12px;
+  }
+  
+  .sp-card {
+    height: 210px;
+  }
+  
+  .sp-front h3 {
+    font-size: 1rem;
+  }
+}
+
+.platform-card {
+  position: relative;
+  perspective: 1400px;
+  min-height: 390px;
+  transition: transform 0.28s ease;
+}
+
+.platform-card:hover {
+  transform: translateY(-4px);
+}
+
+.platform-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 390px;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.platform-card.is-flipped .platform-card-inner {
+  transform: rotateY(180deg);
+}
+
+.platform-card-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 22px;
+  background: #ffffff;
+  border: 1px solid rgba(1, 46, 74, 0.07);
+  box-shadow: 0 14px 34px rgba(1, 46, 74, 0.08);
+  min-height: 390px;
+  transition: border-color 0.26s ease, box-shadow 0.26s ease;
+}
+
+.platform-card:hover .platform-card-face {
+  border-color: rgba(1, 113, 185, 0.2);
+  box-shadow: 0 18px 40px rgba(1, 46, 74, 0.13);
+}
+
+.platform-card-front {
+  cursor: pointer;
+}
+
+.platform-card-front .career-image-wrap {
+  height: 175px;
+}
+
+.platform-card-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, #012e4a, #0171b9);
+  color: #ffffff;
+  padding: 24px;
+}
+
+.platform-card-back h3 {
+  color: #bfd744;
+  margin: 0 0 12px 0;
+  font-size: 1.2rem;
+}
+
+.platform-card-back p {
+  margin: 0 0 12px 0;
+  line-height: 1.65;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.platform-card-meta {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  margin-bottom: 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(191, 215, 68, 0.15);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.platform-card-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.platform-card-actions button {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+.platform-card-toggle {
+  background: #bfd744;
+  color: #012e4a;
+}
+
+.platform-card-toggle:hover {
+  transform: translateY(-1px);
+  background: #d3eb57;
+}
+
+.platform-card-close {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.platform-card-close:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.platform-card-front .career-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 1 auto;
+  height: 100%;
+}
+
+.platform-card-front .career-card-content p {
+  margin-bottom: 12px;
+  flex: 0 1 auto;
+  width: 100%;
+}
+
+.platform-card-front .career-card-content .platform-card-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin-top: auto;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #0171b9;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  border: 0;
+  cursor: pointer;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.platform-card-front .career-card-content .platform-card-toggle:hover {
+  transform: translateY(-1px);
+  background: #015f9d;
+}
+
+.platform-card-front .career-card-content h3 {
+  transition: color 0.25s ease;
+}
+
+.platform-card:hover .platform-card-front .career-card-content h3 {
+  color: #0171b9;
+}
+
+.platform-card-front .career-card-content .platform-card-toggle::after {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .platform-card,
+  .platform-card-face,
+  .platform-card-inner {
+    min-height: 280px;
+    height: auto;
+  }
+
+  .platform-card-front .career-image-wrap {
+    height: 120px;
+  }
+
+  .platform-card-front .career-card-content {
+    padding: 12px;
+    gap: 6px;
+  }
+
+  .platform-card-front .career-card-content h3 {
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+  }
+
+  .platform-card-front .career-card-content p {
+    font-size: 0.72rem;
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
+
+  .platform-card-front .career-card-content .platform-card-toggle {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    margin-top: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .platform-card,
+  .platform-card-face,
+  .platform-card-inner {
+    min-height: 260px;
+  }
+
+  .platform-card-front .career-image-wrap {
+    height: 110px;
+  }
+
+  .platform-card-front .career-card-content {
+    padding: 10px;
+  }
+
+  .platform-card-front .career-card-content h3 {
+    font-size: 0.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sp-card,
+  .sp-front,
+  .sp-back,
+  .platform-card,
+  .platform-card-face,
+  .platform-card-inner,
+  .sp-generic-icon {
+    transition: none !important;
+  }
+
+  .sp-card:hover,
+  .platform-card:hover,
+  .sp-card:hover .sp-generic-icon,
+  .platform-card:hover .platform-card-face {
+    transform: none !important;
+  }
+}
